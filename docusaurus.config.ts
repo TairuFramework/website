@@ -8,8 +8,9 @@ const config: Config = {
   favicon: 'img/favicon.svg',
   url: 'https://tairu.dev',
   baseUrl: '/',
+  trailingSlash: false,
   organizationName: 'TairuFramework',
-  projectName: 'tairu',
+  projectName: 'website',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {

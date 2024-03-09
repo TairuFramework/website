@@ -1,0 +1,570 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
+  <defs>
+    <clipPath id="a">
+      <path d="M60 30v40H20a40 40 0 0 1 40-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M60 30v40H20a40 40 0 0 1 40-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M31.72 41.72A40 40 0 0 1 60 30v40H20a40 40 0 0 1 11.72-28.28" clip-path="url(#a)"/>
+  <defs>
+    <clipPath id="b">
+      <path d="M39 49h22v22H39z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M39 49h22v22H39z"/>
+  <path fill="none" stroke="#fff" stroke-width="4" d="M39 49h22v22H39V49" clip-path="url(#b)"/>
+  <defs>
+    <clipPath id="c">
+      <path d="M20 70h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M20 70h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M20 70h20v20a20 20 0 0 1-20-20" clip-path="url(#c)"/>
+  <defs>
+    <clipPath id="d">
+      <path d="M100 30a40 40 0 0 1 40 40h-40V30"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M100 30a40 40 0 0 1 40 40h-40V30"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M100 30a40 40 0 0 1 40 40h-40V30" clip-path="url(#d)"/>
+  <defs>
+    <clipPath id="e">
+      <path d="M99 49h22v22H99z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M99 49h22v22H99z"/>
+  <path fill="none" stroke="#fff" stroke-width="4" d="M99 49h22v22H99V49" clip-path="url(#e)"/>
+  <defs>
+    <clipPath id="f">
+      <path d="M120 70h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M120 70h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M120 70h20v20a20 20 0 0 1-20-20" clip-path="url(#f)"/>
+  <defs>
+    <clipPath id="g">
+      <path d="M60 30h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M60 30h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 30h20v20H60V30" clip-path="url(#g)"/>
+  <defs>
+    <clipPath id="h">
+      <path d="M80 30h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M80 30h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 30h20v20H80V30" clip-path="url(#h)"/>
+  <defs>
+    <clipPath id="i">
+      <path d="M60 50h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M60 50h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 50h20v20H60V50" clip-path="url(#i)"/>
+  <defs>
+    <clipPath id="j">
+      <path d="M80 50h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M80 50h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 50h20v20H80V50" clip-path="url(#j)"/>
+  <defs>
+    <clipPath id="k">
+      <path d="M60 70h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M60 70h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 70h20v20H60V70" clip-path="url(#k)"/>
+  <defs>
+    <clipPath id="l">
+      <path d="M80 70h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M80 70h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 70h20v20H80V70" clip-path="url(#l)"/>
+  <defs>
+    <clipPath id="m">
+      <path d="M60 90h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M60 90h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 90h20v20H60V90" clip-path="url(#m)"/>
+  <defs>
+    <clipPath id="n">
+      <path d="M80 90h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M80 90h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 90h20v20H80V90" clip-path="url(#n)"/>
+  <defs>
+    <clipPath id="o">
+      <path d="M60 110h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M60 110h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 110h20v20H60v-20" clip-path="url(#o)"/>
+  <defs>
+    <clipPath id="p">
+      <path d="M80 110h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M80 110h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 110h20v20H80v-20" clip-path="url(#p)"/>
+  <defs>
+    <clipPath id="q">
+      <path d="M60 130h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M60 130h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 130h20v20H60v-20" clip-path="url(#q)"/>
+  <defs>
+    <clipPath id="r">
+      <path d="M80 130h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M80 130h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 130h20v20H80v-20" clip-path="url(#r)"/>
+  <defs>
+    <clipPath id="s">
+      <path d="M60 150h20v20H60z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M60 150h20v20H60z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 150h20v20H60v-20" clip-path="url(#s)"/>
+  <defs>
+    <clipPath id="t">
+      <path d="M80 150h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M80 150h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 150h20v20H80v-20" clip-path="url(#t)"/>
+  <defs>
+    <clipPath id="u">
+      <path d="M60 170h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M60 170h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M60 170h20v20a20 20 0 0 1-20-20" clip-path="url(#u)"/>
+  <defs>
+    <clipPath id="v">
+      <path d="M80 170h20v20H80z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M80 170h20v20H80z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M80 170h20v20H80v-20" clip-path="url(#v)"/>
+  <defs>
+    <clipPath id="w">
+      <path d="M200 70v40h-40a40 40 0 0 1 40-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M200 70v40h-40a40 40 0 0 1 40-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M171.72 81.72A40 40 0 0 1 200 70v40h-40a40 40 0 0 1 11.72-28.28" clip-path="url(#w)"/>
+  <defs>
+    <clipPath id="x">
+      <path d="M201 89v22h-22a22 22 0 0 1 22-22"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M201 89v22h-22a22 22 0 0 1 22-22"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M185.44 95.44A22 22 0 0 1 201 89v22h-22a22 22 0 0 1 6.44-15.56" clip-path="url(#x)"/>
+  <defs>
+    <clipPath id="y">
+      <path d="M200 70a40 40 0 0 1 40 40h-40V70"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M200 70a40 40 0 0 1 40 40h-40V70"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M200 70a40 40 0 0 1 40 40h-40V70" clip-path="url(#y)"/>
+  <defs>
+    <clipPath id="z">
+      <path d="M199 89a22 22 0 0 1 22 22h-22V89"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M199 89a22 22 0 0 1 22 22h-22V89"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M199 89a22 22 0 0 1 22 22h-22V89" clip-path="url(#z)"/>
+  <defs>
+    <clipPath id="A">
+      <path d="M180 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M180 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M180 130h20v20h-20v-20" clip-path="url(#A)"/>
+  <defs>
+    <clipPath id="B">
+      <path d="M200 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M200 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M200 130h20v20h-20v-20" clip-path="url(#B)"/>
+  <defs>
+    <clipPath id="C">
+      <path d="M160 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M160 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M160 110h20v20h-20v-20" clip-path="url(#C)"/>
+  <defs>
+    <clipPath id="D">
+      <path d="M160 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M160 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M160 130h20v20h-20v-20" clip-path="url(#D)"/>
+  <defs>
+    <clipPath id="E">
+      <path d="M160 150h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M160 150h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M160 150h20v20h-20v-20" clip-path="url(#E)"/>
+  <defs>
+    <clipPath id="F">
+      <path d="M160 170h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M160 170h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M160 170h20v20a20 20 0 0 1-20-20" clip-path="url(#F)"/>
+  <defs>
+    <clipPath id="G">
+      <path d="M220 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M220 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M220 110h20v20h-20v-20" clip-path="url(#G)"/>
+  <defs>
+    <clipPath id="H">
+      <path d="M220 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M220 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M220 130h20v20h-20v-20" clip-path="url(#H)"/>
+  <defs>
+    <clipPath id="I">
+      <path d="M220 150h40v40a40 40 0 0 1-40-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M220 150h40v40a40 40 0 0 1-40-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M220 150h40v40a40 40 0 0 1-40-40" clip-path="url(#I)"/>
+  <defs>
+    <clipPath id="J">
+      <path d="M239 149h22v22a22 22 0 0 1-22-22"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M239 149h22v22a22 22 0 0 1-22-22"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M239 149h22v22a22 22 0 0 1-22-22" clip-path="url(#J)"/>
+  <defs>
+    <clipPath id="K">
+      <path d="M300 10v20h-20a20 20 0 0 1 20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M300 10v20h-20a20 20 0 0 1 20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M285.86 15.86A20 20 0 0 1 300 10v20h-20a20 20 0 0 1 5.86-14.14" clip-path="url(#K)"/>
+  <defs>
+    <clipPath id="L">
+      <path d="M300 10a20 20 0 0 1 20 20h-20V10"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M300 10a20 20 0 0 1 20 20h-20V10"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 10a20 20 0 0 1 20 20h-20V10" clip-path="url(#L)"/>
+  <defs>
+    <clipPath id="M">
+      <path d="M280 30h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M280 30h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 30h20v20a20 20 0 0 1-20-20" clip-path="url(#M)"/>
+  <defs>
+    <clipPath id="N">
+      <path d="M300 30h20a20 20 0 0 1-20 20V30"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M300 30h20a20 20 0 0 1-20 20V30"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 30h20a20 20 0 0 1-20 20V30" clip-path="url(#N)"/>
+  <defs>
+    <clipPath id="O">
+      <path d="M300 70v20h-20a20 20 0 0 1 20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M300 70v20h-20a20 20 0 0 1 20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M285.86 75.86A20 20 0 0 1 300 70v20h-20a20 20 0 0 1 5.86-14.14" clip-path="url(#O)"/>
+  <defs>
+    <clipPath id="P">
+      <path d="M300 70a20 20 0 0 1 20 20h-20V70"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M300 70a20 20 0 0 1 20 20h-20V70"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 70a20 20 0 0 1 20 20h-20V70" clip-path="url(#P)"/>
+  <defs>
+    <clipPath id="Q">
+      <path d="M280 90h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M280 90h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 90h20v20h-20V90" clip-path="url(#Q)"/>
+  <defs>
+    <clipPath id="R">
+      <path d="M300 90h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M300 90h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 90h20v20h-20V90" clip-path="url(#R)"/>
+  <defs>
+    <clipPath id="S">
+      <path d="M280 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M280 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 110h20v20h-20v-20" clip-path="url(#S)"/>
+  <defs>
+    <clipPath id="T">
+      <path d="M300 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M300 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 110h20v20h-20v-20" clip-path="url(#T)"/>
+  <defs>
+    <clipPath id="U">
+      <path d="M280 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M280 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 130h20v20h-20v-20" clip-path="url(#U)"/>
+  <defs>
+    <clipPath id="V">
+      <path d="M300 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M300 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 130h20v20h-20v-20" clip-path="url(#V)"/>
+  <defs>
+    <clipPath id="W">
+      <path d="M280 150h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M280 150h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 150h20v20h-20v-20" clip-path="url(#W)"/>
+  <defs>
+    <clipPath id="X">
+      <path d="M300 150h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M300 150h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 150h20v20h-20v-20" clip-path="url(#X)"/>
+  <defs>
+    <clipPath id="Y">
+      <path d="M280 170h20v20a20 20 0 0 1-20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M280 170h20v20a20 20 0 0 1-20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M280 170h20v20a20 20 0 0 1-20-20" clip-path="url(#Y)"/>
+  <defs>
+    <clipPath id="Z">
+      <path d="M300 170h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M300 170h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M300 170h20v20h-20v-20" clip-path="url(#Z)"/>
+  <defs>
+    <clipPath id="aa">
+      <path d="M380 70v20h-20a20 20 0 0 1 20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M380 70v20h-20a20 20 0 0 1 20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M365.86 75.86A20 20 0 0 1 380 70v20h-20a20 20 0 0 1 5.86-14.14" clip-path="url(#aa)"/>
+  <defs>
+    <clipPath id="ab">
+      <path d="M360 90h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M360 90h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M360 90h20v20h-20V90" clip-path="url(#ab)"/>
+  <defs>
+    <clipPath id="ac">
+      <path d="M360 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M360 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M360 110h20v20h-20v-20" clip-path="url(#ac)"/>
+  <defs>
+    <clipPath id="ad">
+      <path d="M360 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M360 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M360 130h20v20h-20v-20" clip-path="url(#ad)"/>
+  <defs>
+    <clipPath id="ae">
+      <path d="M360 150h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M360 150h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M360 150h20v20h-20v-20" clip-path="url(#ae)"/>
+  <defs>
+    <clipPath id="af">
+      <path d="M360 170h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M360 170h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M360 170h20v20h-20v-20" clip-path="url(#af)"/>
+  <defs>
+    <clipPath id="ag">
+      <path d="M380 70h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M380 70h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M380 70h20v20h-20V70" clip-path="url(#ag)"/>
+  <defs>
+    <clipPath id="ah">
+      <path d="M380 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M380 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M380 130h20v20h-20v-20" clip-path="url(#ah)"/>
+  <defs>
+    <clipPath id="ai">
+      <path d="M400 70a40 40 0 0 1 40 40h-40V70"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M400 70a40 40 0 0 1 40 40h-40V70"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M400 70a40 40 0 0 1 40 40h-40V70" clip-path="url(#ai)"/>
+  <defs>
+    <clipPath id="aj">
+      <path d="M399 89a22 22 0 0 1 22 22h-22V89"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M399 89a22 22 0 0 1 22 22h-22V89"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M399 89a22 22 0 0 1 22 22h-22V89" clip-path="url(#aj)"/>
+  <defs>
+    <clipPath id="ak">
+      <path d="M400 110h40a40 40 0 0 1-40 40v-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M400 110h40a40 40 0 0 1-40 40v-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M400 110h40a40 40 0 0 1-40 40v-40" clip-path="url(#ak)"/>
+  <defs>
+    <clipPath id="al">
+      <path d="M399 109h22a22 22 0 0 1-22 22v-22"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M399 109h22a22 22 0 0 1-22 22v-22"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M399 109h22a22 22 0 0 1-22 22v-22" clip-path="url(#al)"/>
+  <defs>
+    <clipPath id="am">
+      <path d="M380 150h40v40a40 40 0 0 1-40-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M380 150h40v40a40 40 0 0 1-40-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M380 150h40v40a40 40 0 0 1-40-40" clip-path="url(#am)"/>
+  <defs>
+    <clipPath id="an">
+      <path d="M399 149h22v22a22 22 0 0 1-22-22"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M399 149h22v22a22 22 0 0 1-22-22"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M399 149h22v22a22 22 0 0 1-22-22" clip-path="url(#an)"/>
+  <defs>
+    <clipPath id="ao">
+      <path d="M420 170a20 20 0 0 1 20 20h-20v-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M420 170a20 20 0 0 1 20 20h-20v-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M420 170a20 20 0 0 1 20 20h-20v-20" clip-path="url(#ao)"/>
+  <defs>
+    <clipPath id="ap">
+      <path d="M480 70v20h-20a20 20 0 0 1 20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M480 70v20h-20a20 20 0 0 1 20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M465.86 75.86A20 20 0 0 1 480 70v20h-20a20 20 0 0 1 5.86-14.14" clip-path="url(#ap)"/>
+  <defs>
+    <clipPath id="aq">
+      <path d="M460 90h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M460 90h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M460 90h20v20h-20V90" clip-path="url(#aq)"/>
+  <defs>
+    <clipPath id="ar">
+      <path d="M460 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M460 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M460 110h20v20h-20v-20" clip-path="url(#ar)"/>
+  <defs>
+    <clipPath id="as">
+      <path d="M460 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M460 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M460 130h20v20h-20v-20" clip-path="url(#as)"/>
+  <defs>
+    <clipPath id="at">
+      <path d="M540 70v20h-20a20 20 0 0 1 20-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M540 70v20h-20a20 20 0 0 1 20-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M525.86 75.86A20 20 0 0 1 540 70v20h-20a20 20 0 0 1 5.86-14.14" clip-path="url(#at)"/>
+  <defs>
+    <clipPath id="au">
+      <path d="M520 90h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M520 90h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M520 90h20v20h-20V90" clip-path="url(#au)"/>
+  <defs>
+    <clipPath id="av">
+      <path d="M520 110h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M520 110h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M520 110h20v20h-20v-20" clip-path="url(#av)"/>
+  <defs>
+    <clipPath id="aw">
+      <path d="M520 130h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M520 130h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M520 130h20v20h-20v-20" clip-path="url(#aw)"/>
+  <defs>
+    <clipPath id="ax">
+      <path d="M460 150h40v40a40 40 0 0 1-40-40"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M460 150h40v40a40 40 0 0 1-40-40"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M460 150h40v40a40 40 0 0 1-40-40" clip-path="url(#ax)"/>
+  <defs>
+    <clipPath id="ay">
+      <path d="M479 149h22v22a22 22 0 0 1-22-22"/>
+    </clipPath>
+  </defs>
+  <path fill="#fff" d="M479 149h22v22a22 22 0 0 1-22-22"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M479 149h22v22a22 22 0 0 1-22-22" clip-path="url(#ay)"/>
+  <defs>
+    <clipPath id="az">
+      <path d="M520 150h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M520 150h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M520 150h20v20h-20v-20" clip-path="url(#az)"/>
+  <defs>
+    <clipPath id="aA">
+      <path d="M500 170h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#ED8E2A" d="M500 170h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M500 170h20v20h-20v-20" clip-path="url(#aA)"/>
+  <defs>
+    <clipPath id="aB">
+      <path d="M520 170h20v20h-20z"/>
+    </clipPath>
+  </defs>
+  <path fill="#04809D" d="M520 170h20v20h-20z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M520 170h20v20h-20v-20" clip-path="url(#aB)"/>
+  <defs>
+    <clipPath id="aC">
+      <path d="M540 170a20 20 0 0 1 20 20h-20v-20"/>
+    </clipPath>
+  </defs>
+  <path fill="#97cc4b" d="M540 170a20 20 0 0 1 20 20h-20v-20"/>
+  <path fill="none" stroke="#fff" stroke-width="2" d="M540 170a20 20 0 0 1 20 20h-20v-20" clip-path="url(#aC)"/>
+</svg>
+

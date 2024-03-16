@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/testing" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">@tairu/testing | Tairu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tairu.dev/docs/api/testing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="@tairu/testing | Tairu"><meta data-rh="true" name="description" content="Tairu testing library, providing utilities to test tile handlers."><meta data-rh="true" property="og:description" content="Tairu testing library, providing utilities to test tile handlers."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://tairu.dev/docs/api/testing"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/testing" hreflang="en"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/testing" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.cafc5002.css">
+<script src="/assets/js/runtime~main.0fac269a.js" defer="defer"></script>
+<script src="/assets/js/main.ae0d7182.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_kAyR" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-light.svg" alt="Tairu" class="themedComponent_JiKX themedComponent--light_gOOH"><img src="/img/logo-dark.svg" alt="Tairu" class="themedComponent_JiKX themedComponent--dark_tkot"></div></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/introduction">Documentation</a><a class="navbar__item navbar__link" href="/pricing">Pricing</a></div><div class="navbar__items navbar__items--right"><div class="toggle_auzf colorModeToggle_oBBT"><button class="clean-btn toggleButton_zfxi toggleButtonDisabled_sedX" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_r9C6"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_XqrZ"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_A8vc"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_YnQf"><div class="docsWrapper_E3GJ"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_URtF" type="button"></button><div class="docRoot_AhQS"><aside class="theme-doc-sidebar-container docSidebarContainer_uBmn"><div class="sidebarViewport_E9GR"><div class="sidebar_TCvC"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_aGAi"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/introduction">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="true" href="/docs/installation">Getting Started</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation">Installation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/usage">Your first Tile</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="true" href="/docs/concepts">Reference</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/concepts">Core concepts</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/protocol">Tairu protocol</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cli">Tairu CLI</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/api">Tairu APIs</a><button aria-label="Collapse sidebar category &#x27;Tairu APIs&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/handler">@tairu/handler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/loader">@tairu/loader</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/renderer">@tairu/renderer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react">@tairu/react</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react-dom">@tairu/react-dom</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/api/testing">@tairu/testing</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_I2BN"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_bDPD"><div class="docItemContainer_Ob8e"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_nCik" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_Q61I"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/api"><span itemprop="name">Tairu APIs</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">@tairu/testing</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_fBfs theme-doc-toc-mobile tocMobile_N8SM"><button type="button" class="clean-btn tocCollapsibleButton_Tq5T">On this page</button></div><div class="theme-doc-markdown markdown"><h1>@tairu/testing</h1>
+<p>Tairu testing library, providing utilities to test tile handlers.</p>
+<h2 class="anchor anchorWithStickyNavbar_kAes" id="installation">Installation<a href="#installation" class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation">​</a></h2>
+<div class="language-sh codeBlockContainer_ClXI theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_aQvR"><pre tabindex="0" class="prism-code language-sh codeBlock_gNoN thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_mlWS"><span class="token-line" style="color:#393A34"><span class="token plain">npm install @tairu/testing</span><br></span></code></pre><div class="buttonGroup_mRvd"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_NMOq" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_nwDJ"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_WkEu"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_kAes" id="classes">Classes<a href="#classes" class="hash-link" aria-label="Direct link to Classes" title="Direct link to Classes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_kAes" id="testagent">TestAgent<a href="#testagent" class="hash-link" aria-label="Direct link to TestAgent" title="Direct link to TestAgent">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="extends">Extends<a href="#extends" class="hash-link" aria-label="Direct link to Extends" title="Direct link to Extends">​</a></h4>
+<ul>
+<li><code>Loader</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="constructors">Constructors<a href="#constructors" class="hash-link" aria-label="Direct link to Constructors" title="Direct link to Constructors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="new-testagenthandlers-signer">new TestAgent(handlers, signer)<a href="#new-testagenthandlers-signer" class="hash-link" aria-label="Direct link to new TestAgent(handlers, signer)" title="Direct link to new TestAgent(handlers, signer)">​</a></h5>
+<blockquote>
+<p><strong>new TestAgent</strong>(<code>handlers</code>, <code>signer</code>?): <a href="/docs/api/testing#testagent"><code>TestAgent</code></a></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>handlers</strong>: <code>TileHandlers</code></p>
+<p>• <strong>signer?</strong>: <code>DIDSigner</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/testing#testagent"><code>TestAgent</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="overrides">Overrides<a href="#overrides" class="hash-link" aria-label="Direct link to Overrides" title="Direct link to Overrides">​</a></h6>
+<p><code>Loader.constructor</code></p>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="accessors">Accessors<a href="#accessors" class="hash-link" aria-label="Direct link to Accessors" title="Direct link to Accessors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="signer">signer<a href="#signer" class="hash-link" aria-label="Direct link to signer" title="Direct link to signer">​</a></h5>
+<blockquote>
+<p><strong><code>get</code></strong> <strong>signer</strong>(): <code>ActionSigner</code></p>
+</blockquote>
+<blockquote>
+<p><strong><code>set</code></strong> <strong>signer</strong>(<code>value</code>): <code>void</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-1">Parameters<a href="#parameters-1" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>value</strong>: <code>ActionSigner</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>ActionSigner</code></p>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="methods">Methods<a href="#methods" class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="gethtml">getHTML()<a href="#gethtml" class="hash-link" aria-label="Direct link to getHTML()" title="Direct link to getHTML()">​</a></h5>
+<blockquote>
+<p><strong>getHTML</strong>(<code>path</code>): <code>Promise</code>&lt;<code>string</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>path</strong>: <code>string</code>= <code>&#x27;/&#x27;</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-2">Returns<a href="#returns-2" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="getsvg">getSVG()<a href="#getsvg" class="hash-link" aria-label="Direct link to getSVG()" title="Direct link to getSVG()">​</a></h5>
+<blockquote>
+<p><strong>getSVG</strong>(<code>path</code>): <code>Promise</code>&lt;<code>string</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-3">Parameters<a href="#parameters-3" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>path</strong>: <code>string</code>= <code>&#x27;/&#x27;</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-3">Returns<a href="#returns-3" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="gettile">getTile()<a href="#gettile" class="hash-link" aria-label="Direct link to getTile()" title="Direct link to getTile()">​</a></h5>
+<blockquote>
+<p><strong>getTile</strong>(<code>path</code>): <code>Promise</code>&lt;<code>Object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-4">Parameters<a href="#parameters-4" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>path</strong>: <code>string</code>= <code>&#x27;/&#x27;</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-4">Returns<a href="#returns-4" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>Object</code>&gt;</p>
+<blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="props">props<a href="#props" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
+<blockquote>
+<p><strong>props</strong>: <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsactions">props.actions?<a href="#propsactions" class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>actions</strong>: (<code>Object</code> | <code>Object</code> | <code>Object</code>)[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propschildren">props.children?<a href="#propschildren" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>children</strong>: <code>objectOutputType</code>&lt;<code>Object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt; | <code>objectOutputType</code>&lt;<code>Object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt;[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsdescription">props.description?<a href="#propsdescription" class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>description</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsinput">props.input?<a href="#propsinput" class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>input</strong>: <code>Object</code> | <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propskey">props.key?<a href="#propskey" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>key</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstate">props.state?<a href="#propsstate" class="hash-link" aria-label="Direct link to props.state?" title="Direct link to props.state?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>state</strong>: <code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyle">props.style?<a href="#propsstyle" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>style</strong>: <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylealignitems">props.style.alignItems?<a href="#propsstylealignitems" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>alignItems</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylealignself">props.style.alignSelf?<a href="#propsstylealignself" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>alignSelf</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code> | <code>&quot;auto&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundclip">props.style.backgroundClip?<a href="#propsstylebackgroundclip" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundClip</strong>: <code>&quot;border-box&quot;</code> | <code>&quot;text&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundcolor">props.style.backgroundColor?<a href="#propsstylebackgroundcolor" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundimage">props.style.backgroundImage?<a href="#propsstylebackgroundimage" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundImage</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundposition">props.style.backgroundPosition?<a href="#propsstylebackgroundposition" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundPosition</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundrepeat">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundRepeat</strong>: <code>&quot;no-repeat&quot;</code> | <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundsize">props.style.backgroundSize?<a href="#propsstylebackgroundsize" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundSize</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomcolor">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomleftradius">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomLeftRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomrightradius">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomRightRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomstyle">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomwidth">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordercolor">props.style.borderColor?<a href="#propsstylebordercolor" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftcolor">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftstyle">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftwidth">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderradius">props.style.borderRadius?<a href="#propsstyleborderradius" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightcolor">props.style.borderRightColor?<a href="#propsstyleborderrightcolor" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightstyle">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightwidth">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderstyle">props.style.borderStyle?<a href="#propsstyleborderstyle" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopcolor">props.style.borderTopColor?<a href="#propsstylebordertopcolor" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopleftradius">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopLeftRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertoprightradius">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopRightRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopstyle">props.style.borderTopStyle?<a href="#propsstylebordertopstyle" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopwidth">props.style.borderTopWidth?<a href="#propsstylebordertopwidth" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderwidth">props.style.borderWidth?<a href="#propsstyleborderwidth" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebottom">props.style.bottom?<a href="#propsstylebottom" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>bottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleboxshadow">props.style.boxShadow?<a href="#propsstyleboxshadow" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>boxShadow</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyledisplay">props.style.display?<a href="#propsstyledisplay" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>display</strong>: <code>&quot;none&quot;</code> | <code>&quot;flex&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexbasis">props.style.flexBasis?<a href="#propsstyleflexbasis" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexBasis</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexdirection">props.style.flexDirection?<a href="#propsstyleflexdirection" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexDirection</strong>: <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code> | <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexgrow">props.style.flexGrow?<a href="#propsstyleflexgrow" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexGrow</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexshrink">props.style.flexShrink?<a href="#propsstyleflexshrink" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexShrink</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexwrap">props.style.flexWrap?<a href="#propsstyleflexwrap" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylegap">props.style.gap?<a href="#propsstylegap" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>gap</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleheight">props.style.height?<a href="#propsstyleheight" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>height</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylejustifycontent">props.style.justifyContent?<a href="#propsstylejustifycontent" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>justifyContent</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code> | <code>&quot;space-around&quot;</code> | <code>&quot;space-between&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleleft">props.style.left?<a href="#propsstyleleft" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>left</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemargin">props.style.margin?<a href="#propsstylemargin" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>margin</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginbottom">props.style.marginBottom?<a href="#propsstylemarginbottom" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginleft">props.style.marginLeft?<a href="#propsstylemarginleft" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginright">props.style.marginRight?<a href="#propsstylemarginright" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemargintop">props.style.marginTop?<a href="#propsstylemargintop" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemaxheight">props.style.maxHeight?<a href="#propsstylemaxheight" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>maxHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemaxwidth">props.style.maxWidth?<a href="#propsstylemaxwidth" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>maxWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleminheight">props.style.minHeight?<a href="#propsstyleminheight" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>minHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleminwidth">props.style.minWidth?<a href="#propsstyleminwidth" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>minWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleobjectfit">props.style.objectFit?<a href="#propsstyleobjectfit" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleopacity">props.style.opacity?<a href="#propsstyleopacity" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>opacity</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleoverflow">props.style.overflow?<a href="#propsstyleoverflow" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>overflow</strong>: <code>&quot;hidden&quot;</code> | <code>&quot;visible&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepadding">props.style.padding?<a href="#propsstylepadding" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>padding</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingbottom">props.style.paddingBottom?<a href="#propsstylepaddingbottom" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingleft">props.style.paddingLeft?<a href="#propsstylepaddingleft" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingright">props.style.paddingRight?<a href="#propsstylepaddingright" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingtop">props.style.paddingTop?<a href="#propsstylepaddingtop" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleposition">props.style.position?<a href="#propsstyleposition" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>position</strong>: <code>&quot;absolute&quot;</code> | <code>&quot;relative&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleright">props.style.right?<a href="#propsstyleright" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>right</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyletop">props.style.top?<a href="#propsstyletop" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>top</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylewidth">props.style.width?<a href="#propsstylewidth" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>width</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propstitle">props.title<a href="#propstitle" class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title">​</a></h6>
+<blockquote>
+<p><strong>title</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="type">type<a href="#type" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
+<blockquote>
+<p><strong>type</strong>: <code>&quot;Tile&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="version">version<a href="#version" class="hash-link" aria-label="Direct link to version" title="Direct link to version">​</a></h6>
+<blockquote>
+<p><strong>version</strong>: <code>&quot;0.1&quot;</code></p>
+</blockquote>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="overrides-1">Overrides<a href="#overrides-1" class="hash-link" aria-label="Direct link to Overrides" title="Direct link to Overrides">​</a></h6>
+<p><code>Loader.getTile</code></p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="postaction">postAction()<a href="#postaction" class="hash-link" aria-label="Direct link to postAction()" title="Direct link to postAction()">​</a></h5>
+<blockquote>
+<p><strong>postAction</strong>(<code>path</code>, <code>action</code>, <code>useSigner</code>?): <code>Promise</code>&lt;<code>Object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-5">Parameters<a href="#parameters-5" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>path</strong>: <code>string</code></p>
+<p>• <strong>action</strong>: <code>Object</code> | <code>Object</code></p>
+<p>• <strong>useSigner?</strong>: <code>DIDSigner</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-5">Returns<a href="#returns-5" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>Object</code>&gt;</p>
+<blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="props-1">props<a href="#props-1" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
+<blockquote>
+<p><strong>props</strong>: <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsactions-1">props.actions?<a href="#propsactions-1" class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>actions</strong>: (<code>Object</code> | <code>Object</code> | <code>Object</code>)[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propschildren-1">props.children?<a href="#propschildren-1" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>children</strong>: <code>objectOutputType</code>&lt;<code>Object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt; | <code>objectOutputType</code>&lt;<code>Object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt;[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsdescription-1">props.description?<a href="#propsdescription-1" class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>description</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsinput-1">props.input?<a href="#propsinput-1" class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>input</strong>: <code>Object</code> | <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propskey-1">props.key?<a href="#propskey-1" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>key</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstate-1">props.state?<a href="#propsstate-1" class="hash-link" aria-label="Direct link to props.state?" title="Direct link to props.state?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>state</strong>: <code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyle-1">props.style?<a href="#propsstyle-1" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>style</strong>: <code>Object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylealignitems-1">props.style.alignItems?<a href="#propsstylealignitems-1" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>alignItems</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylealignself-1">props.style.alignSelf?<a href="#propsstylealignself-1" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>alignSelf</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code> | <code>&quot;auto&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundclip-1">props.style.backgroundClip?<a href="#propsstylebackgroundclip-1" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundClip</strong>: <code>&quot;border-box&quot;</code> | <code>&quot;text&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundcolor-1">props.style.backgroundColor?<a href="#propsstylebackgroundcolor-1" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundimage-1">props.style.backgroundImage?<a href="#propsstylebackgroundimage-1" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundImage</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundposition-1">props.style.backgroundPosition?<a href="#propsstylebackgroundposition-1" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundPosition</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundrepeat-1">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat-1" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundRepeat</strong>: <code>&quot;no-repeat&quot;</code> | <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebackgroundsize-1">props.style.backgroundSize?<a href="#propsstylebackgroundsize-1" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>backgroundSize</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomcolor-1">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor-1" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomleftradius-1">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius-1" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomLeftRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomrightradius-1">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius-1" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomRightRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomstyle-1">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle-1" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderbottomwidth-1">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth-1" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderBottomWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordercolor-1">props.style.borderColor?<a href="#propsstylebordercolor-1" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftcolor-1">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor-1" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftstyle-1">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle-1" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderleftwidth-1">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth-1" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderLeftWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderradius-1">props.style.borderRadius?<a href="#propsstyleborderradius-1" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightcolor-1">props.style.borderRightColor?<a href="#propsstyleborderrightcolor-1" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightstyle-1">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle-1" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderrightwidth-1">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth-1" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderRightWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderstyle-1">props.style.borderStyle?<a href="#propsstyleborderstyle-1" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopcolor-1">props.style.borderTopColor?<a href="#propsstylebordertopcolor-1" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopleftradius-1">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius-1" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopLeftRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertoprightradius-1">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius-1" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopRightRadius</strong>: <code>string</code> | <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopstyle-1">props.style.borderTopStyle?<a href="#propsstylebordertopstyle-1" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopStyle</strong>: <code>&quot;dashed&quot;</code> | <code>&quot;solid&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebordertopwidth-1">props.style.borderTopWidth?<a href="#propsstylebordertopwidth-1" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderTopWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleborderwidth-1">props.style.borderWidth?<a href="#propsstyleborderwidth-1" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>borderWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylebottom-1">props.style.bottom?<a href="#propsstylebottom-1" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>bottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleboxshadow-1">props.style.boxShadow?<a href="#propsstyleboxshadow-1" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>boxShadow</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyledisplay-1">props.style.display?<a href="#propsstyledisplay-1" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>display</strong>: <code>&quot;none&quot;</code> | <code>&quot;flex&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexbasis-1">props.style.flexBasis?<a href="#propsstyleflexbasis-1" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexBasis</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexdirection-1">props.style.flexDirection?<a href="#propsstyleflexdirection-1" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexDirection</strong>: <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code> | <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexgrow-1">props.style.flexGrow?<a href="#propsstyleflexgrow-1" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexGrow</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexshrink-1">props.style.flexShrink?<a href="#propsstyleflexshrink-1" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexShrink</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleflexwrap-1">props.style.flexWrap?<a href="#propsstyleflexwrap-1" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylegap-1">props.style.gap?<a href="#propsstylegap-1" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>gap</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleheight-1">props.style.height?<a href="#propsstyleheight-1" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>height</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylejustifycontent-1">props.style.justifyContent?<a href="#propsstylejustifycontent-1" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>justifyContent</strong>: <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;flex-start&quot;</code> | <code>&quot;space-around&quot;</code> | <code>&quot;space-between&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleleft-1">props.style.left?<a href="#propsstyleleft-1" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>left</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemargin-1">props.style.margin?<a href="#propsstylemargin-1" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>margin</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginbottom-1">props.style.marginBottom?<a href="#propsstylemarginbottom-1" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginleft-1">props.style.marginLeft?<a href="#propsstylemarginleft-1" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemarginright-1">props.style.marginRight?<a href="#propsstylemarginright-1" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemargintop-1">props.style.marginTop?<a href="#propsstylemargintop-1" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>marginTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemaxheight-1">props.style.maxHeight?<a href="#propsstylemaxheight-1" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>maxHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylemaxwidth-1">props.style.maxWidth?<a href="#propsstylemaxwidth-1" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>maxWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleminheight-1">props.style.minHeight?<a href="#propsstyleminheight-1" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>minHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleminwidth-1">props.style.minWidth?<a href="#propsstyleminwidth-1" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>minWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleobjectfit-1">props.style.objectFit?<a href="#propsstyleobjectfit-1" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleopacity-1">props.style.opacity?<a href="#propsstyleopacity-1" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>opacity</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleoverflow-1">props.style.overflow?<a href="#propsstyleoverflow-1" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>overflow</strong>: <code>&quot;hidden&quot;</code> | <code>&quot;visible&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepadding-1">props.style.padding?<a href="#propsstylepadding-1" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>padding</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingbottom-1">props.style.paddingBottom?<a href="#propsstylepaddingbottom-1" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingleft-1">props.style.paddingLeft?<a href="#propsstylepaddingleft-1" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingright-1">props.style.paddingRight?<a href="#propsstylepaddingright-1" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylepaddingtop-1">props.style.paddingTop?<a href="#propsstylepaddingtop-1" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>paddingTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleposition-1">props.style.position?<a href="#propsstyleposition-1" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>position</strong>: <code>&quot;absolute&quot;</code> | <code>&quot;relative&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyleright-1">props.style.right?<a href="#propsstyleright-1" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>right</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstyletop-1">props.style.top?<a href="#propsstyletop-1" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>top</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propsstylewidth-1">props.style.width?<a href="#propsstylewidth-1" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
+<blockquote>
+<p><strong><code>optional</code></strong> <strong>width</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="propstitle-1">props.title<a href="#propstitle-1" class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title">​</a></h6>
+<blockquote>
+<p><strong>title</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="type-1">type<a href="#type-1" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
+<blockquote>
+<p><strong>type</strong>: <code>&quot;Tile&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="version-1">version<a href="#version-1" class="hash-link" aria-label="Direct link to version" title="Direct link to version">​</a></h6>
+<blockquote>
+<p><strong>version</strong>: <code>&quot;0.1&quot;</code></p>
+</blockquote>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="overrides-2">Overrides<a href="#overrides-2" class="hash-link" aria-label="Direct link to Overrides" title="Direct link to Overrides">​</a></h6>
+<p><code>Loader.postAction</code></p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="sign">sign()<a href="#sign" class="hash-link" aria-label="Direct link to sign()" title="Direct link to sign()">​</a></h5>
+<blockquote>
+<p><strong>sign</strong>(<code>payload</code>, <code>useSigner</code>?): <code>Promise</code>&lt;<code>Object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-6">Parameters<a href="#parameters-6" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>payload</strong>: <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+<p>• <strong>useSigner?</strong>: <code>DIDSigner</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-6">Returns<a href="#returns-6" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>Object</code>&gt;</p>
+<blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="payload">payload<a href="#payload" class="hash-link" aria-label="Direct link to payload" title="Direct link to payload">​</a></h6>
+<blockquote>
+<p><strong>payload</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="signatures">signatures<a href="#signatures" class="hash-link" aria-label="Direct link to signatures" title="Direct link to signatures">​</a></h6>
+<blockquote>
+<p><strong>signatures</strong>: <code>Object</code>[]</p>
+</blockquote>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="create">create()<a href="#create" class="hash-link" aria-label="Direct link to create()" title="Direct link to create()">​</a></h5>
+<blockquote>
+<p><strong><code>static</code></strong> <strong>create</strong>(<code>handlers</code>, <code>signer</code>?): <a href="/docs/api/testing#testagent"><code>TestAgent</code></a></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-7">Parameters<a href="#parameters-7" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>handlers</strong>: <code>TileHandlers</code></p>
+<p>• <strong>signer?</strong>: <code>DIDSigner</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-7">Returns<a href="#returns-7" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/testing#testagent"><code>TestAgent</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_kAes" id="testdidsigner">TestDIDSigner<a href="#testdidsigner" class="hash-link" aria-label="Direct link to TestDIDSigner" title="Direct link to TestDIDSigner">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="implements">Implements<a href="#implements" class="hash-link" aria-label="Direct link to Implements" title="Direct link to Implements">​</a></h4>
+<ul>
+<li><code>DIDSigner</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="constructors-1">Constructors<a href="#constructors-1" class="hash-link" aria-label="Direct link to Constructors" title="Direct link to Constructors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="new-testdidsignerdid">new TestDIDSigner(did)<a href="#new-testdidsignerdid" class="hash-link" aria-label="Direct link to new TestDIDSigner(did)" title="Direct link to new TestDIDSigner(did)">​</a></h5>
+<blockquote>
+<p><strong>new TestDIDSigner</strong>(<code>did</code>): <a href="/docs/api/testing#testdidsigner"><code>TestDIDSigner</code></a></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-8">Parameters<a href="#parameters-8" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>did</strong>: <code>DID</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-8">Returns<a href="#returns-8" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/testing#testdidsigner"><code>TestDIDSigner</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="accessors-1">Accessors<a href="#accessors-1" class="hash-link" aria-label="Direct link to Accessors" title="Direct link to Accessors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="id">id<a href="#id" class="hash-link" aria-label="Direct link to id" title="Direct link to id">​</a></h5>
+<blockquote>
+<p><strong><code>get</code></strong> <strong>id</strong>(): <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-9">Returns<a href="#returns-9" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="methods-1">Methods<a href="#methods-1" class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="sign-1">sign()<a href="#sign-1" class="hash-link" aria-label="Direct link to sign()" title="Direct link to sign()">​</a></h5>
+<blockquote>
+<p><strong>sign</strong>&lt;<code>T</code>&gt;(<code>payload</code>): <code>Promise</code>&lt;<code>Object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="type-parameters">Type parameters<a href="#type-parameters" class="hash-link" aria-label="Direct link to Type parameters" title="Direct link to Type parameters">​</a></h6>
+<p>• <strong>T</strong> extends <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt; = <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-9">Parameters<a href="#parameters-9" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>payload</strong>: <code>T</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-10">Returns<a href="#returns-10" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>Object</code>&gt;</p>
+<blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="payload-1">payload<a href="#payload-1" class="hash-link" aria-label="Direct link to payload" title="Direct link to payload">​</a></h6>
+<blockquote>
+<p><strong>payload</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="signatures-1">signatures<a href="#signatures-1" class="hash-link" aria-label="Direct link to signatures" title="Direct link to signatures">​</a></h6>
+<blockquote>
+<p><strong>signatures</strong>: <code>Object</code>[]</p>
+</blockquote>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="implementation-of">Implementation of<a href="#implementation-of" class="hash-link" aria-label="Direct link to Implementation of" title="Direct link to Implementation of">​</a></h6>
+<p><code>DIDSigner.sign</code></p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="get">get()<a href="#get" class="hash-link" aria-label="Direct link to get()" title="Direct link to get()">​</a></h5>
+<blockquote>
+<p><strong><code>static</code></strong> <strong>get</strong>(): <code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-11">Returns<a href="#returns-11" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="reset">reset()<a href="#reset" class="hash-link" aria-label="Direct link to reset()" title="Direct link to reset()">​</a></h5>
+<blockquote>
+<p><strong><code>static</code></strong> <strong>reset</strong>(<code>privateKey</code>?): <code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-10">Parameters<a href="#parameters-10" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>privateKey?</strong>: <code>Uint8Array</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-12">Returns<a href="#returns-12" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="set">set()<a href="#set" class="hash-link" aria-label="Direct link to set()" title="Direct link to set()">​</a></h5>
+<blockquote>
+<p><strong><code>static</code></strong> <strong>set</strong>(<code>privateKey</code>): <code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-11">Parameters<a href="#parameters-11" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>privateKey</strong>: <code>Uint8Array</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-13">Returns<a href="#returns-13" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_kAes" id="sign-2">sign()<a href="#sign-2" class="hash-link" aria-label="Direct link to sign()" title="Direct link to sign()">​</a></h5>
+<blockquote>
+<p><strong><code>static</code></strong> <strong>sign</strong>&lt;<code>T</code>&gt;(<code>payload</code>): <code>Promise</code>&lt;<code>Object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="type-parameters-1">Type parameters<a href="#type-parameters-1" class="hash-link" aria-label="Direct link to Type parameters" title="Direct link to Type parameters">​</a></h6>
+<p>• <strong>T</strong> extends <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt; = <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="parameters-12">Parameters<a href="#parameters-12" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>payload</strong>: <code>T</code></p>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="returns-14">Returns<a href="#returns-14" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>Object</code>&gt;</p>
+<blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="payload-2">payload<a href="#payload-2" class="hash-link" aria-label="Direct link to payload" title="Direct link to payload">​</a></h6>
+<blockquote>
+<p><strong>payload</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_kAes" id="signatures-2">signatures<a href="#signatures-2" class="hash-link" aria-label="Direct link to signatures" title="Direct link to signatures">​</a></h6>
+<blockquote>
+<p><strong>signatures</strong>: <code>Object</code>[]</p>
+</blockquote>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_kAes" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_kAes" id="generateprivatekey">generatePrivateKey()<a href="#generateprivatekey" class="hash-link" aria-label="Direct link to generatePrivateKey()" title="Direct link to generatePrivateKey()">​</a></h3>
+<blockquote>
+<p><strong>generatePrivateKey</strong>(): <code>Uint8Array</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_kAes" id="returns-15">Returns<a href="#returns-15" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>Uint8Array</code></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/api/react-dom"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">@tairu/react-dom</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_B0E7 thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#installation" class="table-of-contents__link toc-highlight">Installation</a></li><li><a href="#classes" class="table-of-contents__link toc-highlight">Classes</a><ul><li><a href="#testagent" class="table-of-contents__link toc-highlight">TestAgent</a></li><li><a href="#testdidsigner" class="table-of-contents__link toc-highlight">TestDIDSigner</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#generateprivatekey" class="table-of-contents__link toc-highlight">generatePrivateKey()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/introduction">Introduction</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/installation">Installation</a></li></ul></div><div class="col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/concepts">Concepts</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/protocol">Protocol</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/cli">CLI</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/api">APIs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Tairu Framework.</div></div></div></footer></div>
+</body>
+</html>

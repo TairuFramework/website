@@ -44,10 +44,11 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'sidebar',
+          sidebarId: 'docs',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
+        { to: '/pricing', label: 'Pricing', position: 'left' },
         // { to: '/blog', label: 'Blog', position: 'left' },
       ],
     },
@@ -58,8 +59,33 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/docs/introduction',
+            },
+            {
+              label: 'Installation',
+              to: '/docs/installation',
+            },
+          ],
+        },
+        {
+          title: 'Reference',
+          items: [
+            {
+              label: 'Concepts',
+              to: '/docs/concepts',
+            },
+            {
+              label: 'Protocol',
+              to: '/docs/protocol',
+            },
+            {
+              label: 'CLI',
+              to: '/docs/cli',
+            },
+            {
+              label: 'APIs',
+              to: '/docs/category/apis',
             },
           ],
         },

@@ -1,0 +1,37 @@
+# Core concepts
+
+## Tile
+
+Tiles are standalone pieces of user interface that are handled by a HTTP server, possibly supporting authenticated interactions from clients.
+
+### Content
+
+Tiles content is made of elements using the following 3 primitive components:
+
+- `Box`: a container for other components, possibly with a specific style.
+- `Text`: an element that displays a string of text or other `Text` elements, possibly with a specific style.
+- `Image`: an element that displays an image.
+
+### Interactions
+
+In addition to static contents, tiles can contain interactions based on a single text or choices input and one or multiple buttons.
+
+Tiles interactions are signed using a DID managed by the client, ensuring all user interactions are authenticated without providing additional frictions for end-users.
+
+### Metadata
+
+Additional metadata such as a title and description can be attached to tiles to help discovery and static display, in addition to a protocol version to ensure compatibility between tile handlers and clients.
+
+## Render formats
+
+### JSON
+
+### HTML
+
+### SVG
+
+## Interactions
+
+### Inputs
+
+### Buttons

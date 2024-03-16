@@ -1,0 +1,79 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Your first Tile
+
+## Creating the Tile handler
+
+A Tile can be simply defined using JSX and exporting the handler wrapped in the `handle()` function:
+
+```tsx handler.tsx
+import { Text, Tile, handle, h } from '@tairu/handler'
+
+export function handler() {
+  return (
+    <Tile title="Demo tile">
+      <Text>Hello Tairu!</Text>
+    </Tile>
+  )
+}
+
+export default handle(handler)
+```
+
+## Serving the Tile
+
+The tile can then be served by the CLI:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npx tairu serve handler.tsx
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm dlx tairu serve handler.tsx
+    ```
+  
+  </TabItem>
+</Tabs>
+
+The Tile is then accessible at the URL `http://localhost:3210` by default.
+
+## Accessing the Tile
+
+Finally, the Tile can be accessed from different clients:
+
+<Tabs groupId="client">
+  <TabItem value="cli" label="Tairu CLI" default>
+    
+    ```sh
+    npx tairu open http://localhost:3210
+    ```
+
+  </TabItem>
+  <TabItem value="browser" label="Web browser embed">
+  
+    ```html
+    <iframe src="http://localhost:3210"></iframe>
+    ```
+  
+  </TabItem>
+  <TabItem value="react" value="React embed">
+
+    Using the `tairu/react` package:
+
+    ```tsx
+    import { Tile } from '@tairu/react'
+
+    function App() {
+      return <Tile url="http://localhost:3210" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>

@@ -59,12 +59,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
-              to: '/docs/introduction',
+              label: 'Overview',
+              to: '/docs/overview',
             },
             {
-              label: 'Installation',
-              to: '/docs/installation',
+              label: 'Getting started',
+              to: '/docs/getting-started',
             },
           ],
         },
@@ -85,7 +85,7 @@ const config: Config = {
             },
             {
               label: 'APIs',
-              to: '/docs/category/apis',
+              to: '/docs/api',
             },
           ],
         },

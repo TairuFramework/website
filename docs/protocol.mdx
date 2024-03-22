@@ -1,7 +1,206 @@
 # Tairu protocol
 
+The Tairu protocol uses a JSON structure with a top-level [`Tile` component](#tile).
+
 ## Content components
 
-## Interaction components
+Content components define how the tile contents must be displayed. These contents can be [rendered in different formats](concepts.mdx#render-formats) and do not support interactions.
 
-## Actions
+### Tile
+
+The `Tile` component is the top-level component that must be provided by all handlers. It behaves as the [`Box` component](#box) supporting its `style` and `children`, with additional metadata.
+
+#### Tile properties
+
+| Key           | Type                                                                                                                      | Comment                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `title`       | `string`                                                                                                                  | HTML page title                  |
+| `description` | `string`                                                                                                                  | HTML page description (optional) |
+| `children`    | [`Box`](#box) \| [`Text`](#text) \| [`Image`](#image) \| `Array<`[`Box`](#box) \| [`Text`](#text) \| [`Image`](#image)`>` |
+| `style`       | [Box style object](#box-style)                                                                                            |
+
+### Box
+
+A `Box` is a container for other `Box`, `Text` and `Image` elements defined in its `children` property, optionally with a specific [`style`](#box-style).
+
+#### Box properties
+
+| Key        | Type                                                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `children` | [`Box`](#box) \| [`Text`](#text) \| [`Image`](#image) \| `Array<`[`Box`](#box) \| [`Text`](#text) \| [`Image`](#image)`>` |
+| `style`    | [Box style object](#box-style)                                                                                            |
+
+#### Box style
+
+| Key                       | Type                                                                          | Comment               |
+| ------------------------- | ----------------------------------------------------------------------------- | --------------------- |
+| `display`                 | `"flex" \| "none"`                                                            | Default: `"none"`     |
+| `overflow`                | `"visible" \| "hidden"`                                                       | Default: `"visible"`  |
+| `objectFit`               | `"none" \| "contain" \| "cover"`                                              | Default: `"none"`     |
+| `opacity`                 | `number`                                                                      | Min: `0`, max: `1`    |
+| `boxShadow`               | `string`                                                                      |
+| `position`                | `"relative" \| "absolute"`                                                    | Default: `"relative"` |
+| `top`                     | `number`                                                                      |
+| `right`                   | `number`                                                                      |
+| `bottom`                  | `number`                                                                      |
+| `left`                    | `number`                                                                      |
+| `width`                   | `number`                                                                      | Min: `0`              |
+| `height`                  | `number`                                                                      | Min: `0`              |
+| `minWidth`                | `number`                                                                      | Min: `0`              |
+| `minHeight`               | `number`                                                                      | Min: `0`              |
+| `maxWidth`                | `number`                                                                      | Min: `0`              |
+| `maxHeight`               | `number`                                                                      | Min: `0`              |
+| `margin`                  | `number`                                                                      |
+| `marginTop`               | `number`                                                                      |
+| `marginRight`             | `number`                                                                      |
+| `marginBottom`            | `number`                                                                      |
+| `marginLeft`              | `number`                                                                      |
+| `padding`                 | `number`                                                                      |
+| `paddingTop`              | `number`                                                                      |
+| `paddingRight`            | `number`                                                                      |
+| `paddingBottom`           | `number`                                                                      |
+| `paddingLeft`             | `number`                                                                      |
+| `flexGrow`                | `number`                                                                      | Min: `0`              |
+| `flexShrink`              | `number`                                                                      | Min: `0`              |
+| `flexBasis`               | `number`                                                                      | Min: `0`              |
+| `flexDirection`           | `"row" \| "row-reverse" \| "column" \| "column-reverse"`                      | Default: `"row"`      |
+| `flexWrap`                | `"nowrap" \| "wrap" \| "wrap-reverse"`                                        | Default: `"wrap"`     |
+| `alignItems`              | `"flex-start" \| "center" \| "flex-end"`                                      |
+| `alignSelf`               | `"auto" \| "flex-start" \| "center" \| "flex-end"`                            |
+| `justifyContent`          | `"flex-start" \| "center" \| "flex-end" \| "space-between" \| "space-around"` |
+| `gap`                     | `number`                                                                      | Min: `0`              |
+| `borderStyle`             | `"solid" \| "dashed"`                                                         |
+| `borderTopStyle`          | `"solid" \| "dashed"`                                                         |
+| `borderRightStyle`        | `"solid" \| "dashed"`                                                         |
+| `borderBottomStyle`       | `"solid" \| "dashed"`                                                         |
+| `borderLeftStyle`         | `"solid" \| "dashed"`                                                         |
+| `borderWidth`             | `number`                                                                      | Min: `0`              |
+| `borderTopWidth`          | `number`                                                                      | Min: `0`              |
+| `borderRightWidth`        | `number`                                                                      | Min: `0`              |
+| `borderBottomWidth`       | `number`                                                                      | Min: `0`              |
+| `borderLeftWidth`         | `number`                                                                      | Min: `0`              |
+| `borderColor`             | `string`                                                                      |
+| `borderTopColor`          | `string`                                                                      |
+| `borderRightColor`        | `string`                                                                      |
+| `borderBottomColor`       | `string`                                                                      |
+| `borderLeftColor`         | `string`                                                                      |
+| `borderRadius`            | `number \| string`                                                            | Min: `0`              |
+| `borderTopLeftRadius`     | `number \| string`                                                            | Min: `0`              |
+| `borderTopRightRadius`    | `number \| string`                                                            | Min: `0`              |
+| `borderBottomLeftRadius`  | `number \| string`                                                            | Min: `0`              |
+| `borderBottomRightRadius` | `number \| string`                                                            | Min: `0`              |
+| `backgroundColor`         | `string`                                                                      |
+| `backgroundImage`         | `string`                                                                      |
+| `backgroundPosition`      | `string`                                                                      |
+| `backgroundSize`          | `string`                                                                      |
+| `backgroundClip`          | `"border-box" \| "text"`                                                      |
+| `backgroundRepeat`        | `"repeat" \| "repeat-x" \| "repeat-y" \| "no-repeat"`                         | Default: `"repeat"`   |
+
+### Text
+
+#### Text properties
+
+| Key        | Type                                                                          |
+| ---------- | ----------------------------------------------------------------------------- |
+| `children` | `string \| number \| null \| Text \| Array<string \| number \| null \| Text>` |
+| `style`    | [Text style object](#text-style)                                              |
+
+#### Text style
+
+| Key              | Type                                                             | Comment             |
+| ---------------- | ---------------------------------------------------------------- | ------------------- |
+| `color`          | `string`                                                         |
+| `fontFamily`     | `string`                                                         |
+| `fontSize`       | `number \| string`                                               | Min: `0`            |
+| `fontWeight`     | `number \| string`                                               | Min: `0`            |
+| `fontStyle`      | `string`                                                         |
+| `textAlign`      | `"start" \| "end" \| "left" \| "right" \| "center" \| "justify"` | Default: `"start"`  |
+| `textTransform`  | `"none" \| "uppercase" \| "lowercase" \| "capitalize"`           | Default: `"none"`   |
+| `textOverflow`   | `"clip" \| "ellipsis"`                                           | Default: `"clip"`   |
+| `textDecoration` | `string`                                                         |
+| `textShadow`     | `string`                                                         |
+| `lineHeight`     | `number \| string`                                               | Min: `0`            |
+| `letterSpacing`  | `number \| string`                                               | Min: `0`            |
+| `whiteSpace`     | `"normal" \| "pre" \| "pre-wrap" \| "pre-line" \| "nowrap"`      | Default: `"normal"` |
+| `wordBreak`      | `"normal" \| "break-all" \| "break-word" \| "keep-all"`          | Default: `"normal"` |
+| `textWrap`       | `"wrap" \| "balance"`                                            | Default: `"wrap"`   |
+
+### Image
+
+#### Image properties
+
+| Key   | Type     | Comment                                  |
+| ----- | -------- | ---------------------------------------- |
+| `src` | `string` | Image source (required)                  |
+| `alt` | `string` | Alternative image description (required) |
+
+## Input components
+
+Tairu supports two types of inputs: as [free text](#text-input) or using a defined set of [options](#options-input).
+
+### Options input
+
+The options input defines a list of `options` items that can be selected by the user, either as a single choice or multiple choices based on the `multiple` value.
+
+#### Options input properties
+
+| Key        | Type                                      | Required? |
+| ---------- | ----------------------------------------- | --------- |
+| `type`     | `"options"`                               | **Yes**   |
+| `options`  | `Array<{ label: string, value: string }>` | **Yes**   |
+| `multiple` | `boolean`                                 | No        |
+
+### Text input
+
+The text input can be freely set by the user, optionally with a default value and a placeholder. The `secure` option can be used to indicate the content of the input should be hidden when typing it.
+
+#### Text input properties
+
+| Key            | Type      | Required? |
+| -------------- | --------- | --------- |
+| `type`         | `"text"`  | **Yes**   |
+| `label`        | `string`  | **Yes**   |
+| `placeholder`  | `string`  | No        |
+| `defaultValue` | `string`  | No        |
+| `secure`       | `boolean` | No        |
+
+## Action buttons
+
+Tairu supports three types of actions, typically represented by buttons or similar components users can interact with.
+
+### DID submitting
+
+This action can be used to submit the value of an [input component](#input-components) to the Tile handler. The agent takes care of signing the input value along with the action `state`, if provided.
+
+#### DID submitting properties
+
+| Key     | Type                  | Required? |
+| ------- | --------------------- | --------- |
+| `type`  | `"did.submit"`        | **Yes**   |
+| `label` | `string`              | **Yes**   |
+| `state` | `Record<string, any>` | No        |
+
+### DID signing
+
+This action can be used to post server-defined data signed by the agent to the Tile handler. The agent takes care of signing the `payload` value along with the action `state`, if provided.
+
+#### DID signing properties
+
+| Key       | Type                  | Required? |
+| --------- | --------------------- | --------- |
+| `type`    | `"did.sign"`          | **Yes**   |
+| `label`   | `string`              | **Yes**   |
+| `payload` | `Record<string, any>` | No        |
+| `state`   | `Record<string, any>` | No        |
+
+### URI opening
+
+This action can be used to open the specified URI in a Web browser or other application.
+
+#### URI opening properties
+
+| Key     | Type         | Required? |
+| ------- | ------------ | --------- |
+| `type`  | `"uri.open"` | **Yes**   |
+| `label` | `string`     | **Yes**   |
+| `uri`   | `string`     | **Yes**   |

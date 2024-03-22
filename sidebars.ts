@@ -2,21 +2,17 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
 
 const sidebars: SidebarsConfig = {
   docs: [
-    { type: 'doc', id: 'introduction', label: 'Introduction' },
+    { type: 'doc', id: 'overview', label: 'Overview' },
+    { type: 'doc', id: 'getting-started', label: 'Getting started' },
     {
       type: 'category',
-      collapsed: false,
-      label: 'Getting Started',
-      items: ['installation', 'usage'],
-    },
-    {
-      type: 'category',
+      collapsible: false,
       label: 'Reference',
-      collapsed: false,
       items: ['concepts', 'protocol', 'cli'],
     },
     {
       type: 'category',
+      collapsible: false,
       label: 'Tairu APIs',
       link: { type: 'generated-index', slug: '/api' },
       items: [

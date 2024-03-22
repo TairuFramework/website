@@ -286,9 +286,13 @@ npm install @tairu/handler
 
 #### Type declaration
 
-##### scriptURL?
+##### runtimeScriptURL?
 
-> **`optional`** **scriptURL**: `string`
+> **`optional`** **runtimeScriptURL**: `string`
+
+##### urlPrefix?
+
+> **`optional`** **urlPrefix**: `string`
 
 ***
 

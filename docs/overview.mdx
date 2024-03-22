@@ -5,13 +5,7 @@ import TabItem from '@theme/TabItem'
 
 Tairu is a framework for Tiles: server-defined user interfaces that are uniquely identified by their URLs and can be displayed and interacted with from many different clients.
 
-Tiles can be created using the follwowing 3 primitive components:
-
-- `Box`: a container for other components, possibly with a specific style.
-- `Text`: an element that displays a string of text or other `Text` elements, possibly with a specific style.
-- `Image`: an element that displays an image.
-
-Tiles are defined on the server using the `@tairu/handler` package and either writing the JSON structure directly or a JSX template abstraction:
+Tiles can be created using a few primitive components, using the [`@tairu/handler` package](./api/handler.md) and either writing the JSON structure directly or a JSX template abstraction:
 
 <Tabs groupId="json-or-jsx">
   <TabItem value="json" label="Using JSON" default>

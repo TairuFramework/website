@@ -54,29 +54,23 @@ npm install @tairu/testing
 
 #### Methods
 
-##### getHTML()
+##### getRenderedTile()
 
-> **getHTML**(`path`): `Promise`\<`string`\>
+> **getRenderedTile**(`path`, `format`): `Promise`\<`string`\>
 
 ###### Parameters
 
-• **path**: `string`= `'/'`
+• **path**: `string`
+
+• **format**: `RenderFormat`
 
 ###### Returns
 
 `Promise`\<`string`\>
 
-##### getSVG()
+###### Overrides
 
-> **getSVG**(`path`): `Promise`\<`string`\>
-
-###### Parameters
-
-• **path**: `string`= `'/'`
-
-###### Returns
-
-`Promise`\<`string`\>
+`Loader.getRenderedTile`
 
 ##### getTile()
 

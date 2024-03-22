@@ -1,9 +1,34 @@
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-# Your first Tile
+# Getting started
 
-## Creating the Tile handler
+## Prerequisites
+
+[Node.js](https://nodejs.org/en) v20 or higher and a package manager such as npm are required to install and use the Tairu framework.
+
+## Installation
+
+The [handler package](./api/handler.md) is needed to create Tiles server-side.
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/handler
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/handler
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Your first Tile
 
 A Tile can be simply defined using JSX and exporting the handler wrapped in the `handle()` function:
 

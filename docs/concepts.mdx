@@ -1,37 +1,76 @@
 # Core concepts
 
-## Tile
+## Tiles
 
-Tiles are standalone pieces of user interface that are handled by a HTTP server, possibly supporting authenticated interactions from clients.
+Tiles are standalone pieces of user interface that are handled by a HTTP server, possibly supporting authenticated interactions from user [agents](#agents).
 
 ### Content
 
-Tiles content is made of elements using the following 3 primitive components:
+Tiles content is made of elements using a set of [primitive components](./protocol.mdx#content-components) that can be rendered in the [different formats](#render-formats) supported by Tairu.
 
-- `Box`: a container for other components, possibly with a specific style.
-- `Text`: an element that displays a string of text or other `Text` elements, possibly with a specific style.
-- `Image`: an element that displays an image.
+Tiles rendering does not aim to be pixel-perfect across platforms, but rather to rely on different renderers to provide the best experience for their target platform.
 
 ### Interactions
 
-In addition to static contents, tiles can contain interactions based on a single text or choices input and one or multiple buttons.
+In addition to static contents, Tiles can contain [interactions](#supported-interactions) based on a single text or options input and one or multiple buttons.
 
-Tiles interactions are signed using a DID managed by the client, ensuring all user interactions are authenticated without providing additional frictions for end-users.
+Tiles interactions are signed using a [DID](#dids) managed by an [agent](#agents), ensuring all user interactions are authenticated without providing additional frictions for end-users.
 
 ### Metadata
 
-Additional metadata such as a title and description can be attached to tiles to help discovery and static display, in addition to a protocol version to ensure compatibility between tile handlers and clients.
+Additional [metadata](./protocol.mdx#tile-properties) such as a title and description can be attached to tiles to help discovery and static display, in addition to a protocol version to ensure compatibility between Tile [handlers](#tile-handlers) and [agents](#agents).
 
 ## Render formats
 
+Tiles can be rendered in different formats to adapt to platform capabilities and limitations, providing support for a wide range of clients.
+
 ### JSON
+
+JSON is the canonical format for Tiles, notably used by the [`@tairu/renderer` package](./api/renderer.md). It can be easily parsed and rendered by any client to provide a native user interface.
 
 ### HTML
 
+Tiles can be rendered as HTML, allowing them to be displayed directly in browsers and Web applications.
+
+#### Full page
+
+When accessing a Tile URL directly, the Tile is rendered as a full HTML page, including metadata and interactions support.
+
+#### Embedded
+
+Tiles can also be rendered as embedded HTML, where only the Tile contents is rendered. HTML data attributes are used to provide additional metadata and interactions data, which can be used by the host to render additional elements of the Tile UI.
+
 ### SVG
 
-## Interactions
+As a fallback for environments that don't support native rendering or HTML, Tiles can be displayed as images using SVG.
+
+## Supported interactions
+
+Tairu supports two types of interactions: inputs allowing users to type some text or choose from a list of options, and buttons allowing to perform actions.
 
 ### Inputs
 
+The protocol page describes the [input components](./protocol.mdx#input-components) supported by Tairu: the [options input](./protocol.mdx#options-input) and [text input](./protocol.mdx#text-input).
+
 ### Buttons
+
+Action buttons are the simplest type of interaction, allowing to perform a single action. They can be used to [submit the input value](./protocol.mdx#did-submitting), [sign a payload](./protocol.mdx#did-signing) or [open a URI](./protocol.mdx#uri-opening).
+
+## Tile handlers
+
+Handlers are defined using the [`@tairu/handler` package](./api/handler.md) to create endpoints for Tiles, handling actions and returning the Tile content to render.
+
+## Agents
+
+Agents are the clients that performa requests to [Tile handlers](#tile-handlers) to display [Tiles](#tiles) and handle [interactions](#interactions).
+
+Agents are responsible for managing the signing keys used to authenticate user interactions when posting actions to [Tile handlers](#tile-handlers). Tairu uses [Decentralized Identifiers (DIDs)](#dids) for authentication.
+
+When accessing a Tile URL directly, the Web browser acts as the agent and displays the Tile content and interaction elements.
+Applications can implement agent functionalities notably using the [`@tairu/react` package](./api/react.md) as a generic React agent, or the [`@tairu/react-dom` package](./api/react-dom.md) for Web applications.
+
+## DIDs
+
+Tairu uses the [W3C Decentralized Identifiers (DID) standard](https://www.w3.org/TR/did-core/) for authentication.
+
+DIDs provide a standalone identity that can be used to sign and verify data, using cryptographic keys. Tairu [agents](#agents) manage the signing keys associated with each DID, allowing users to authenticate their interactions.

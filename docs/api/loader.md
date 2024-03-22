@@ -20,7 +20,7 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **params**: [`LoaderParams`](loader.md#loaderparams)
+• **params**: [`LoaderParams`](loader.md#loaderparams)= `{}`
 
 ###### Returns
 
@@ -43,6 +43,20 @@ npm install @tairu/loader
 [`ActionSigner`](loader.md#actionsigner)
 
 #### Methods
+
+##### getRenderedTile()
+
+> **getRenderedTile**(`url`, `format`): `Promise`\<`string`\>
+
+###### Parameters
+
+• **url**: `string`
+
+• **format**: [`RenderFormat`](loader.md#renderformat)
+
+###### Returns
+
+`Promise`\<`string`\>
 
 ##### getTile()
 
@@ -687,6 +701,12 @@ npm install @tairu/loader
 ##### url
 
 > **url**: `string`
+
+***
+
+### RenderFormat
+
+> **RenderFormat**: `"html"` \| `"html-embed"` \| `"svg"`
 
 ## Functions
 

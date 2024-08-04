@@ -17,7 +17,7 @@ The `Tile` component is the top-level component that must be provided by all han
 | `title`       | `string`                                                                                                                  | HTML page title                  |
 | `description` | `string`                                                                                                                  | HTML page description (optional) |
 | `children`    | [`Box`](#box) \| [`Text`](#text) \| [`Image`](#image) \| `Array<`[`Box`](#box) \| [`Text`](#text) \| [`Image`](#image)`>` |
-| `style`       | [Box style object](#box-style)                                                                                            |
+| `style`       | [Box style object](#box-style)                                                                                            | optional
 
 ### Box
 
@@ -176,7 +176,7 @@ This action can be used to submit the value of an [input component](#input-compo
 
 | Key     | Type                  | Required? |
 | ------- | --------------------- | --------- |
-| `type`  | `"did.submit"`        | **Yes**   |
+| `type`  | `"did/submit"`        | **Yes**   |
 | `label` | `string`              | **Yes**   |
 | `state` | `Record<string, any>` | No        |
 
@@ -188,7 +188,7 @@ This action can be used to post server-defined data signed by the agent to the T
 
 | Key       | Type                  | Required? |
 | --------- | --------------------- | --------- |
-| `type`    | `"did.sign"`          | **Yes**   |
+| `type`    | `"did/sign"`          | **Yes**   |
 | `label`   | `string`              | **Yes**   |
 | `payload` | `Record<string, any>` | No        |
 | `state`   | `Record<string, any>` | No        |
@@ -201,6 +201,6 @@ This action can be used to open the specified URI in a Web browser or other appl
 
 | Key     | Type         | Required? |
 | ------- | ------------ | --------- |
-| `type`  | `"uri.open"` | **Yes**   |
+| `type`  | `"uri/open"` | **Yes**   |
 | `label` | `string`     | **Yes**   |
 | `uri`   | `string`     | **Yes**   |

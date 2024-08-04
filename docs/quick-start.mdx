@@ -1,0 +1,155 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Quick start
+
+## Installation
+
+### Prerequisites
+
+[Node.js](https://nodejs.org/en) v20 or higher and a package manager such as npm (included in Node.js) are required to install and use the Tairu framework.
+
+### Handler package
+
+First, let's install the [handler package](./api/handler/index.md) to create Tiles server-side.
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/handler
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/handler
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Your first Tile
+
+### Creating the handler
+
+Let's create a file named `handler.jsx` (or `handler.tsx` if you want to use TypeScript), with the following contents:
+
+```jsx title="handler.jsx" showLineNumbers
+import { handle } from '@tairu/handler'
+
+function myFirstTileHandler() {
+  return {
+    type: "Tile",
+    version: "0.1",
+    props: {
+      title: "Demo tile",
+      children: [
+        { type: "Text", props: { children: ["Hello Tairu!"] } }
+      ]
+    }
+  }
+}
+
+export default handle(myFirstTileHandler)
+```
+
+Here, the `myFirstTileHandler()` function at line 3 returns an object matching the [Tile protocol](./protocol.mdx#tile) and the default export of the module (line 16) wraps the handler function in the `handle()` call to run the Tairu server logic.
+
+### Running the server
+
+The simplest way to run a Tile server is to use the Tairu CLI:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npx tairu serve handler.jsx
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm dlx tairu serve handler.jsx
+    ```
+  
+  </TabItem>
+</Tabs>
+
+### Displaying the Tile
+
+The Tile can be displayed in any Web browser simply by accessing its URL, `http://localhost:3210` by default when using the Tairu CLI, try it out!
+
+The Tairu CLI can also be used to render simple (text) Tiles in a terminal, for example we can render our first Tile:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npx tairu open http://localhost:3210
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm dlx tairu open http://localhost:3210
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Improving the Tile
+
+### Using JSX
+
+Tairu uses React internally, so JSX can be used to define Tiles instead of JSON. Our `handler.jsx` file can be rewritten as:
+
+```jsx title="handler.jsx" {1,5-7} showLineNumbers
+import { Text, Tile, handle } from '@tairu/handler'
+
+function myFirstTileHandler() {
+  return (
+    <Tile title="Demo tile">
+      <Text>Hello Tairu!</Text>
+    </Tile>
+  )
+}
+
+export default handle(myFirstTileHandler)
+```
+
+Here, we import the `Text` and `Tile` components from the `@tairu/handler` package and use them to rewrite our Tile using JSX.
+
+:::warning
+
+Tairu is **not** a React framework, it only uses the JSX syntax for convenience. Only the components exported by the `@tairu/handler` package can be used in Tile handlers.
+
+:::
+
+### Adding interactions
+
+Let's add a text input to our Tile so that we can change the text with the input value:
+
+```jsx title="handler.jsx" {1,3,6,7,9} showLineNumbers
+import { SubmitAction, Text, TextInput, Tile, handle } from '@tairu/handler'
+
+function myFirstTileHandler(request) {
+  return (
+    <Tile
+      input={<TextInput label="What is your name?" />}
+      actions={<SubmitAction label="Send" />}
+      title="Demo tile">
+      <Text>Hello {request.action?.value ?? 'stranger'}!</Text>
+    </Tile>
+  )
+}
+
+export default handle(myFirstTileHandler)
+```
+
+Here, we add a `TextInput` element (line 6) to our `Tile` and a `SubmitAction` element (line 7) to submit the input value to the handler.
+
+Using the `request` argument provided to our handler (line 3), we can display the submitted action value or a fallback value (line 9).

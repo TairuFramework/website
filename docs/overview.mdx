@@ -5,42 +5,102 @@ import TabItem from '@theme/TabItem'
 
 Tairu is a framework for Tiles: server-defined user interfaces that are uniquely identified by their URLs and can be displayed and interacted with from many different clients.
 
-Tiles can be created using a few primitive components, using the [`@tairu/handler` package](./api/handler.md) and either writing the JSON structure directly or a JSX template abstraction:
+## Server-defined user interface
 
-<Tabs groupId="json-or-jsx">
-  <TabItem value="json" label="Using JSON" default>
+With server-defined Tiles, developers can easily create and update components to be displayed in multiple clients without having to update the clients themselves.
 
-    ```js
-    import { handle } from '@tairu/handler'
+Tiles structures and defined in JSON and describe the full contents and interactions that needs to be rendered by the client.
 
-    export default handle(() => {
-      return {
-        type: "Tile",
-        version: "0.1",
-        props: {
-          title: "Demo tile",
-          children: [
-            { type: "Text", props: { children: ["Hello Tairu!"] } }
-          ]
-        }
-      }
-    })
+Creating a Tile is as simple as defining a handler function, here using JSX as an alternative to using the JSON format:
+
+```jsx title="handler.jsx"
+import { Text, Tile, handle } from '@tairu/handler'
+
+export default handle(() => {
+  return (
+    <Tile title="Demo tile">
+      <Text>Hello Tairu!</Text>
+    </Tile>
+  )
+})
+```
+
+And then running a HTTP server using the Tairu CLI:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npx tairu serve handler.jsx
     ```
 
   </TabItem>
-  <TabItem value="jsx" label="Using JSX elements">
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm dlx tairu serve handler.jsx
+    ```
+  
+  </TabItem>
+</Tabs>
 
-    ```jsx
-    import { Tile, Text, handle } from '@tairu/handler'
+The Tile is then accessible at the URL `http://localhost:3210` by default.
 
-    export default handle(() => {
-      return (
-        <Tile title="Demo tile">
-          <Text>Hello Tairu!</Text>
-        </Tile>
-      )
-    })
+## Universally accessible
+
+A Tile handler is not only able to serve Tiles in their canonical JSON structure, but also to render interactive Tiles directly as HTML pages, or even as fallback (non-interactive) SVG images.
+
+For example, here are a few options to display the [Tile defined above](#server-defined-user-interface): 
+
+<Tabs groupId="client">
+  <TabItem value="cli" label="Tairu CLI" default>
+    
+    ```sh
+    npx tairu open http://localhost:3210
+    ```
+
+  </TabItem>
+  <TabItem value="browser" label="Web browser embed">
+  
+    ```html
+    <iframe src="http://localhost:3210"></iframe>
+    ```
+  
+  </TabItem>
+  <TabItem value="react" value="React embed">
+
+    Using the [`tairu/react-dom` package](./api/react-dom/index.md):
+
+    ```tsx
+    import { Tile } from '@tairu/react-dom'
+
+    function App() {
+      return <Tile url="http://localhost:3210" />
+    }
     ```
 
   </TabItem>
 </Tabs>
+
+## Authenticated interactions
+
+User actions are authenticated using cryptographic signatures, enabling trusted interactions from Tiles without the need for account creation.
+
+Tairu uses [DIDs](protocol.mdx#dids) as unique identifiers for users interacting with Tiles and JSON Web Tokens (JWTs) to authenticate these actions.
+
+The Tairu handler handles verification of the signed actions, provided directly to the handlers:
+
+```jsx title="handler.jsx"
+import { SubmitAction, Text, TextInput, Tile, handle } from '@tairu/handler'
+
+export default handle((request) => {
+  return (
+    <Tile
+      input={<TextInput label="What is your name?" />}
+      actions={<SubmitAction label="Send" />}
+      title="Demo tile">
+      <Text>Hello {request.action?.value ?? 'stranger'}!</Text>
+    </Tile>
+  )
+})
+```

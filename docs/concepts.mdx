@@ -26,7 +26,7 @@ Tiles can be rendered in different formats to adapt to platform capabilities and
 
 ### JSON
 
-JSON is the canonical format for Tiles, notably used by the [`@tairu/renderer` package](./api/renderer.md). It can be easily parsed and rendered by any client to provide a native user interface.
+JSON is the canonical format for Tiles, notably used by the [`@tairu/renderer` package](./api/renderer/index.md). It can be easily parsed and rendered by any client to provide a native user interface.
 
 ### HTML
 
@@ -58,7 +58,7 @@ Action buttons are the simplest type of interaction, allowing to perform a singl
 
 ## Tile handlers
 
-Handlers are defined using the [`@tairu/handler` package](./api/handler.md) to create endpoints for Tiles, handling actions and returning the Tile content to render.
+Handlers are defined using the [`@tairu/handler` package](./api/handler/index.md) to create endpoints for Tiles, handling actions and returning the Tile content to render.
 
 ## Agents
 
@@ -67,7 +67,7 @@ Agents are the clients that performa requests to [Tile handlers](#tile-handlers)
 Agents are responsible for managing the signing keys used to authenticate user interactions when posting actions to [Tile handlers](#tile-handlers). Tairu uses [Decentralized Identifiers (DIDs)](#dids) for authentication.
 
 When accessing a Tile URL directly, the Web browser acts as the agent and displays the Tile content and interaction elements.
-Applications can implement agent functionalities notably using the [`@tairu/react` package](./api/react.md) as a generic React agent, or the [`@tairu/react-dom` package](./api/react-dom.md) for Web applications.
+Applications can implement agent functionalities notably using the [`@tairu/react` package](./api/react/index.md) as a generic React agent, or the [`@tairu/react-dom` package](./api/react-dom/index.md) for Web applications.
 
 ## DIDs
 

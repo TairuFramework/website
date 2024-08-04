@@ -3,8 +3,8 @@ import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
-  title: 'Tairu',
-  tagline: 'Tiles framework',
+  title: 'Tairu: the Tiles framework',
+  tagline: 'Universal, interactive, server-defined user interfaces made easy',
   favicon: 'img/favicon.svg',
   url: 'https://tairu.dev',
   baseUrl: '/',
@@ -33,6 +33,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  plugins: ['@orama/plugin-docusaurus-v3'],
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {

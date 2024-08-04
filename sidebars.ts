@@ -3,7 +3,8 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
 const sidebars: SidebarsConfig = {
   docs: [
     { type: 'doc', id: 'overview', label: 'Overview' },
-    { type: 'doc', id: 'getting-started', label: 'Getting started' },
+    { type: 'doc', id: 'quick-start', label: 'Quick start' },
+    { type: 'doc', id: 'going-further', label: 'Going further' },
     {
       type: 'category',
       collapsible: false,
@@ -12,16 +13,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      collapsible: false,
       label: 'Tairu APIs',
       link: { type: 'generated-index', slug: '/api' },
       items: [
-        'api/handler',
-        'api/loader',
-        'api/renderer',
-        'api/react',
-        'api/react-dom',
-        'api/testing',
+        'api/handler/index',
+        'api/loader/index',
+        'api/renderer/index',
+        'api/react/index',
+        'api/react-dom/index',
+        'api/testing/index',
       ],
     },
   ],

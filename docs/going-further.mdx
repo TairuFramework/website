@@ -1,0 +1,927 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Going further
+
+:::warning
+
+If you have not read the [quick start guide](./quick-start.mdx) yet, please read it first.
+
+This guide assumes you are already familiar with the concepts presented in the quick start guide.
+
+:::
+
+## Project overview
+
+### What are we building?
+
+In this guide, we'll create a Tiles server that can be used to create simple polls (with up to 5 choices of answers) and display and interact with the polls.
+
+This guide uses TypeScript to make the types used explicit, but you can use plain JavaScript if you prefer.
+
+### Tairu concepts we will cover
+
+This guide will show how to use the following concepts:
+
+- Supporting multiple Tile handlers in a single server.
+- Using route parameters with Tile handlers.
+- Interacting with a database from Tile handlers.
+- Managing stateful interactions with Tiles.
+
+:::warning
+
+This guide is intentionally limited in scope and focuses only on presenting some features of the Tairu framework. It **does not** cover subjects such as input sanitization, error handling, access control or other generic application topics.
+
+:::
+
+## Setting up the project
+
+### Project creation
+
+Create a new folder for your project and initialize the `package.json` file, for example using your package manager:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm init -y
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm init
+    ```
+  
+  </TabItem>
+</Tabs>
+
+### Adding dependencies
+
+We'll add the following dependencies to our project:
+
+- `tairu`: the Tairu CLI, that we will use to start a local server.
+- `@tairu/handler`: the library that we will use to create our Tile handlers.
+- `@tairu/protocol`: protocol type definitions, only needed if you are using TypeScript.
+- `level`: a simple [key-value database](https://github.com/Level/level) we will use to store the polls.
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install tairu @tairu/handler @tairu/protocol level
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add tairu @tairu/handler @tairu/protocol level
+    ```
+  
+  </TabItem>
+</Tabs>
+
+### Database setup
+
+Let's create a `handler.tsx` (or `handler.jsx` if you are using JavaScript) file in our project folder and add the following code:
+
+```tsx title="handler.tsx" showLineNumbers
+import { Level } from 'level'
+
+// Questions have a title and a list of choices
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+// Answers are a mapping of DID to choice index
+type PollAnswers = Record<string, number> 
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+```
+
+Here, we define the types for a poll question (line 4) and answers (line 10) and create our Level databases to store them.
+
+The answers are stored as a mapping of the unique user [DID](./concepts.mdx#dids) that submitted the answer to the index of their choice.
+
+## Poll creation
+
+Now that we can store polls, we'll create a Tile handler to create them.
+
+### Setting the poll question
+
+We'll start by defining the Tile that gets rendered by default, when no action has been submitted yet. This Tile will prompt the user to create a poll by first defining the question:
+
+```tsx title="handler.tsx" {1-8,24-35} showLineNumbers
+import {
+  Box,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+} from '@tairu/handler'
+import { Level } from 'level'
+
+// Questions have a title and a list of choices
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+// Answers are a mapping of DID to choice index
+type PollAnswers = Record<string, number> 
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+
+const createPollHandler: TileHandler = async (request) => {
+  if (request.action == null) {
+    return (
+      <Tile
+        title="Create a new poll"
+        input={<TextInput label="Poll question" />}
+        actions={<SubmitAction label="Next" />}>
+        <Text>Create a new poll by first setting a question</Text>
+      </Tile>
+    )
+  }
+}
+```
+
+### Adding choices
+
+Once the question is defined, the action will be provided to the request and we can display another Tile, this time asking to add a first choice.
+
+Because we will need to display a Tile for each choice, we'll create the `displayPollChoice` helper function and use it in our `createPollHandler` function:
+
+```tsx title="handler.tsx" {24-50,64-84} showLineNumbers
+import {
+  Box,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+} from '@tairu/handler'
+import { Level } from 'level'
+
+// Questions have a title and a list of choices
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+// Answers are a mapping of DID to choice index
+type PollAnswers = Record<string, number> 
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+
+type CreatePollState = {
+  question: string
+  choices: Array<string>
+  save?: boolean
+}
+
+function displayPollChoice(state: CreatePollState) {
+  const choicesCount = state.choices.length
+  const saveAction = <SubmitAction key="save" label="Save poll" state={{ ...state, save: true }} />
+  const actions =
+    // Max number of choices, only action is to save the poll
+    choicesCount === 4 ? (
+      saveAction
+    ) : // At least 2 choices must be provided
+    choicesCount < 2 ? (
+      <SubmitAction label="Next" state={state} />
+    ) : (
+      // 2 options: add another choice or save the poll
+      [<SubmitAction key="next" label="Add another choice" state={state} />, saveAction]
+    )
+
+  return (
+    <Tile title="Create a new poll" input={<TextInput label="Choice value" />} actions={actions}>
+      <Text>Add choice number {choicesCount + 1} to the poll</Text>
+    </Tile>
+  )
+}
+
+const createPollHandler: TileHandler = async (request) => {
+  if (request.action == null) {
+    return (
+      <Tile
+        title="Create a new poll"
+        input={<TextInput label="Poll question" />}
+        actions={<SubmitAction label="Next" />}>
+        <Text>Create a new poll by first setting a question</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.type !== 'did/submit') {
+    return (
+      <Tile title="Poll error">
+        <Text>unsupported action</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.state == null) {
+    // If there is no state in the action, it's setting the question
+    return displayPollChoice({ question: request.action.value as string, choices: [] })
+  }
+
+  const state = request.action.state as CreatePollState
+  const newChoice = request.action.value as string
+  const choices = newChoice === '' ? state.choices : [...state.choices, newChoice]
+
+  if (!state.save || choices.length < 2) {
+    // Add another choice to the poll
+    return displayPollChoice({ ...state, choices })
+  }
+}
+```
+
+The `CreatePollState` defined line 24 represents the state of our poll creation. It is submitted along with the input value when using the submit action, so we can use it to keep track of the state of our poll during the creation process.
+
+In our `createPollHandler`, we add the following logic:
+
+1. Line 64, we check if the action has the expected type, or display an error message.
+1. Line 72, we check if the action has state. If it doesn't, it means the poll was just created with the question.
+1. Line 79, we update our list of choices, unless the submitted value is an empty string.
+1. Finally at line 81, we check if we should continue to display the form to add a choice.
+
+### Saving the poll
+
+Once all the choices have been added, we can save the poll to the database:
+
+```tsx title="handler.tsx" {3,87-97} showLineNumbers
+import {
+  Box,
+  OpenAction,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+} from '@tairu/handler'
+import { Level } from 'level'
+
+// Questions have a title and a list of choices
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+// Answers are a mapping of DID to choice index
+type PollAnswers = Record<string, number> 
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+
+type CreatePollState = {
+  question: string
+  choices: Array<string>
+  save?: boolean
+}
+
+function displayPollChoice(state: CreatePollState) {
+  const choicesCount = state.choices.length
+  const saveAction = <SubmitAction key="save" label="Save poll" state={{ ...state, save: true }} />
+  const actions =
+    // Max number of choices, only action is to save the poll
+    choicesCount === 4 ? (
+      saveAction
+    ) : // At least 2 choices must be provided
+    choicesCount < 2 ? (
+      <SubmitAction label="Next" state={state} />
+    ) : (
+      // 2 options: add another choice or save the poll
+      [<SubmitAction key="next" label="Add another choice" state={state} />, saveAction]
+    )
+
+  return (
+    <Tile title="Create a new poll" input={<TextInput label="Choice value" />} actions={actions}>
+      <Text>Add choice number {choicesCount + 1} to the poll</Text>
+    </Tile>
+  )
+}
+
+const createPollHandler: TileHandler = async (request) => {
+  if (request.action == null) {
+    return (
+      <Tile
+        title="Create a new poll"
+        input={<TextInput label="Poll question" />}
+        actions={<SubmitAction label="Next" />}>
+        <Text>Create a new poll by first setting a question</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.type !== 'did/submit') {
+    return (
+      <Tile title="Poll error">
+        <Text>unsupported action</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.state == null) {
+    // If there is no state in the action, it's setting the question
+    return displayPollChoice({ question: request.action.value as string, choices: [] })
+  }
+
+  const state = request.action.state as CreatePollState
+  const newChoice = request.action.value as string
+  const choices = newChoice === '' ? state.choices : [...state.choices, newChoice]
+
+  if (!state.save || choices.length < 2) {
+    // Add another choice to the poll
+    return displayPollChoice({ ...state, choices })
+  }
+
+  // Save the poll to the database
+  const id = crypto.randomUUID()
+  await questionsDB.put(id, { title: state.question, choices })
+
+  return (
+    <Tile
+      title="Poll created!"
+      actions={<OpenAction label="Open poll" uri={`${request.urlPrefix}/polls/${id}`} />}>
+      <Text>The poll was successfully created!</Text>
+    </Tile>
+  )
+}
+```
+
+In order for the user to open the newly created poll, we use an `OpenAction` element (line 94) with the URL of the poll. This URL uses the `urlPrefix` defined in the handler `request` argument and the ID of the newly created poll.
+
+### Serving the Tile handler
+
+Now that our poll creation handler is ready, we need to serve it using the `handle` function from the `@tairu/handler` package (line 9) and using it as default export to serve our `createPollHandler` (line 101):
+
+```tsx title="handler.tsx" {9,101} showLineNumbers
+import {
+  Box,
+  OpenAction,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+  handle,
+} from '@tairu/handler'
+import { Level } from 'level'
+
+// Questions have a title and a list of choices
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+// Answers are a mapping of DID to choice index
+type PollAnswers = Record<string, number> 
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+
+type CreatePollState = {
+  question: string
+  choices: Array<string>
+  save?: boolean
+}
+
+function displayPollChoice(state: CreatePollState) {
+  const choicesCount = state.choices.length
+  const saveAction = <SubmitAction key="save" label="Save poll" state={{ ...state, save: true }} />
+  const actions =
+    // Max number of choices, only action is to save the poll
+    choicesCount === 4 ? (
+      saveAction
+    ) : // At least 2 choices must be provided
+    choicesCount < 2 ? (
+      <SubmitAction label="Next" state={state} />
+    ) : (
+      // 2 options: add another choice or save the poll
+      [<SubmitAction key="next" label="Add another choice" state={state} />, saveAction]
+    )
+
+  return (
+    <Tile title="Create a new poll" input={<TextInput label="Choice value" />} actions={actions}>
+      <Text>Add choice number {choicesCount + 1} to the poll</Text>
+    </Tile>
+  )
+}
+
+const createPollHandler: TileHandler = async (request) => {
+  if (request.action == null) {
+    return (
+      <Tile
+        title="Create a new poll"
+        input={<TextInput label="Poll question" />}
+        actions={<SubmitAction label="Next" />}>
+        <Text>Create a new poll by first setting a question</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.type !== 'did/submit') {
+    return (
+      <Tile title="Poll error">
+        <Text>unsupported action</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.state == null) {
+    // If there is no state in the action, it's setting the question
+    return displayPollChoice({ question: request.action.value as string, choices: [] })
+  }
+
+  const state = request.action.state as CreatePollState
+  const newChoice = request.action.value as string
+  const choices = newChoice === '' ? state.choices : [...state.choices, newChoice]
+
+  if (!state.save || choices.length < 2) {
+    // Add another choice to the poll
+    return displayPollChoice({ ...state, choices })
+  }
+
+  // Save the poll to the database
+  const id = crypto.randomUUID()
+  await questionsDB.put(id, { title: state.question, choices })
+
+  return (
+    <Tile
+      title="Poll created!"
+      actions={<OpenAction label="Open poll" uri={`${request.urlPrefix}/polls/${id}`} />}>
+      <Text>The poll was successfully created!</Text>
+    </Tile>
+  )
+}
+
+export default handle(createPollHandler)
+```
+
+At this stage, our handler should be ready to be served using the Tairu CLI. However, before trying to create polls, let's add another handler to display the polls.
+
+## Poll display
+
+Similar to the poll creation handler, we will add another handler responsible for loading polls from the database, displaying the answers stored and handling submissions.
+
+### Loading from DB
+
+```tsx title="handler.tsx" showLineNumbers
+// Previous code omitted for brevity
+
+const displayPollHandler: TileHandler<{ id: string }> = async ({ action, pathParams }) => {
+  const pollID = pathParams.id
+  let pollQuestion: PollQuestion
+  let pollAnswers: PollAnswers
+
+  try {
+    pollQuestion = await questionsDB.get(pollID)
+  } catch {
+    return (
+      <Tile title="Poll not found">
+        <Text>Poll not found</Text>
+      </Tile>
+    )
+  }
+
+  try {
+    pollAnswers = await answersDB.get(pollID)
+  } catch {
+    pollAnswers = {}
+  }
+}
+
+export default handle({
+  '/': createPollHandler,
+  '/polls/:id': displayPollHandler,
+})
+```
+
+Let's start from the `handle` function at line 25: instead of providing a single handler, we provide an object mapping paths to handlers.
+Our poll creation will continue to be served at the root (`/` path), while our polls will be served at `/polls/:id` where `:id` is a parameter that will be provided to the handler.
+
+In our `displayPollHandler`, we can retrive the poll identifier using the `pathParams` object from the `request` argument at line 4. Using the identifier, we can retrieve the question (line 9) and answers (line 19) from our database.
+
+Because LevelDB throws errors for missing keys, we need to handle those cases with `try`/`catch`. In case of error when retrieving the question, we return a Tile displaying an error message, while we default to using an empty object for answers.
+
+### Displaying the poll
+
+Now that we have loaded our poll and answers from the database, we can display them in a Tile.
+
+```tsx title="handler.tsx" {3-4,6-8,16,20-23,46-75} showLineNumbers
+import {
+  Box,
+  type BoxElement,
+  type BoxProps,
+  OpenAction,
+  Option,
+  type OptionElement,
+  OptionsInput,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+  handle,
+} from '@tairu/handler'
+import type { BoxStyleV0 } from '@tairu/protocol'
+
+// Code omitted for brevity
+
+function Stack(props: BoxProps) {
+  const style: BoxStyleV0 = { ...(props.style ?? {}), flexDirection: 'column' }
+  return <Box {...props} style={style} />
+}
+
+const displayPollHandler: TileHandler<{ id: string }> = async ({ action, pathParams }) => {
+  const pollID = pathParams.id
+  let pollQuestion: PollQuestion
+  let pollAnswers: PollAnswers
+
+  try {
+    pollQuestion = await questionsDB.get(pollID)
+  } catch {
+    return (
+      <Tile title="Poll not found">
+        <Text>Poll not found</Text>
+      </Tile>
+    )
+  }
+
+  try {
+    pollAnswers = await answersDB.get(pollID)
+  } catch {
+    pollAnswers = {}
+  }
+
+  const answersCounts = new Array(pollQuestion.choices.length).fill(0)
+  for (const choice of Object.values(pollAnswers)) {
+    answersCounts[choice]++
+  }
+
+  const answersList: Array<BoxElement> = []
+  const choicesOptions: Array<OptionElement> = []
+  for (const [index, choice] of pollQuestion.choices.entries()) {
+    const key = index.toString()
+    answersList.push(
+      <Box key={key}>
+        <Text>
+          {choice}: {answersCounts[index]}
+        </Text>
+      </Box>,
+    )
+    choicesOptions.push(<Option key={key} label={choice} value={index} />)
+  }
+
+  return (
+    <Tile
+      title={pollQuestion.title}
+      input={<OptionsInput>{choicesOptions}</OptionsInput>}
+      actions={<SubmitAction label="Submit" />}>
+      <Stack>
+        <Text>{pollQuestion.title}</Text>
+        <Stack>{answersList}</Stack>
+      </Stack>
+    </Tile>
+  )
+}
+
+export default handle({
+  '/': createPollHandler,
+  '/polls/:id': displayPollHandler,
+})
+```
+
+Before going into the details of the answers list and options input, let's first look at a new component we're adding at line 20: `Stack`.
+
+Thought Tairu is not a React framework and does not support React functionalities such as hooks, it is possible to create custom components using Tairu's primitive components such as `Box`. Here, our `Stack` simply sets a default `style` to the component to display its children as column rather than a row.
+
+To display the answers, we iterate over the answers object to count the number of votes for each choice (line 47) and then iterate over the poll's choices to display create both the list of answers (line 55) and the list of options (line 62) that can be submitted.
+
+Finally, the `Tile` element we return uses the `OptionsInput` input to provide to options that can be submitted and displays the list of anwers.
+
+### Handling submissions
+
+The last step for our poll handler to be complete is to handle submissions:
+
+```tsx title="handler.tsx" {24-36} showLineNumbers
+// Previous code omitted for brevity
+
+const displayPollHandler: TileHandler<{ id: string }> = async ({ action, pathParams }) => {
+  const pollID = pathParams.id
+  let pollQuestion: PollQuestion
+  let pollAnswers: PollAnswers
+
+  try {
+    pollQuestion = await questionsDB.get(pollID)
+  } catch {
+    return (
+      <Tile title="Poll not found">
+        <Text>Poll not found</Text>
+      </Tile>
+    )
+  }
+
+  try {
+    pollAnswers = await answersDB.get(pollID)
+  } catch {
+    pollAnswers = {}
+  }
+
+  if (request.action?.type === 'did/submit') {
+    const did = request.action.did
+    const choice = (request.action.value as Array<number>)[0]
+    if (choice != null) {
+      // Save provided choice
+      pollAnswers[did] = choice
+      await answersDB.put(pollID, pollAnswers)
+    } else if (pollAnswers[did] != null) {
+      // No choice provided, remove existing one
+      delete pollAnswers[did]
+      await answersDB.put(pollID, pollAnswers)
+    }
+  }
+
+  const answersCounts = new Array(pollQuestion.choices.length).fill(0)
+  for (const choice of Object.values(pollAnswers)) {
+    answersCounts[choice]++
+  }
+
+  const answersList: Array<BoxElement> = []
+  const choicesOptions: Array<OptionElement> = []
+  for (const [index, choice] of pollQuestion.choices.entries()) {
+    const key = index.toString()
+    answersList.push(
+      <Box key={key}>
+        <Text>
+          {choice}: {answersCounts[index]}
+        </Text>
+      </Box>,
+    )
+    choicesOptions.push(<Option key={key} label={choice} value={index} />)
+  }
+
+  return (
+    <Tile
+      title={pollQuestion.title}
+      input={<OptionsInput>{choicesOptions}</OptionsInput>}
+      actions={<SubmitAction label="Submit" />}>
+      <Stack>
+        <Text>{pollQuestion.title}</Text>
+        <Stack>{answersList}</Stack>
+      </Stack>
+    </Tile>
+  )
+}
+
+export default handle({
+  '/': createPollHandler,
+  '/polls/:id': displayPollHandler,
+})
+```
+
+The action handling logic (line 24) happens before the display logic so the submitted choice can be taken into account when couting the answers. Here we simply check if a value is provided and must be saved (line 27) or when no value is submitted but a previous choice was saved, we remove it (line 31).
+
+By updating the `pollAnswers` object based on the submission before counting the choices (line 39), we can ensure the submission is taken into account.
+
+## Wrapping up
+
+### Running the server
+
+Let's update our `package.json` to add a `start` script using the Tairu CLI:
+
+```json title="package.json"
+{
+  "scripts": {
+    "start": "tairu serve ./handler.tsx"
+  }
+}
+```
+
+We can then use the package manager to start the server:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npx start
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm start
+    ```
+  
+  </TabItem>
+</Tabs>
+
+That's it! We can now open the poll creation Tile on `http://localhost:3210` to create polls, and interact with them at the dynamically generated poll URLs.
+
+### Full handler code
+
+Here is the full handler code from this guide, for reference:
+
+```tsx title="handler.tsx"
+import {
+  Box,
+  type BoxElement,
+  type BoxProps,
+  OpenAction,
+  Option,
+  type OptionElement,
+  OptionsInput,
+  SubmitAction,
+  Text,
+  TextInput,
+  Tile,
+  type TileHandler,
+  handle,
+} from '@tairu/handler'
+import type { BoxStyleV0 } from '@tairu/protocol'
+import { Level } from 'level'
+
+type PollQuestion = {
+  title: string
+  choices: Array<string>
+}
+
+type PollAnswers = Record<string, number> // DID to choice index
+
+const db = new Level('polls-db')
+const questionsDB = db.sublevel<string, PollQuestion>('questions', { valueEncoding: 'json' })
+const answersDB = db.sublevel<string, PollAnswers>('answers', { valueEncoding: 'json' })
+
+type CreatePollState = {
+  question: string
+  choices: Array<string>
+  save?: boolean
+}
+
+function displayPollChoice(state: CreatePollState) {
+  const choicesCount = state.choices.length
+  const saveAction = <SubmitAction key="save" label="Save poll" state={{ ...state, save: true }} />
+  const actions =
+    // Max number of choices, only action is to save the poll
+    choicesCount === 4 ? (
+      saveAction
+    ) : // At least 2 choices must be provided
+    choicesCount < 2 ? (
+      <SubmitAction label="Next" state={state} />
+    ) : (
+      // 2 options: add another choice or save the poll
+      [<SubmitAction key="next" label="Add another choice" state={state} />, saveAction]
+    )
+
+  return (
+    <Tile title="Create a new poll" input={<TextInput label="Choice value" />} actions={actions}>
+      <Text>Add choice number {choicesCount + 1} to the poll</Text>
+    </Tile>
+  )
+}
+
+const createPollHandler: TileHandler = async (request) => {
+  if (request.action == null) {
+    return (
+      <Tile
+        title="Create a new poll"
+        input={<TextInput label="Poll question" />}
+        actions={<SubmitAction label="Next" />}>
+        <Text>Create a new poll by first setting a question</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.type !== 'did/submit') {
+    return (
+      <Tile title="Poll error">
+        <Text>unsupported action</Text>
+      </Tile>
+    )
+  }
+
+  if (request.action.state == null) {
+    // If there is no state in the action, it's setting the question
+    return displayPollChoice({ question: request.action.value as string, choices: [] })
+  }
+
+  const state = request.action.state as CreatePollState
+  const newChoice = request.action.value as string
+  const choices = newChoice === '' ? state.choices : [...state.choices, newChoice]
+
+  if (!state.save || choices.length < 2) {
+    // Add another choice to the poll
+    return displayPollChoice({ ...state, choices })
+  }
+
+  // Save the poll to the database
+  const id = crypto.randomUUID()
+  await questionsDB.put(id, { title: state.question, choices })
+
+  return (
+    <Tile
+      title="Poll created!"
+      actions={<OpenAction label="Open poll" uri={`${request.urlPrefix}/polls/${id}`} />}>
+      <Text>The poll was successfully created!</Text>
+    </Tile>
+  )
+}
+
+function Stack(props: BoxProps) {
+  const style: BoxStyleV0 = { ...(props.style ?? {}), flexDirection: 'column' }
+  return <Box {...props} style={style} />
+}
+
+const displayPollHandler: TileHandler<{ id: string }> = async (request) => {
+  const pollID = request.pathParams.id
+  let pollQuestion: PollQuestion
+  let pollAnswers: PollAnswers
+
+  try {
+    pollQuestion = await questionsDB.get(pollID)
+  } catch {
+    return (
+      <Tile title="Poll not found">
+        <Text>Poll not found</Text>
+      </Tile>
+    )
+  }
+
+  try {
+    pollAnswers = await answersDB.get(pollID)
+  } catch {
+    pollAnswers = {}
+  }
+
+  if (request.action?.type === 'did/submit') {
+    const did = request.action.did
+    const choice = (request.action.value as Array<number>)[0]
+    if (choice != null) {
+      // Save provided choice
+      pollAnswers[did] = choice
+      await answersDB.put(pollID, pollAnswers)
+    } else if (pollAnswers[did] != null) {
+      // No choice provided, remove existing one
+      delete pollAnswers[did]
+      await answersDB.put(pollID, pollAnswers)
+    }
+  }
+
+  const answersCounts = new Array(pollQuestion.choices.length).fill(0)
+  for (const choice of Object.values(pollAnswers)) {
+    answersCounts[choice]++
+  }
+
+  const answersList: Array<BoxElement> = []
+  const choicesOptions: Array<OptionElement> = []
+  for (const [index, choice] of pollQuestion.choices.entries()) {
+    const key = index.toString()
+    answersList.push(
+      <Box key={key}>
+        <Text>
+          {choice}: {answersCounts[index]}
+        </Text>
+      </Box>,
+    )
+    choicesOptions.push(<Option key={key} label={choice} value={index} />)
+  }
+
+  return (
+    <Tile
+      title={pollQuestion.title}
+      input={<OptionsInput>{choicesOptions}</OptionsInput>}
+      actions={<SubmitAction label="Submit" />}>
+      <Stack>
+        <Text>{pollQuestion.title}</Text>
+        <Stack>{answersList}</Stack>
+      </Stack>
+    </Tile>
+  )
+}
+
+export default handle({
+  '/': createPollHandler,
+  '/polls/:id': displayPollHandler,
+})
+```
+
+### Next steps
+
+Congratulations for going through this guide! It hopefully gave you a good overview of how to start using Tairu to create Tile handlers.
+
+To dig deeper, make sure to go over the [core concepts](./concepts.mdx) and the [protocol](./protocol.mdx) to get a better understanding of the possibilities.

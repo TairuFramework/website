@@ -49,6 +49,12 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'api',
+          position: 'left',
+          label: 'API',
+        },
         { to: '/pricing', label: 'Pricing', position: 'left' },
         // { to: '/blog', label: 'Blog', position: 'left' },
       ],

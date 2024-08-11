@@ -1,4 +1,4 @@
-# react
+# @tairu/react
 
 React client for Tairu tiles.
 
@@ -30,6 +30,18 @@ npm install @tairu/react
 
 ***
 
+### LoadingProps
+
+> **LoadingProps**: `object`
+
+#### Type declaration
+
+##### renderer
+
+> **renderer**: [`ReactRenderer`](index.md#reactrenderer)
+
+***
+
 ### PostErrorProps
 
 > **PostErrorProps**: `object`
@@ -46,7 +58,7 @@ npm install @tairu/react
 
 ##### loadedTile
 
-> **loadedTile**: `TileV0`
+> **loadedTile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ***
 
@@ -62,13 +74,13 @@ npm install @tairu/react
 
 ##### loadedTile
 
-> **loadedTile**: `TileV0`
+> **loadedTile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ***
 
 ### ReactRenderer
 
-> **ReactRenderer**: `Renderer`\<`ReactNode`\>
+> **ReactRenderer**: [`Renderer`](../renderer/index.md#rendererelementtype)\<`ReactNode`\>
 
 ***
 
@@ -96,7 +108,7 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **props**: `LoadingProps`
+• **props**: [`LoadingProps`](index.md#loadingprops)
 
 ###### Returns
 
@@ -128,6 +140,34 @@ npm install @tairu/react
 
 ***
 
+### UseActionHandlerParams
+
+> **UseActionHandlerParams**: `object`
+
+#### Type declaration
+
+##### handleOpenURI()
+
+> **handleOpenURI**: (`uri`) => `void`
+
+###### Parameters
+
+• **uri**: `string`
+
+###### Returns
+
+`void`
+
+##### postAction
+
+> **postAction**: [`PostActionHandler`](../protocol/index.md#postactionhandler)
+
+##### signer
+
+> **signer**: `ActionSigner`
+
+***
+
 ### UseTile
 
 > **UseTile**: `object`
@@ -148,7 +188,7 @@ npm install @tairu/react
 
 ##### postAction
 
-> **postAction**: `PostActionHandler`
+> **postAction**: [`PostActionHandler`](../protocol/index.md#postactionhandler)
 
 ##### postError?
 
@@ -164,7 +204,7 @@ npm install @tairu/react
 
 ##### tile?
 
-> `optional` **tile**: `TileV0`
+> `optional` **tile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ***
 
@@ -204,7 +244,7 @@ npm install @tairu/react
 
 ##### tile?
 
-> `optional` **tile**: `TileV0`
+> `optional` **tile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ***
 
@@ -256,7 +296,7 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **tile**: `TileV0`
+• **tile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ###### Returns
 
@@ -268,7 +308,7 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **tile**: `TileV0`
+• **tile**: [`TileV0`](../protocol/index.md#tilev0)
 
 ###### Returns
 
@@ -327,6 +367,20 @@ npm install @tairu/react
 #### Returns
 
 `ReactNode`
+
+***
+
+### useActionHandler()
+
+> **useActionHandler**(`params`): [`ActionHandler`](../react-dom/react-dom/index.md#actionhandler)
+
+#### Parameters
+
+• **params**: [`UseActionHandlerParams`](index.md#useactionhandlerparams)
+
+#### Returns
+
+[`ActionHandler`](../react-dom/react-dom/index.md#actionhandler)
 
 ***
 

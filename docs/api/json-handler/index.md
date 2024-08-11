@@ -1,26 +1,28 @@
-# @tairu/handler
+# @tairu/json-handler
 
-Tairu handler, handling HTTP requests to serve tiles.
+Tairu JSON handler, handling HTTP requests to serve JSON tiles only.
 
 ## Installation
 
 ```sh
-npm install @tairu/handler
+npm install @tairu/json-handler
 ```
 
 ## Classes
 
-### Tairu
+### Tairu\<ResultType, Context\>
 
-#### Extends
+#### Type Parameters
 
-- `Tairu`\<[`ValidTileInput`](../jsx/index.md#validtileinput)\>
+• **ResultType** = [`Tile`](../protocol/index.md#tile)
+
+• **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
 
 #### Constructors
 
 ##### new Tairu()
 
-> **new Tairu**(`options`): [`Tairu`](index.md#tairu)
+> **new Tairu**\<`ResultType`, `Context`\>(`options`): [`Tairu`](index.md#tairuresulttype-context)\<`ResultType`, `Context`\>
 
 ###### Parameters
 
@@ -28,11 +30,7 @@ npm install @tairu/handler
 
 ###### Returns
 
-[`Tairu`](index.md#tairu)
-
-###### Overrides
-
-`BaseTairu<ValidTileInput>.constructor`
+[`Tairu`](index.md#tairuresulttype-context)\<`ResultType`, `Context`\>
 
 #### Accessors
 
@@ -43,10 +41,6 @@ npm install @tairu/handler
 ###### Returns
 
 `App`
-
-###### Inherited from
-
-`BaseTairu.app`
 
 ###### Defined in
 
@@ -60,10 +54,6 @@ npm install @tairu/handler
 
 [`TairuHandler`](index.md#tairuhandler)
 
-###### Inherited from
-
-`BaseTairu.handler`
-
 ###### Defined in
 
 ***
@@ -75,10 +65,6 @@ npm install @tairu/handler
 ###### Returns
 
 [`NodeListener`](index.md#nodelistener-1)
-
-###### Inherited from
-
-`BaseTairu.nodeListener`
 
 ###### Defined in
 
@@ -92,10 +78,6 @@ npm install @tairu/handler
 
 `PlainHandler`
 
-###### Inherited from
-
-`BaseTairu.plainHandler`
-
 ###### Defined in
 
 ***
@@ -108,10 +90,6 @@ npm install @tairu/handler
 
 `string`
 
-###### Inherited from
-
-`BaseTairu.urlPrefix`
-
 ###### Defined in
 
 #### Methods
@@ -122,49 +100,41 @@ npm install @tairu/handler
 
 ###### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 ###### Parameters
 
 • **path**: `string`
 
-• **handler**: `TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
+• **handler**: [`TileHandler`](index.md#tilehandlerpathparams-searchparams-resulttype-context)\<`PathParams`, `SearchParams`, `ResultType`, `Context`\>
 
 ###### Returns
 
 `void`
 
-###### Inherited from
-
-`BaseTairu.addHandler`
-
 ***
 
 ##### executeHandler()
 
-> **executeHandler**\<`PathParams`, `SearchParams`\>(`handler`, `event`): `Promise`\<[`ValidTileInput`](../jsx/index.md#validtileinput)\>
+> **executeHandler**\<`PathParams`, `SearchParams`\>(`handler`, `event`): `Promise`\<`ResultType`\>
 
 ###### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 ###### Parameters
 
-• **handler**: `TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
+• **handler**: [`TileHandler`](index.md#tilehandlerpathparams-searchparams-resulttype-context)\<`PathParams`, `SearchParams`, `ResultType`, `Context`\>
 
-• **event**: `TairuEvent`
+• **event**: [`TairuEvent`](index.md#tairuevent)
 
 ###### Returns
 
-`Promise`\<[`ValidTileInput`](../jsx/index.md#validtileinput)\>
-
-###### Inherited from
-
-`BaseTairu.executeHandler`
+`Promise`\<`ResultType`\>
 
 ***
 
@@ -174,7 +144,7 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **result**: [`ValidTileInput`](../jsx/index.md#validtileinput)
+• **result**: `ResultType`
 
 ###### Returns
 
@@ -218,7 +188,7 @@ npm install @tairu/handler
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
+> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
 
 ###### props.style.backgroundColor?
 
@@ -464,19 +434,15 @@ npm install @tairu/handler
 
 > `readonly` **version**: `"0.1"`
 
-###### Overrides
-
-`BaseTairu.parseHandlerResult`
-
 ***
 
 ##### render()
 
-> **render**(`event`, `tile`): `Promise`\<`Response`\>
+> **render**(`event`, `tile`): `Response` \| `Promise`\<`Response`\>
 
 ###### Parameters
 
-• **event**: `TairuEvent`
+• **event**: [`TairuEvent`](index.md#tairuevent)
 
 • **tile**
 
@@ -498,7 +464,7 @@ npm install @tairu/handler
 
 • **tile.props.style.alignSelf?**: `"flex-start"` \| `"center"` \| `"flex-end"` \| `"auto"`
 
-• **tile.props.style.backgroundClip?**: `"border-box"` \| `"text"`
+• **tile.props.style.backgroundClip?**: `"text"` \| `"border-box"`
 
 • **tile.props.style.backgroundColor?**: `string`
 
@@ -624,75 +590,9 @@ npm install @tairu/handler
 
 ###### Returns
 
-`Promise`\<`Response`\>
-
-###### Overrides
-
-`BaseTairu.render`
+`Response` \| `Promise`\<`Response`\>
 
 ## Type Aliases
-
-### AnyTileHandler\<Context\>
-
-> **AnyTileHandler**\<`Context`\>: [`TileHandler`](index.md#tilehandlerpathparams-searchparams-context)\<`any`, `any`, `Context`\>
-
-#### Type Parameters
-
-• **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
-
-***
-
-### BoxElement
-
-> **BoxElement**: `ReactElement`\<[`BoxProps`](index.md#boxprops), *typeof* [`Box`](index.md#box)\>
-
-***
-
-### BoxProps
-
-> **BoxProps**: `object`
-
-#### Type declaration
-
-##### children?
-
-> `optional` **children**: `ReactNode` \| [`BoxV0`](../protocol/index.md#boxv0) \| [`TextV0`](../protocol/index.md#textv0) \| ([`BoxV0`](../protocol/index.md#boxv0) \| [`TextV0`](../protocol/index.md#textv0))[]
-
-##### style?
-
-> `optional` **style**: [`BoxStyleV0`](../protocol/index.md#boxstylev0)
-
-***
-
-### ImageElement
-
-> **ImageElement**: `ReactElement`\<[`ImageProps`](index.md#imageprops), *typeof* [`Image`](index.md#image)\>
-
-***
-
-### ImageProps
-
-> **ImageProps**: `object`
-
-#### Type declaration
-
-##### alt
-
-> **alt**: `string`
-
-##### height
-
-> **height**: `number`
-
-##### src
-
-> **src**: `string`
-
-##### width
-
-> **width**: `number`
-
-***
 
 ### NodeListener()
 
@@ -710,107 +610,15 @@ npm install @tairu/handler
 
 ***
 
-### OpenActionElement
+### ParamsRecord
 
-> **OpenActionElement**: `ReactElement`\<[`OpenActionProps`](index.md#openactionprops), *typeof* [`OpenAction`](index.md#openaction)\>
-
-***
-
-### OpenActionProps
-
-> **OpenActionProps**: `object`
-
-#### Type declaration
-
-##### label
-
-> **label**: `string`
-
-##### uri
-
-> **uri**: `string`
+> **ParamsRecord**: `Record`\<`string`, `string`\>
 
 ***
 
-### OptionElement
+### TairuEvent
 
-> **OptionElement**: `ReactElement`\<[`OptionProps`](index.md#optionprops), *typeof* [`Option`](index.md#option)\>
-
-***
-
-### OptionProps
-
-> **OptionProps**: [`InputOptionV0`](../protocol/index.md#inputoptionv0)
-
-***
-
-### OptionsInputElement
-
-> **OptionsInputElement**: `ReactElement`\<[`OptionsInputProps`](index.md#optionsinputprops), *typeof* [`OptionsInput`](index.md#optionsinput)\>
-
-***
-
-### OptionsInputProps
-
-> **OptionsInputProps**: `object`
-
-#### Type declaration
-
-##### children
-
-> **children**: [`OptionElement`](index.md#optionelement) \| [`OptionElement`](index.md#optionelement)[]
-
-##### multiple?
-
-> `optional` **multiple**: `boolean`
-
-***
-
-### SignActionElement
-
-> **SignActionElement**: `ReactElement`\<[`SignActionProps`](index.md#signactionprops), *typeof* [`SignAction`](index.md#signaction)\>
-
-***
-
-### SignActionProps
-
-> **SignActionProps**: `object`
-
-#### Type declaration
-
-##### label
-
-> **label**: `string`
-
-##### payload?
-
-> `optional` **payload**: `Record`\<`string`, `unknown`\>
-
-##### state?
-
-> `optional` **state**: `Record`\<`string`, `unknown`\>
-
-***
-
-### SubmitActionElement
-
-> **SubmitActionElement**: `ReactElement`\<[`SubmitActionProps`](index.md#submitactionprops), *typeof* [`SubmitAction`](index.md#submitaction)\>
-
-***
-
-### SubmitActionProps
-
-> **SubmitActionProps**: `object`
-
-#### Type declaration
-
-##### label
-
-> **label**: `string`
-
-##### state?
-
-> `optional` **state**: `Record`\<`string`, `unknown`\>
+> **TairuEvent**: `H3Event`
 
 ***
 
@@ -826,111 +634,39 @@ npm install @tairu/handler
 
 #### Type declaration
 
-##### runtimeScriptURL?
-
-> `optional` **runtimeScriptURL**: `string`
-
 ##### urlPrefix?
 
 > `optional` **urlPrefix**: `string`
 
 ***
 
-### TextElement
+### TileHandler()\<PathParams, SearchParams, ResultType, Context\>
 
-> **TextElement**: `ReactElement`\<[`TextProps`](index.md#textprops), *typeof* [`Text`](index.md#text)\>
-
-***
-
-### TextInputElement
-
-> **TextInputElement**: `ReactElement`\<[`TextInputProps`](index.md#textinputprops), *typeof* [`TextInput`](index.md#textinput)\>
-
-***
-
-### TextInputProps
-
-> **TextInputProps**: `object`
-
-#### Type declaration
-
-##### defaultValue?
-
-> `optional` **defaultValue**: `string`
-
-##### label
-
-> **label**: `string`
-
-##### placeholder?
-
-> `optional` **placeholder**: `string`
-
-##### secure?
-
-> `optional` **secure**: `boolean`
-
-***
-
-### TextProps
-
-> **TextProps**: `object`
-
-#### Type declaration
-
-##### children
-
-> **children**: `ReactNode` \| [`TextV0`](../protocol/index.md#textv0) \| [`TextV0`](../protocol/index.md#textv0)[]
-
-##### style?
-
-> `optional` **style**: [`TextStyleV0`](../protocol/index.md#textstylev0)
-
-***
-
-### TileElement
-
-> **TileElement**: `ReactElement`\<[`TileProps`](index.md#tileprops), *typeof* [`Tile`](index.md#tile)\>
-
-***
-
-### TileHandler\<PathParams, SearchParams, Context\>
-
-> **TileHandler**\<`PathParams`, `SearchParams`, `Context`\>: `BaseTileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `Context`\>
+> **TileHandler**\<`PathParams`, `SearchParams`, `ResultType`, `Context`\>: (`request`) => `ResultType` \| `Promise`\<`ResultType`\>
 
 #### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
-
-***
-
-### TileHandlers\<Context\>
-
-> **TileHandlers**\<`Context`\>: [`AnyTileHandler`](index.md#anytilehandlercontext)\<`Context`\> \| `Record`\<`string`, [`AnyTileHandler`](index.md#anytilehandlercontext)\<`Context`\>\>
-
-#### Type Parameters
+• **ResultType** = [`Tile`](../protocol/index.md#tile)
 
 • **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
 
+#### Parameters
+
+• **request**: [`TileRequest`](index.md#tilerequestpathparams-searchparams-context)\<`PathParams`, `SearchParams`, `Context`\>
+
+#### Returns
+
+`ResultType` \| `Promise`\<`ResultType`\>
+
 ***
 
-### TileProps
+### TileHandlers
 
-> **TileProps**: [`BoxProps`](index.md#boxprops) & [`TileMetaV0`](../protocol/index.md#tilemetav0) & `object`
-
-#### Type declaration
-
-##### actions?
-
-> `optional` **actions**: [`TileActionsProp`](../jsx/index.md#tileactionsprop)
-
-##### input?
-
-> `optional` **input**: [`TileInputProp`](../jsx/index.md#tileinputprop)
+> **TileHandlers**: [`TileHandler`](index.md#tilehandlerpathparams-searchparams-resulttype-context)\<`any`, `any`\> \| `Record`\<`string`, [`TileHandler`](index.md#tilehandlerpathparams-searchparams-resulttype-context)\<`any`, `any`\>\>
 
 ***
 
@@ -940,9 +676,9 @@ npm install @tairu/handler
 
 #### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 • **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
 
@@ -950,7 +686,7 @@ npm install @tairu/handler
 
 ##### action
 
-> **action**: `VerifiedAction` \| `null`
+> **action**: [`VerifiedAction`](index.md#verifiedactionaction) \| `null`
 
 ##### context
 
@@ -974,159 +710,35 @@ npm install @tairu/handler
 
 > **TileRequestContext**: `H3EventContext`
 
+***
+
+### VerifiedAction\<Action\>
+
+> **VerifiedAction**\<`Action`\>: `Action` & `object`
+
+#### Type declaration
+
+##### did
+
+> **did**: `string`
+
+#### Type Parameters
+
+• **Action** *extends* [`PostActionV0`](../protocol/index.md#postactionv0) = [`PostActionV0`](../protocol/index.md#postactionv0)
+
+## Variables
+
+### JSON\_MIME\_TYPE
+
+> `const` **JSON\_MIME\_TYPE**: `"application/json"` = `'application/json'`
+
+***
+
+### URL\_PREFIX
+
+> `const` **URL\_PREFIX**: `string`
+
 ## Functions
-
-### Box()
-
-> **Box**(`props`): `ReactElement`\<[`BoxProps`](index.md#boxprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`BoxProps`](index.md#boxprops)
-
-#### Returns
-
-`ReactElement`\<[`BoxProps`](index.md#boxprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### Image()
-
-> **Image**(`props`): `ReactElement`\<[`ImageProps`](index.md#imageprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`ImageProps`](index.md#imageprops)
-
-#### Returns
-
-`ReactElement`\<[`ImageProps`](index.md#imageprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### OpenAction()
-
-> **OpenAction**(`props`): `ReactElement`\<[`OpenActionProps`](index.md#openactionprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`OpenActionProps`](index.md#openactionprops)
-
-#### Returns
-
-`ReactElement`\<[`OpenActionProps`](index.md#openactionprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### Option()
-
-> **Option**(`props`): `ReactElement`\<`object`, `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**
-
-• **props.label**: `string`
-
-• **props.value**: `string` \| `number` \| `boolean`
-
-#### Returns
-
-`ReactElement`\<`object`, `string` \| `JSXElementConstructor`\>
-
-##### label
-
-> **label**: `string`
-
-##### value
-
-> **value**: `string` \| `number` \| `boolean`
-
-***
-
-### OptionsInput()
-
-> **OptionsInput**(`props`): `DOMElement`
-
-#### Parameters
-
-• **props**: [`OptionsInputProps`](index.md#optionsinputprops)
-
-#### Returns
-
-`DOMElement`
-
-***
-
-### SignAction()
-
-> **SignAction**(`props`): `ReactElement`\<[`SignActionProps`](index.md#signactionprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`SignActionProps`](index.md#signactionprops)
-
-#### Returns
-
-`ReactElement`\<[`SignActionProps`](index.md#signactionprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### SubmitAction()
-
-> **SubmitAction**(`props`): `ReactElement`\<[`SubmitActionProps`](index.md#submitactionprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`SubmitActionProps`](index.md#submitactionprops)
-
-#### Returns
-
-`ReactElement`\<[`SubmitActionProps`](index.md#submitactionprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### Text()
-
-> **Text**(`props`): `ReactElement`\<[`TextProps`](index.md#textprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`TextProps`](index.md#textprops)
-
-#### Returns
-
-`ReactElement`\<[`TextProps`](index.md#textprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### TextInput()
-
-> **TextInput**(`props`): `ReactElement`\<[`TextInputProps`](index.md#textinputprops), `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`TextInputProps`](index.md#textinputprops)
-
-#### Returns
-
-`ReactElement`\<[`TextInputProps`](index.md#textinputprops), `string` \| `JSXElementConstructor`\>
-
-***
-
-### Tile()
-
-> **Tile**(`props`): `ReactElement`\<[`BoxProps`](index.md#boxprops) & `object` & `object`, `string` \| `JSXElementConstructor`\>
-
-#### Parameters
-
-• **props**: [`TileProps`](index.md#tileprops)
-
-#### Returns
-
-`ReactElement`\<[`BoxProps`](index.md#boxprops) & `object` & `object`, `string` \| `JSXElementConstructor`\>
-
-***
 
 ### handle()
 
@@ -1134,7 +746,7 @@ npm install @tairu/handler
 
 #### Type Parameters
 
-• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`H3EventContext`\>
+• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlers)
 
 #### Parameters
 
@@ -1148,13 +760,27 @@ npm install @tairu/handler
 
 ***
 
+### parseAction()
+
+> **parseAction**(`event`): `Promise`\<[`VerifiedAction`](index.md#verifiedactionaction) \| `null`\>
+
+#### Parameters
+
+• **event**: [`TairuEvent`](index.md#tairuevent)
+
+#### Returns
+
+`Promise`\<[`VerifiedAction`](index.md#verifiedactionaction) \| `null`\>
+
+***
+
 ### tairu()
 
-> **tairu**\<`Handlers`\>(`handlers`, `options`?): [`Tairu`](index.md#tairu)
+> **tairu**\<`Handlers`\>(`handlers`, `options`?): [`Tairu`](index.md#tairuresulttype-context)
 
 #### Type Parameters
 
-• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`H3EventContext`\>
+• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlers)
 
 #### Parameters
 
@@ -1164,4 +790,4 @@ npm install @tairu/handler
 
 #### Returns
 
-[`Tairu`](index.md#tairu)
+[`Tairu`](index.md#tairuresulttype-context)

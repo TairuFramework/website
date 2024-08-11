@@ -1,0 +1,69 @@
+# Tairu packages
+
+## Tiles handling
+
+The following packages provide APIs to create Tile handlers, that can be served over HTTP using the [Tairu CLI](./cli.mdx) or a Node.js HTTP server.
+
+### [`@tairu/handler`](./api/handler/index.md)
+
+This is the main package to use when getting started with Tairu. It enables to create handlers serving JSON Tiles, but also rendering as HTML and SVG.
+
+### [`@tairu/json-handler`](./api/json-handler/index.md)
+
+APIs to create handlers for JSON Tiles only. The [`@tairu/handler` package](./api/handler/index.md) should be used instead for rendering HTML and SVG.
+
+## Tiles rendering
+
+The following packages provide APIs to load, display and interact with Tiles on clients.
+
+### [`@tairu/web-client`](./api/web-client/index.md)
+
+Main client for supporting Tiles in DOM environments, allowing to add interactions to prerendered Tiles or fully loading and rending Tiles by URL.
+
+### [`@tairu/jquery`](./api/jquery/index.md)
+
+[jQuery](https://jquery.com/) plugin for interacting with Tiles.
+
+### [`@tairu/react-dom`](./api/react-dom/react-dom/index.md)
+
+High-level logic for supporting Tiles in clients using [React](https://react.dev/) for DOM environments. The [`@tairu/react-dom/server`](./api/react-dom/react-dom/server/index.md) export can also be used to support [React Server Components](https://react.dev/reference/rsc/server-components).
+
+### [`@tairu/react-native`](./api/react-native/index.md)
+
+High-level logic for supporting Tiles in clients using [React Native](https://reactnative.dev/).
+
+## Integrations
+
+### [`@tairu/next`](./api/next/next/index.md)
+
+High-level integration for the [Next.js React framework](https://nextjs.org/). This package exports a `Tile` component that can be used to simply integrate Tiles in a Next.js application, supporting [Server Components rendering](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
+
+The [`@tairu/next/server`](./api/next/next/server/index.md) export can also be used to create Tile handlers as [Next.js Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers).
+
+## Utilities
+
+These are low-level packages mainly used to provide common logic for the higher-level packages supporting [Tiles handling](#tiles-handling) and [rendering](#tiles-rendering).
+
+### [`@tairu/protocol`](./api/protocol/index.md)
+
+The schemas and types implementing the [Tairu protocol](./protocol.mdx).
+
+### [`@tairu/loader`](./api/loader/index.md)
+
+APIs to interact with [Tile handlers](#tiles-handling) by loading Tiles and [posting actions](./protocol.mdx#action-buttons).
+
+### [`@tairu/renderer`](./api/renderer/index.md)
+
+This package provides the base class that needs to be extended to implement platform-specific rendering logic. In most cases, the [high-level Tiles rendering packages](#tiles-rendering) should be used instead of this package.
+
+### [`@tairu/testing`](./api/testing/index.md)
+
+This package provides a `TestAgent` class that can be used to interact with Tile handlers in tests with minimal setup.
+
+### [`@tairu/jsx`](./api/jsx/index.md)
+
+Utilities to convert JSX elements to the JSON Tile structure, allowing to use the JSX syntax as an abstraction in [Tile handlers](#tiles-handling).
+ 
+### [`@tairu/react`](./api/react/index.md)
+
+Generic rendering logic for React, used by the [`@tairu/react-dom`](./api/react-dom/react-dom/index.md) and [`@tairu/react-native`](./api/react-native/index.md) packages.

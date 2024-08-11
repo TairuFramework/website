@@ -1,4 +1,4 @@
-# react-native
+# @tairu/react-native
 
 React Native client for Tairu tiles.
 
@@ -14,7 +14,7 @@ npm install @tairu/react-native
 
 #### Extends
 
-- `Renderer`\<`ReactNode`\>
+- [`Renderer`](../renderer/index.md#rendererelementtype)\<`ReactNode`\>
 
 #### Constructors
 
@@ -28,147 +28,147 @@ npm install @tairu/react-native
 
 ###### Inherited from
 
-`Renderer<ReactNode>.constructor`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`constructor`](../renderer/index.md#constructors)
 
 #### Methods
 
 ##### createBox()
 
-> **createBox**(`__namedParameters`, `children`): `Element`
+> **createBox**(`props`, `children`): `Element`
 
 ###### Parameters
 
-• **\_\_namedParameters**
+• **props**
 
-• **\_\_namedParameters.children?**: `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\> \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\>[]
+• **props.children?**: `object` & `object` \| `object` & `object`[]
 
-• **\_\_namedParameters.key?**: `string`
+• **props.key?**: `string`
 
-• **\_\_namedParameters.style?**
+• **props.style?**
 
-• **\_\_namedParameters.style.alignItems?**: `"flex-start"` \| `"center"` \| `"flex-end"`
+• **props.style.alignItems?**: `"center"` \| `"flex-start"` \| `"flex-end"`
 
-• **\_\_namedParameters.style.alignSelf?**: `"flex-start"` \| `"center"` \| `"flex-end"` \| `"auto"`
+• **props.style.alignSelf?**: `"auto"` \| `"center"` \| `"flex-start"` \| `"flex-end"`
 
-• **\_\_namedParameters.style.backgroundClip?**: `"text"` \| `"border-box"`
+• **props.style.backgroundClip?**: `"text"` \| `"border-box"`
 
-• **\_\_namedParameters.style.backgroundColor?**: `string`
+• **props.style.backgroundColor?**: `string`
 
-• **\_\_namedParameters.style.backgroundImage?**: `string`
+• **props.style.backgroundImage?**: `string`
 
-• **\_\_namedParameters.style.backgroundPosition?**: `string`
+• **props.style.backgroundPosition?**: `string`
 
-• **\_\_namedParameters.style.backgroundRepeat?**: `"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
+• **props.style.backgroundRepeat?**: `"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
 
-• **\_\_namedParameters.style.backgroundSize?**: `string`
+• **props.style.backgroundSize?**: `string`
 
-• **\_\_namedParameters.style.borderBottomColor?**: `string`
+• **props.style.borderBottomColor?**: `string`
 
-• **\_\_namedParameters.style.borderBottomLeftRadius?**: `number`
+• **props.style.borderBottomLeftRadius?**: `number`
 
-• **\_\_namedParameters.style.borderBottomRightRadius?**: `number`
+• **props.style.borderBottomRightRadius?**: `number`
 
-• **\_\_namedParameters.style.borderBottomStyle?**: `"solid"` \| `"dashed"`
+• **props.style.borderBottomStyle?**: `"solid"` \| `"dashed"`
 
-• **\_\_namedParameters.style.borderBottomWidth?**: `number`
+• **props.style.borderBottomWidth?**: `number`
 
-• **\_\_namedParameters.style.borderColor?**: `string`
+• **props.style.borderColor?**: `string`
 
-• **\_\_namedParameters.style.borderLeftColor?**: `string`
+• **props.style.borderLeftColor?**: `string`
 
-• **\_\_namedParameters.style.borderLeftStyle?**: `"solid"` \| `"dashed"`
+• **props.style.borderLeftStyle?**: `"solid"` \| `"dashed"`
 
-• **\_\_namedParameters.style.borderLeftWidth?**: `number`
+• **props.style.borderLeftWidth?**: `number`
 
-• **\_\_namedParameters.style.borderRadius?**: `number`
+• **props.style.borderRadius?**: `number`
 
-• **\_\_namedParameters.style.borderRightColor?**: `string`
+• **props.style.borderRightColor?**: `string`
 
-• **\_\_namedParameters.style.borderRightStyle?**: `"solid"` \| `"dashed"`
+• **props.style.borderRightStyle?**: `"solid"` \| `"dashed"`
 
-• **\_\_namedParameters.style.borderRightWidth?**: `number`
+• **props.style.borderRightWidth?**: `number`
 
-• **\_\_namedParameters.style.borderStyle?**: `"solid"` \| `"dashed"`
+• **props.style.borderStyle?**: `"solid"` \| `"dashed"`
 
-• **\_\_namedParameters.style.borderTopColor?**: `string`
+• **props.style.borderTopColor?**: `string`
 
-• **\_\_namedParameters.style.borderTopLeftRadius?**: `number`
+• **props.style.borderTopLeftRadius?**: `number`
 
-• **\_\_namedParameters.style.borderTopRightRadius?**: `number`
+• **props.style.borderTopRightRadius?**: `number`
 
-• **\_\_namedParameters.style.borderTopStyle?**: `"solid"` \| `"dashed"`
+• **props.style.borderTopStyle?**: `"solid"` \| `"dashed"`
 
-• **\_\_namedParameters.style.borderTopWidth?**: `number`
+• **props.style.borderTopWidth?**: `number`
 
-• **\_\_namedParameters.style.borderWidth?**: `number`
+• **props.style.borderWidth?**: `number`
 
-• **\_\_namedParameters.style.bottom?**: `number`
+• **props.style.bottom?**: `number`
 
-• **\_\_namedParameters.style.boxShadow?**: `string`
+• **props.style.boxShadow?**: `string`
 
-• **\_\_namedParameters.style.display?**: `"flex"` \| `"none"`
+• **props.style.display?**: `"none"` \| `"flex"`
 
-• **\_\_namedParameters.style.flexBasis?**: `number`
+• **props.style.flexBasis?**: `number`
 
-• **\_\_namedParameters.style.flexDirection?**: `"row"` \| `"row-reverse"` \| `"column"` \| `"column-reverse"`
+• **props.style.flexDirection?**: `"row"` \| `"column"` \| `"row-reverse"` \| `"column-reverse"`
 
-• **\_\_namedParameters.style.flexGrow?**: `number`
+• **props.style.flexGrow?**: `number`
 
-• **\_\_namedParameters.style.flexShrink?**: `number`
+• **props.style.flexShrink?**: `number`
 
-• **\_\_namedParameters.style.flexWrap?**: `"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
+• **props.style.flexWrap?**: `"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
 
-• **\_\_namedParameters.style.gap?**: `number`
+• **props.style.gap?**: `number`
 
-• **\_\_namedParameters.style.height?**: `number`
+• **props.style.height?**: `number`
 
-• **\_\_namedParameters.style.justifyContent?**: `"flex-start"` \| `"center"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
+• **props.style.justifyContent?**: `"center"` \| `"flex-start"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
 
-• **\_\_namedParameters.style.left?**: `number`
+• **props.style.left?**: `number`
 
-• **\_\_namedParameters.style.margin?**: `number`
+• **props.style.margin?**: `number`
 
-• **\_\_namedParameters.style.marginBottom?**: `number`
+• **props.style.marginBottom?**: `number`
 
-• **\_\_namedParameters.style.marginLeft?**: `number`
+• **props.style.marginLeft?**: `number`
 
-• **\_\_namedParameters.style.marginRight?**: `number`
+• **props.style.marginRight?**: `number`
 
-• **\_\_namedParameters.style.marginTop?**: `number`
+• **props.style.marginTop?**: `number`
 
-• **\_\_namedParameters.style.maxHeight?**: `number`
+• **props.style.maxHeight?**: `number`
 
-• **\_\_namedParameters.style.maxWidth?**: `number`
+• **props.style.maxWidth?**: `number`
 
-• **\_\_namedParameters.style.minHeight?**: `number`
+• **props.style.minHeight?**: `number`
 
-• **\_\_namedParameters.style.minWidth?**: `number`
+• **props.style.minWidth?**: `number`
 
-• **\_\_namedParameters.style.objectFit?**: `"none"` \| `"contain"` \| `"cover"`
+• **props.style.objectFit?**: `"none"` \| `"contain"` \| `"cover"`
 
-• **\_\_namedParameters.style.opacity?**: `number`
+• **props.style.opacity?**: `number`
 
-• **\_\_namedParameters.style.overflow?**: `"visible"` \| `"hidden"`
+• **props.style.overflow?**: `"visible"` \| `"hidden"`
 
-• **\_\_namedParameters.style.padding?**: `number`
+• **props.style.padding?**: `number`
 
-• **\_\_namedParameters.style.paddingBottom?**: `number`
+• **props.style.paddingBottom?**: `number`
 
-• **\_\_namedParameters.style.paddingLeft?**: `number`
+• **props.style.paddingLeft?**: `number`
 
-• **\_\_namedParameters.style.paddingRight?**: `number`
+• **props.style.paddingRight?**: `number`
 
-• **\_\_namedParameters.style.paddingTop?**: `number`
+• **props.style.paddingTop?**: `number`
 
-• **\_\_namedParameters.style.position?**: `"relative"` \| `"absolute"`
+• **props.style.position?**: `"relative"` \| `"absolute"`
 
-• **\_\_namedParameters.style.right?**: `number`
+• **props.style.right?**: `number`
 
-• **\_\_namedParameters.style.top?**: `number`
+• **props.style.top?**: `number`
 
-• **\_\_namedParameters.style.width?**: `number`
+• **props.style.width?**: `number`
 
-• **children**: `Children`
+• **children**: [`Children`](index.md#children)
 
 ###### Returns
 
@@ -176,27 +176,27 @@ npm install @tairu/react-native
 
 ###### Overrides
 
-`Renderer.createBox`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createBox`](../renderer/index.md#createbox)
 
 ***
 
 ##### createBoxChildren()
 
-> **createBoxChildren**(`children`?, `key`?): `ElementChildren`\<`ReactNode`\>
+> **createBoxChildren**(`children`?, `key`?): [`ElementChildren`](../renderer/index.md#elementchildrenelementtype)\<`ReactNode`\>
 
 ###### Parameters
 
-• **children?**: `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\> \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\>[]
+• **children?**: `object` & `object` \| `object` & `object`[]
 
 • **key?**: `string`
 
 ###### Returns
 
-`ElementChildren`\<`ReactNode`\>
+[`ElementChildren`](../renderer/index.md#elementchildrenelementtype)\<`ReactNode`\>
 
 ###### Inherited from
 
-`Renderer.createBoxChildren`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createBoxChildren`](../renderer/index.md#createboxchildren)
 
 ***
 
@@ -206,7 +206,7 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **el**: `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\>
+• **el**: `object` & `object`
 
 • **key?**: `string`
 
@@ -216,27 +216,27 @@ npm install @tairu/react-native
 
 ###### Inherited from
 
-`Renderer.createElement`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createElement`](../renderer/index.md#createelement)
 
 ***
 
 ##### createImage()
 
-> **createImage**(`__namedParameters`): `ReactNode`
+> **createImage**(`props`): `ReactNode`
 
 ###### Parameters
 
-• **\_\_namedParameters**
+• **props**
 
-• **\_\_namedParameters.alt**: `string`
+• **props.alt**: `string`
 
-• **\_\_namedParameters.height**: `number`
+• **props.height**: `number`
 
-• **\_\_namedParameters.key?**: `string`
+• **props.key?**: `string`
 
-• **\_\_namedParameters.src**: `string`
+• **props.src**: `string`
 
-• **\_\_namedParameters.width**: `number`
+• **props.width**: `number`
 
 ###### Returns
 
@@ -244,55 +244,55 @@ npm install @tairu/react-native
 
 ###### Overrides
 
-`Renderer.createImage`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createImage`](../renderer/index.md#createimage)
 
 ***
 
 ##### createText()
 
-> **createText**(`__namedParameters`, `children`): `Element`
+> **createText**(`props`, `children`): `Element`
 
 ###### Parameters
 
-• **\_\_namedParameters**
+• **props**
 
-• **\_\_namedParameters.children**: `string` \| `number` \| `boolean` \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\> \| (`string` \| `number` \| `boolean` \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\>)[]
+• **props.children**: `string` \| `number` \| `boolean` \| `object` & `object` \| (`string` \| `number` \| `boolean` \| `object` & `object`)[]
 
-• **\_\_namedParameters.key?**: `string`
+• **props.key?**: `string`
 
-• **\_\_namedParameters.style?**
+• **props.style?**
 
-• **\_\_namedParameters.style.color?**: `string`
+• **props.style.color?**: `string`
 
-• **\_\_namedParameters.style.fontFamily?**: `string`
+• **props.style.fontFamily?**: `string`
 
-• **\_\_namedParameters.style.fontSize?**: `number`
+• **props.style.fontSize?**: `number`
 
-• **\_\_namedParameters.style.fontStyle?**: `"normal"` \| `"italic"`
+• **props.style.fontStyle?**: `"normal"` \| `"italic"`
 
-• **\_\_namedParameters.style.fontWeight?**: `"bold"` \| `"normal"` \| `"black"` \| `"medium"` \| `"thin"` \| `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"ultralight"` \| `"light"` \| `"regular"` \| `"semibold"` \| `"condensedBold"` \| `"condensed"` \| `"heavy"`
+• **props.style.fontWeight?**: `"bold"` \| `"normal"` \| `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"ultralight"` \| `"thin"` \| `"light"` \| `"medium"` \| `"regular"` \| `"semibold"` \| `"condensedBold"` \| `"condensed"` \| `"heavy"` \| `"black"`
 
-• **\_\_namedParameters.style.letterSpacing?**: `number`
+• **props.style.letterSpacing?**: `number`
 
-• **\_\_namedParameters.style.lineHeight?**: `number`
+• **props.style.lineHeight?**: `number`
 
-• **\_\_namedParameters.style.textAlign?**: `"center"` \| `"left"` \| `"right"` \| `"justify"`
+• **props.style.textAlign?**: `"center"` \| `"right"` \| `"left"` \| `"justify"`
 
-• **\_\_namedParameters.style.textDecoration?**: `string`
+• **props.style.textDecoration?**: `string`
 
-• **\_\_namedParameters.style.textOverflow?**: `"clip"` \| `"ellipsis"`
+• **props.style.textOverflow?**: `"clip"` \| `"ellipsis"`
 
-• **\_\_namedParameters.style.textShadow?**: `string`
+• **props.style.textShadow?**: `string`
 
-• **\_\_namedParameters.style.textTransform?**: `"none"` \| `"capitalize"` \| `"lowercase"` \| `"uppercase"`
+• **props.style.textTransform?**: `"none"` \| `"uppercase"` \| `"lowercase"` \| `"capitalize"`
 
-• **\_\_namedParameters.style.textWrap?**: `"wrap"` \| `"balance"`
+• **props.style.textWrap?**: `"wrap"` \| `"balance"`
 
-• **\_\_namedParameters.style.whiteSpace?**: `"nowrap"` \| `"normal"` \| `"pre"` \| `"pre-line"` \| `"pre-wrap"`
+• **props.style.whiteSpace?**: `"nowrap"` \| `"normal"` \| `"pre"` \| `"pre-wrap"` \| `"pre-line"`
 
-• **\_\_namedParameters.style.wordBreak?**: `"normal"` \| `"break-all"` \| `"break-word"` \| `"keep-all"`
+• **props.style.wordBreak?**: `"normal"` \| `"break-all"` \| `"break-word"` \| `"keep-all"`
 
-• **children**: `Children`
+• **children**: [`Children`](index.md#children)
 
 ###### Returns
 
@@ -300,25 +300,25 @@ npm install @tairu/react-native
 
 ###### Overrides
 
-`Renderer.createText`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createText`](../renderer/index.md#createtext)
 
 ***
 
 ##### createTextChildren()
 
-> **createTextChildren**(`children`?): `ElementChildren`\<`ReactNode`\>
+> **createTextChildren**(`children`?): [`ElementChildren`](../renderer/index.md#elementchildrenelementtype)\<`ReactNode`\>
 
 ###### Parameters
 
-• **children?**: `string` \| `number` \| `boolean` \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\> \| (`string` \| `number` \| `boolean` \| `objectOutputType`\<`object`, `ZodTypeAny`, `"passthrough"`\>)[]
+• **children?**: `string` \| `number` \| `boolean` \| `object` & `object` \| (`string` \| `number` \| `boolean` \| `object` & `object`)[]
 
 ###### Returns
 
-`ElementChildren`\<`ReactNode`\>
+[`ElementChildren`](../renderer/index.md#elementchildrenelementtype)\<`ReactNode`\>
 
 ###### Inherited from
 
-`Renderer.createTextChildren`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`createTextChildren`](../renderer/index.md#createtextchildren)
 
 ***
 
@@ -328,7 +328,7 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: `RenderProps`
+• **props**: [`RenderProps`](../renderer/index.md#renderprops)
 
 ###### Returns
 
@@ -336,7 +336,7 @@ npm install @tairu/react-native
 
 ###### Inherited from
 
-`Renderer.render`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`render`](../renderer/index.md#render)
 
 ***
 
@@ -346,7 +346,7 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: `RenderInteractionsProps`
+• **props**: [`RenderInteractionsProps`](../renderer/index.md#renderinteractionsprops)
 
 ###### Returns
 
@@ -354,7 +354,7 @@ npm install @tairu/react-native
 
 ###### Overrides
 
-`Renderer.renderInteractions`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`renderInteractions`](../renderer/index.md#renderinteractions)
 
 ***
 
@@ -364,7 +364,7 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: `RenderTileProps`\<`ReactNode`\>
+• **props**: [`RenderTileProps`](../renderer/index.md#rendertilepropselementtype)\<`ReactNode`\>
 
 ###### Returns
 
@@ -372,13 +372,19 @@ npm install @tairu/react-native
 
 ###### Inherited from
 
-`Renderer.renderTile`
+[`Renderer`](../renderer/index.md#rendererelementtype).[`renderTile`](../renderer/index.md#rendertile)
 
 ## Type Aliases
 
+### Children
+
+> **Children**: [`ElementChildren`](../renderer/index.md#elementchildrenelementtype)\<`ReactNode`\>
+
+***
+
 ### TileProps
 
-> **TileProps**: `Omit`\<`TileRendererProps`, `"handleOpenURI"` \| `"renderLoadError"` \| `"renderer"`\> & `object`
+> **TileProps**: `Omit`\<[`TileRendererProps`](../react/index.md#tilerendererprops), `"handleOpenURI"` \| `"renderLoadError"` \| `"renderer"`\> & `object`
 
 #### Type declaration
 
@@ -388,7 +394,7 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: `LoadErrorProps`
+• **props**: [`LoadErrorProps`](../react/index.md#loaderrorprops)
 
 ###### Returns
 
@@ -396,7 +402,7 @@ npm install @tairu/react-native
 
 ##### renderer?
 
-> `optional` **renderer**: `ReactRenderer`
+> `optional` **renderer**: [`ReactRenderer`](../react/index.md#reactrenderer)
 
 ## Functions
 

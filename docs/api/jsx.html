@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/jsx/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">@tairu/jsx | Tairu: the Tiles framework</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tairu.dev/docs/api/jsx"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="@tairu/jsx | Tairu: the Tiles framework"><meta data-rh="true" name="description" content="Tairu JSX, exposing Tile components and a parser to convert the JSX elements to the JSON format."><meta data-rh="true" property="og:description" content="Tairu JSX, exposing Tile components and a parser to convert the JSX elements to the JSON format."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://tairu.dev/docs/api/jsx"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/jsx" hreflang="en"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/jsx" hreflang="x-default"><link rel="preconnect" href="https://metrics.tairu.dev">
+<script async defer="defer" src="https://metrics.tairu.dev/script.js" data-website-id="008da516-7e31-40c3-9f05-1b72bed9ffb3" data-auto-track data-do-not-track data-cache></script><link rel="stylesheet" href="/assets/css/styles.e35a6d73.css">
+<script src="/assets/js/runtime~main.16b2a910.js" defer="defer"></script>
+<script src="/assets/js/main.e2be1324.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_Fcti" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-light.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--light_X8li"><img src="/img/logo-dark.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--dark_XK36"></div></a><a class="navbar__item navbar__link" href="/docs/overview">Documentation</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/api">API</a><a class="navbar__item navbar__link" href="/pricing">Pricing</a></div><div class="navbar__items navbar__items--right"><div class="toggle_qFPC colorModeToggle__Dgc"><button class="clean-btn toggleButton_r8nl toggleButtonDisabled_Bf6S" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_V9fX"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_V2ie"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_tUn5"><div><div class="searchbutton-module_searchbutton_container__qUZ4Q"><style>
+      @import url(&#x27;https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap&#x27;);
+      :root {
+        --search-btn-text-color: #54525B; --search-btn-text-color-hover: #54525B; --search-btn-text-color-focus: #54525B; --search-btn-background-color: #F6F8F9; --search-btn-background-color-hover: #F6F8F9; --search-btn-background-color-focus: #F6F8F9; --search-btn-border-color: transparent; --search-btn-border-color-hover: #a8b1ff; --search-btn-border-color-focus: #a8b1ff; --search-btn-icon-color: #71717A;
+        --font-primary: &quot;Instrument Sans&quot;, sans-serif;;
+        font-size: 100%;
+      }
+    </style><button type="button" class="searchbutton-module_searchbutton__gg7JJ"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" aria-label="Search" role="img"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><span class="searchbutton-module_searchbutton__label__TfmnN">Search</span><span class="searchbutton-module_searchbutton__keys__qckL6"><kbd>⌘</kbd><kbd>K</kbd></span></button></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_juSb"><div class="docsWrapper_EIHb"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_RnRE" type="button"></button><div class="docRoot_RpBZ"><aside class="theme-doc-sidebar-container docSidebarContainer_m6qY"><div class="sidebarViewport_R_ZS"><div class="sidebar_VeEV"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iEUx"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/api">Tairu packages</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Tiles handling</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/handler">@tairu/handler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/json-handler">@tairu/json-handler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Tiles rendering</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/web-client">@tairu/web-client</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/jquery">@tairu/jquery</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/react-dom/react-dom">@tairu/react-dom</a><button aria-label="Expand sidebar category &#x27;@tairu/react-dom&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react-native">@tairu/react-native</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Integrations</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/next/next">@tairu/next</a><button aria-label="Expand sidebar category &#x27;@tairu/next&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">Utilities</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/protocol">@tairu/protocol</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/loader">@tairu/loader</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/renderer">@tairu/renderer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/testing">@tairu/testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/api/jsx">@tairu/jsx</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react">@tairu/react</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_l7w_"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_Oso4"><div class="docItemContainer_wfoJ"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_NOSR" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_WmEB"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Utilities</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">@tairu/jsx</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_Cm4U theme-doc-toc-mobile tocMobile_vepl"><button type="button" class="clean-btn tocCollapsibleButton_gyNk">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>@tairu/jsx</h1></header>
+<p>Tairu JSX, exposing Tile components and a parser to convert the JSX elements to the JSON format.</p>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="installation">Installation<a href="#installation" class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation">​</a></h2>
+<div class="language-sh codeBlockContainer_VY_X theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_Emf2"><pre tabindex="0" class="prism-code language-sh codeBlock_cEVj thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_o66c"><span class="token-line" style="color:#393A34"><span class="token plain">npm install @tairu/jsx</span><br></span></code></pre><div class="buttonGroup_JuMy"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_nyAL" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_Qh1x"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_BI7y"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="type-aliases">Type Aliases<a href="#type-aliases" class="hash-link" aria-label="Direct link to Type Aliases" title="Direct link to Type Aliases">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="actionelement">ActionElement<a href="#actionelement" class="hash-link" aria-label="Direct link to ActionElement" title="Direct link to ActionElement">​</a></h3>
+<blockquote>
+<p><strong>ActionElement</strong>: <a href="/docs/api/jsx#openactionelement"><code>OpenActionElement</code></a> | <a href="/docs/api/jsx#signactionelement"><code>SignActionElement</code></a> | <a href="/docs/api/jsx#submitactionelement"><code>SubmitActionElement</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="boxelement">BoxElement<a href="#boxelement" class="hash-link" aria-label="Direct link to BoxElement" title="Direct link to BoxElement">​</a></h3>
+<blockquote>
+<p><strong>BoxElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#box"><code>Box</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="boxprops">BoxProps<a href="#boxprops" class="hash-link" aria-label="Direct link to BoxProps" title="Direct link to BoxProps">​</a></h3>
+<blockquote>
+<p><strong>BoxProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration">Type declaration<a href="#type-declaration" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="children">children?<a href="#children" class="hash-link" aria-label="Direct link to children?" title="Direct link to children?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>children</strong>: <code>ReactNode</code> | <a href="/docs/api/protocol#boxv0"><code>BoxV0</code></a> | <a href="/docs/api/protocol#textv0"><code>TextV0</code></a> | (<a href="/docs/api/protocol#boxv0"><code>BoxV0</code></a> | <a href="/docs/api/protocol#textv0"><code>TextV0</code></a>)[]</p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="style">style?<a href="#style" class="hash-link" aria-label="Direct link to style?" title="Direct link to style?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>style</strong>: <a href="/docs/api/protocol#boxstylev0"><code>BoxStyleV0</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="imageelement">ImageElement<a href="#imageelement" class="hash-link" aria-label="Direct link to ImageElement" title="Direct link to ImageElement">​</a></h3>
+<blockquote>
+<p><strong>ImageElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#imageprops"><code>ImageProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#image"><code>Image</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="imageprops">ImageProps<a href="#imageprops" class="hash-link" aria-label="Direct link to ImageProps" title="Direct link to ImageProps">​</a></h3>
+<blockquote>
+<p><strong>ImageProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-1">Type declaration<a href="#type-declaration-1" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="alt">alt<a href="#alt" class="hash-link" aria-label="Direct link to alt" title="Direct link to alt">​</a></h5>
+<blockquote>
+<p><strong>alt</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="height">height<a href="#height" class="hash-link" aria-label="Direct link to height" title="Direct link to height">​</a></h5>
+<blockquote>
+<p><strong>height</strong>: <code>number</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="src">src<a href="#src" class="hash-link" aria-label="Direct link to src" title="Direct link to src">​</a></h5>
+<blockquote>
+<p><strong>src</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="width">width<a href="#width" class="hash-link" aria-label="Direct link to width" title="Direct link to width">​</a></h5>
+<blockquote>
+<p><strong>width</strong>: <code>number</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="openactionelement">OpenActionElement<a href="#openactionelement" class="hash-link" aria-label="Direct link to OpenActionElement" title="Direct link to OpenActionElement">​</a></h3>
+<blockquote>
+<p><strong>OpenActionElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#openactionprops"><code>OpenActionProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#openaction"><code>OpenAction</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="openactionprops">OpenActionProps<a href="#openactionprops" class="hash-link" aria-label="Direct link to OpenActionProps" title="Direct link to OpenActionProps">​</a></h3>
+<blockquote>
+<p><strong>OpenActionProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-2">Type declaration<a href="#type-declaration-2" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="label">label<a href="#label" class="hash-link" aria-label="Direct link to label" title="Direct link to label">​</a></h5>
+<blockquote>
+<p><strong>label</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="uri">uri<a href="#uri" class="hash-link" aria-label="Direct link to uri" title="Direct link to uri">​</a></h5>
+<blockquote>
+<p><strong>uri</strong>: <code>string</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="optionelement">OptionElement<a href="#optionelement" class="hash-link" aria-label="Direct link to OptionElement" title="Direct link to OptionElement">​</a></h3>
+<blockquote>
+<p><strong>OptionElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#optionprops"><code>OptionProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#option"><code>Option</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="optionprops">OptionProps<a href="#optionprops" class="hash-link" aria-label="Direct link to OptionProps" title="Direct link to OptionProps">​</a></h3>
+<blockquote>
+<p><strong>OptionProps</strong>: <a href="/docs/api/protocol#inputoptionv0"><code>InputOptionV0</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="optionsinputelement">OptionsInputElement<a href="#optionsinputelement" class="hash-link" aria-label="Direct link to OptionsInputElement" title="Direct link to OptionsInputElement">​</a></h3>
+<blockquote>
+<p><strong>OptionsInputElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#optionsinputprops"><code>OptionsInputProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#optionsinput"><code>OptionsInput</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="optionsinputprops">OptionsInputProps<a href="#optionsinputprops" class="hash-link" aria-label="Direct link to OptionsInputProps" title="Direct link to OptionsInputProps">​</a></h3>
+<blockquote>
+<p><strong>OptionsInputProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-3">Type declaration<a href="#type-declaration-3" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="children-1">children<a href="#children-1" class="hash-link" aria-label="Direct link to children" title="Direct link to children">​</a></h5>
+<blockquote>
+<p><strong>children</strong>: <a href="/docs/api/jsx#optionelement"><code>OptionElement</code></a> | <a href="/docs/api/jsx#optionelement"><code>OptionElement</code></a>[]</p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="multiple">multiple?<a href="#multiple" class="hash-link" aria-label="Direct link to multiple?" title="Direct link to multiple?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>multiple</strong>: <code>boolean</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="signactionelement">SignActionElement<a href="#signactionelement" class="hash-link" aria-label="Direct link to SignActionElement" title="Direct link to SignActionElement">​</a></h3>
+<blockquote>
+<p><strong>SignActionElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#signactionprops"><code>SignActionProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#signaction"><code>SignAction</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="signactionprops">SignActionProps<a href="#signactionprops" class="hash-link" aria-label="Direct link to SignActionProps" title="Direct link to SignActionProps">​</a></h3>
+<blockquote>
+<p><strong>SignActionProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-4">Type declaration<a href="#type-declaration-4" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="label-1">label<a href="#label-1" class="hash-link" aria-label="Direct link to label" title="Direct link to label">​</a></h5>
+<blockquote>
+<p><strong>label</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="payload">payload?<a href="#payload" class="hash-link" aria-label="Direct link to payload?" title="Direct link to payload?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>payload</strong>: <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="state">state?<a href="#state" class="hash-link" aria-label="Direct link to state?" title="Direct link to state?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>state</strong>: <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="submitactionelement">SubmitActionElement<a href="#submitactionelement" class="hash-link" aria-label="Direct link to SubmitActionElement" title="Direct link to SubmitActionElement">​</a></h3>
+<blockquote>
+<p><strong>SubmitActionElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#submitactionprops"><code>SubmitActionProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#submitaction"><code>SubmitAction</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="submitactionprops">SubmitActionProps<a href="#submitactionprops" class="hash-link" aria-label="Direct link to SubmitActionProps" title="Direct link to SubmitActionProps">​</a></h3>
+<blockquote>
+<p><strong>SubmitActionProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-5">Type declaration<a href="#type-declaration-5" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="label-2">label<a href="#label-2" class="hash-link" aria-label="Direct link to label" title="Direct link to label">​</a></h5>
+<blockquote>
+<p><strong>label</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="state-1">state?<a href="#state-1" class="hash-link" aria-label="Direct link to state?" title="Direct link to state?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>state</strong>: <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="textelement">TextElement<a href="#textelement" class="hash-link" aria-label="Direct link to TextElement" title="Direct link to TextElement">​</a></h3>
+<blockquote>
+<p><strong>TextElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#textprops"><code>TextProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#text"><code>Text</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="textinputelement">TextInputElement<a href="#textinputelement" class="hash-link" aria-label="Direct link to TextInputElement" title="Direct link to TextInputElement">​</a></h3>
+<blockquote>
+<p><strong>TextInputElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#textinputprops"><code>TextInputProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#textinput"><code>TextInput</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="textinputprops">TextInputProps<a href="#textinputprops" class="hash-link" aria-label="Direct link to TextInputProps" title="Direct link to TextInputProps">​</a></h3>
+<blockquote>
+<p><strong>TextInputProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-6">Type declaration<a href="#type-declaration-6" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="defaultvalue">defaultValue?<a href="#defaultvalue" class="hash-link" aria-label="Direct link to defaultValue?" title="Direct link to defaultValue?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>defaultValue</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="label-3">label<a href="#label-3" class="hash-link" aria-label="Direct link to label" title="Direct link to label">​</a></h5>
+<blockquote>
+<p><strong>label</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="placeholder">placeholder?<a href="#placeholder" class="hash-link" aria-label="Direct link to placeholder?" title="Direct link to placeholder?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>placeholder</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="secure">secure?<a href="#secure" class="hash-link" aria-label="Direct link to secure?" title="Direct link to secure?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>secure</strong>: <code>boolean</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="textprops">TextProps<a href="#textprops" class="hash-link" aria-label="Direct link to TextProps" title="Direct link to TextProps">​</a></h3>
+<blockquote>
+<p><strong>TextProps</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-7">Type declaration<a href="#type-declaration-7" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="children-2">children<a href="#children-2" class="hash-link" aria-label="Direct link to children" title="Direct link to children">​</a></h5>
+<blockquote>
+<p><strong>children</strong>: <code>ReactNode</code> | <a href="/docs/api/protocol#textv0"><code>TextV0</code></a> | <a href="/docs/api/protocol#textv0"><code>TextV0</code></a>[]</p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="style-1">style?<a href="#style-1" class="hash-link" aria-label="Direct link to style?" title="Direct link to style?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>style</strong>: <a href="/docs/api/protocol#textstylev0"><code>TextStyleV0</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tileactionsprop">TileActionsProp<a href="#tileactionsprop" class="hash-link" aria-label="Direct link to TileActionsProp" title="Direct link to TileActionsProp">​</a></h3>
+<blockquote>
+<p><strong>TileActionsProp</strong>: <a href="/docs/api/protocol#actionv0"><code>ActionV0</code></a> | <a href="/docs/api/jsx#actionelement"><code>ActionElement</code></a> | (<a href="/docs/api/protocol#actionv0"><code>ActionV0</code></a> | <a href="/docs/api/jsx#actionelement"><code>ActionElement</code></a>)[]</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tileelement">TileElement<a href="#tileelement" class="hash-link" aria-label="Direct link to TileElement" title="Direct link to TileElement">​</a></h3>
+<blockquote>
+<p><strong>TileElement</strong>: <code>ReactElement</code>&lt;<a href="/docs/api/jsx#tileprops"><code>TileProps</code></a>, <em>typeof</em> <a href="/docs/api/jsx#tile"><code>Tile</code></a>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tileinputprop">TileInputProp<a href="#tileinputprop" class="hash-link" aria-label="Direct link to TileInputProp" title="Direct link to TileInputProp">​</a></h3>
+<blockquote>
+<p><strong>TileInputProp</strong>: <a href="/docs/api/protocol#inputv0"><code>InputV0</code></a> | <a href="/docs/api/jsx#optionsinputelement"><code>OptionsInputElement</code></a> | <a href="/docs/api/jsx#textinputelement"><code>TextInputElement</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tileprops">TileProps<a href="#tileprops" class="hash-link" aria-label="Direct link to TileProps" title="Direct link to TileProps">​</a></h3>
+<blockquote>
+<p><strong>TileProps</strong>: <a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a> &amp; <a href="/docs/api/protocol#tilemetav0"><code>TileMetaV0</code></a> &amp; <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-8">Type declaration<a href="#type-declaration-8" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="actions">actions?<a href="#actions" class="hash-link" aria-label="Direct link to actions?" title="Direct link to actions?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>actions</strong>: <a href="/docs/api/jsx#tileactionsprop"><code>TileActionsProp</code></a></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="input">input?<a href="#input" class="hash-link" aria-label="Direct link to input?" title="Direct link to input?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>input</strong>: <a href="/docs/api/jsx#tileinputprop"><code>TileInputProp</code></a></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="validtileinput">ValidTileInput<a href="#validtileinput" class="hash-link" aria-label="Direct link to ValidTileInput" title="Direct link to ValidTileInput">​</a></h3>
+<blockquote>
+<p><strong>ValidTileInput</strong>: <code>ReactElement</code> | <a href="/docs/api/protocol#tilev0"><code>TileV0</code></a></p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="box">Box()<a href="#box" class="hash-link" aria-label="Direct link to Box()" title="Direct link to Box()">​</a></h3>
+<blockquote>
+<p><strong>Box</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="image">Image()<a href="#image" class="hash-link" aria-label="Direct link to Image()" title="Direct link to Image()">​</a></h3>
+<blockquote>
+<p><strong>Image</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#imageprops"><code>ImageProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-1">Parameters<a href="#parameters-1" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#imageprops"><code>ImageProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#imageprops"><code>ImageProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="openaction">OpenAction()<a href="#openaction" class="hash-link" aria-label="Direct link to OpenAction()" title="Direct link to OpenAction()">​</a></h3>
+<blockquote>
+<p><strong>OpenAction</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#openactionprops"><code>OpenActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#openactionprops"><code>OpenActionProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-2">Returns<a href="#returns-2" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#openactionprops"><code>OpenActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="option">Option()<a href="#option" class="hash-link" aria-label="Direct link to Option()" title="Direct link to Option()">​</a></h3>
+<blockquote>
+<p><strong>Option</strong>(<code>props</code>): <code>ReactElement</code>&lt;<code>object</code>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-3">Parameters<a href="#parameters-3" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong></p>
+<p>• <strong>props.label</strong>: <code>string</code></p>
+<p>• <strong>props.value</strong>: <code>string</code> | <code>number</code> | <code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-3">Returns<a href="#returns-3" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<code>object</code>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="label-4">label<a href="#label-4" class="hash-link" aria-label="Direct link to label" title="Direct link to label">​</a></h5>
+<blockquote>
+<p><code>readonly</code> <strong>label</strong>: <code>string</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="value">value<a href="#value" class="hash-link" aria-label="Direct link to value" title="Direct link to value">​</a></h5>
+<blockquote>
+<p><code>readonly</code> <strong>value</strong>: <code>string</code> | <code>number</code> | <code>boolean</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="optionsinput">OptionsInput()<a href="#optionsinput" class="hash-link" aria-label="Direct link to OptionsInput()" title="Direct link to OptionsInput()">​</a></h3>
+<blockquote>
+<p><strong>OptionsInput</strong>(<code>props</code>): <code>DOMElement</code>&lt;<a href="/docs/api/jsx#optionsinputprops"><code>OptionsInputProps</code></a>, <code>Element</code>&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-4">Parameters<a href="#parameters-4" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#optionsinputprops"><code>OptionsInputProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-4">Returns<a href="#returns-4" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>DOMElement</code>&lt;<a href="/docs/api/jsx#optionsinputprops"><code>OptionsInputProps</code></a>, <code>Element</code>&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="parsetile">parseTile()<a href="#parsetile" class="hash-link" aria-label="Direct link to parseTile()" title="Direct link to parseTile()">​</a></h3>
+<blockquote>
+<p><strong>parseTile</strong>(<code>root</code>): <a href="/docs/api/protocol#tilev0"><code>TileV0</code></a></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-5">Parameters<a href="#parameters-5" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>root</strong>: <code>ReactElement</code>&lt;<code>any</code>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-5">Returns<a href="#returns-5" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><a href="/docs/api/protocol#tilev0"><code>TileV0</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="signaction">SignAction()<a href="#signaction" class="hash-link" aria-label="Direct link to SignAction()" title="Direct link to SignAction()">​</a></h3>
+<blockquote>
+<p><strong>SignAction</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#signactionprops"><code>SignActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-6">Parameters<a href="#parameters-6" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#signactionprops"><code>SignActionProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-6">Returns<a href="#returns-6" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#signactionprops"><code>SignActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="submitaction">SubmitAction()<a href="#submitaction" class="hash-link" aria-label="Direct link to SubmitAction()" title="Direct link to SubmitAction()">​</a></h3>
+<blockquote>
+<p><strong>SubmitAction</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#submitactionprops"><code>SubmitActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-7">Parameters<a href="#parameters-7" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#submitactionprops"><code>SubmitActionProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-7">Returns<a href="#returns-7" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#submitactionprops"><code>SubmitActionProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="text">Text()<a href="#text" class="hash-link" aria-label="Direct link to Text()" title="Direct link to Text()">​</a></h3>
+<blockquote>
+<p><strong>Text</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#textprops"><code>TextProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-8">Parameters<a href="#parameters-8" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#textprops"><code>TextProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-8">Returns<a href="#returns-8" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#textprops"><code>TextProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="textinput">TextInput()<a href="#textinput" class="hash-link" aria-label="Direct link to TextInput()" title="Direct link to TextInput()">​</a></h3>
+<blockquote>
+<p><strong>TextInput</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#textinputprops"><code>TextInputProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-9">Parameters<a href="#parameters-9" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#textinputprops"><code>TextInputProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-9">Returns<a href="#returns-9" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#textinputprops"><code>TextInputProps</code></a>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tile">Tile()<a href="#tile" class="hash-link" aria-label="Direct link to Tile()" title="Direct link to Tile()">​</a></h3>
+<blockquote>
+<p><strong>Tile</strong>(<code>props</code>): <code>ReactElement</code>&lt;<a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a> &amp; <code>object</code> &amp; <code>object</code>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-10">Parameters<a href="#parameters-10" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>props</strong>: <a href="/docs/api/jsx#tileprops"><code>TileProps</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-10">Returns<a href="#returns-10" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ReactElement</code>&lt;<a href="/docs/api/jsx#boxprops"><code>BoxProps</code></a> &amp; <code>object</code> &amp; <code>object</code>, <code>string</code> | <code>JSXElementConstructor</code>&lt;<code>any</code>&gt;&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tovalidtile">toValidTile()<a href="#tovalidtile" class="hash-link" aria-label="Direct link to toValidTile()" title="Direct link to toValidTile()">​</a></h3>
+<blockquote>
+<p><strong>toValidTile</strong>(<code>input</code>): <a href="/docs/api/protocol#tilev0"><code>TileV0</code></a></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-11">Parameters<a href="#parameters-11" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>input</strong>: <a href="/docs/api/jsx#validtileinput"><code>ValidTileInput</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-11">Returns<a href="#returns-11" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><a href="/docs/api/protocol#tilev0"><code>TileV0</code></a></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/api/testing"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">@tairu/testing</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/api/react"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">@tairu/react</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_yKKF thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#installation" class="table-of-contents__link toc-highlight">Installation</a></li><li><a href="#type-aliases" class="table-of-contents__link toc-highlight">Type Aliases</a><ul><li><a href="#actionelement" class="table-of-contents__link toc-highlight">ActionElement</a></li><li><a href="#boxelement" class="table-of-contents__link toc-highlight">BoxElement</a></li><li><a href="#boxprops" class="table-of-contents__link toc-highlight">BoxProps</a></li><li><a href="#imageelement" class="table-of-contents__link toc-highlight">ImageElement</a></li><li><a href="#imageprops" class="table-of-contents__link toc-highlight">ImageProps</a></li><li><a href="#openactionelement" class="table-of-contents__link toc-highlight">OpenActionElement</a></li><li><a href="#openactionprops" class="table-of-contents__link toc-highlight">OpenActionProps</a></li><li><a href="#optionelement" class="table-of-contents__link toc-highlight">OptionElement</a></li><li><a href="#optionprops" class="table-of-contents__link toc-highlight">OptionProps</a></li><li><a href="#optionsinputelement" class="table-of-contents__link toc-highlight">OptionsInputElement</a></li><li><a href="#optionsinputprops" class="table-of-contents__link toc-highlight">OptionsInputProps</a></li><li><a href="#signactionelement" class="table-of-contents__link toc-highlight">SignActionElement</a></li><li><a href="#signactionprops" class="table-of-contents__link toc-highlight">SignActionProps</a></li><li><a href="#submitactionelement" class="table-of-contents__link toc-highlight">SubmitActionElement</a></li><li><a href="#submitactionprops" class="table-of-contents__link toc-highlight">SubmitActionProps</a></li><li><a href="#textelement" class="table-of-contents__link toc-highlight">TextElement</a></li><li><a href="#textinputelement" class="table-of-contents__link toc-highlight">TextInputElement</a></li><li><a href="#textinputprops" class="table-of-contents__link toc-highlight">TextInputProps</a></li><li><a href="#textprops" class="table-of-contents__link toc-highlight">TextProps</a></li><li><a href="#tileactionsprop" class="table-of-contents__link toc-highlight">TileActionsProp</a></li><li><a href="#tileelement" class="table-of-contents__link toc-highlight">TileElement</a></li><li><a href="#tileinputprop" class="table-of-contents__link toc-highlight">TileInputProp</a></li><li><a href="#tileprops" class="table-of-contents__link toc-highlight">TileProps</a></li><li><a href="#validtileinput" class="table-of-contents__link toc-highlight">ValidTileInput</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#box" class="table-of-contents__link toc-highlight">Box()</a></li><li><a href="#image" class="table-of-contents__link toc-highlight">Image()</a></li><li><a href="#openaction" class="table-of-contents__link toc-highlight">OpenAction()</a></li><li><a href="#option" class="table-of-contents__link toc-highlight">Option()</a></li><li><a href="#optionsinput" class="table-of-contents__link toc-highlight">OptionsInput()</a></li><li><a href="#parsetile" class="table-of-contents__link toc-highlight">parseTile()</a></li><li><a href="#signaction" class="table-of-contents__link toc-highlight">SignAction()</a></li><li><a href="#submitaction" class="table-of-contents__link toc-highlight">SubmitAction()</a></li><li><a href="#text" class="table-of-contents__link toc-highlight">Text()</a></li><li><a href="#textinput" class="table-of-contents__link toc-highlight">TextInput()</a></li><li><a href="#tile" class="table-of-contents__link toc-highlight">Tile()</a></li><li><a href="#tovalidtile" class="table-of-contents__link toc-highlight">toValidTile()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/overview">Overview</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Getting started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/concepts">Concepts</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/protocol">Protocol</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/cli">CLI</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/api">APIs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Tairu Framework.</div></div></div></footer></div>
+</body>
+</html>

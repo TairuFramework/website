@@ -2,711 +2,987 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/loader/index" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.4.0">
-<title data-rh="true">loader | Tairu: the Tiles framework</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tairu.dev/docs/api/loader"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="loader | Tairu: the Tiles framework"><meta data-rh="true" name="description" content="Tairu loader, loading and verifying tiles served by a Tairu handler."><meta data-rh="true" property="og:description" content="Tairu loader, loading and verifying tiles served by a Tairu handler."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://tairu.dev/docs/api/loader"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/loader" hreflang="en"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/loader" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.8a2a95e9.css">
-<script src="/assets/js/runtime~main.d6ee4ea1.js" defer="defer"></script>
-<script src="/assets/js/main.4ce54f27.js" defer="defer"></script>
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">@tairu/loader | Tairu: the Tiles framework</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tairu.dev/docs/api/loader"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="@tairu/loader | Tairu: the Tiles framework"><meta data-rh="true" name="description" content="Tairu loader, loading and verifying tiles served by a Tairu handler."><meta data-rh="true" property="og:description" content="Tairu loader, loading and verifying tiles served by a Tairu handler."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://tairu.dev/docs/api/loader"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/loader" hreflang="en"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/loader" hreflang="x-default"><link rel="preconnect" href="https://metrics.tairu.dev">
+<script async defer="defer" src="https://metrics.tairu.dev/script.js" data-website-id="008da516-7e31-40c3-9f05-1b72bed9ffb3" data-auto-track data-do-not-track data-cache></script><link rel="stylesheet" href="/assets/css/styles.e35a6d73.css">
+<script src="/assets/js/runtime~main.16b2a910.js" defer="defer"></script>
+<script src="/assets/js/main.e2be1324.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fVXr" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-light.svg" alt="Tairu" class="themedComponent_KbRP themedComponent--light_juY3"><img src="/img/logo-dark.svg" alt="Tairu" class="themedComponent_KbRP themedComponent--dark_x81m"></div></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/overview">Documentation</a><a class="navbar__item navbar__link" href="/pricing">Pricing</a></div><div class="navbar__items navbar__items--right"><div class="toggle_iOTG colorModeToggle__f1I"><button class="clean-btn toggleButton_eoWW toggleButtonDisabled_mti9" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_anBu"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_aftU"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_JKpB"><div><div class="searchbutton-module_searchbutton_container__qUZ4Q"><style>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_Fcti" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-light.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--light_X8li"><img src="/img/logo-dark.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--dark_XK36"></div></a><a class="navbar__item navbar__link" href="/docs/overview">Documentation</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/api">API</a><a class="navbar__item navbar__link" href="/pricing">Pricing</a></div><div class="navbar__items navbar__items--right"><div class="toggle_qFPC colorModeToggle__Dgc"><button class="clean-btn toggleButton_r8nl toggleButtonDisabled_Bf6S" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_V9fX"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_V2ie"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_tUn5"><div><div class="searchbutton-module_searchbutton_container__qUZ4Q"><style>
       @import url(&#x27;https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap&#x27;);
       :root {
         --search-btn-text-color: #54525B; --search-btn-text-color-hover: #54525B; --search-btn-text-color-focus: #54525B; --search-btn-background-color: #F6F8F9; --search-btn-background-color-hover: #F6F8F9; --search-btn-background-color-focus: #F6F8F9; --search-btn-border-color: transparent; --search-btn-border-color-hover: #a8b1ff; --search-btn-border-color-focus: #a8b1ff; --search-btn-icon-color: #71717A;
         --font-primary: &quot;Instrument Sans&quot;, sans-serif;;
         font-size: 100%;
       }
-    </style><button type="button" class="searchbutton-module_searchbutton__gg7JJ"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" aria-label="Search" role="img"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><span class="searchbutton-module_searchbutton__label__TfmnN">Search</span><span class="searchbutton-module_searchbutton__keys__qckL6"><kbd>⌘</kbd><kbd>K</kbd></span></button></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_Qo2B"><div class="docsWrapper_DUdV"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_OdCv" type="button"></button><div class="docRoot_tli3"><aside class="theme-doc-sidebar-container docSidebarContainer_hia5"><div class="sidebarViewport_AijR"><div class="sidebar_vOix"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iEqC"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview">Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/quick-start">Quick start</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/going-further">Going further</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Reference</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/concepts">Core concepts</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/protocol">Tairu protocol</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cli">Tairu CLI</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/docs/api">Tairu APIs</a><button aria-label="Collapse sidebar category &#x27;Tairu APIs&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/handler">handler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/api/loader">loader</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/renderer">renderer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react">react</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react-dom">react-dom</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/testing">testing</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_cStv"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_YLHw"><div class="docItemContainer_G0NV"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_gWEx" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_VeDt"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/api"><span itemprop="name">Tairu APIs</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">loader</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_EQ32 theme-doc-toc-mobile tocMobile_SYjj"><button type="button" class="clean-btn tocCollapsibleButton_gmQr">On this page</button></div><div class="theme-doc-markdown markdown"><h1>loader</h1>
+    </style><button type="button" class="searchbutton-module_searchbutton__gg7JJ"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" aria-label="Search" role="img"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><span class="searchbutton-module_searchbutton__label__TfmnN">Search</span><span class="searchbutton-module_searchbutton__keys__qckL6"><kbd>⌘</kbd><kbd>K</kbd></span></button></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_juSb"><div class="docsWrapper_EIHb"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_RnRE" type="button"></button><div class="docRoot_RpBZ"><aside class="theme-doc-sidebar-container docSidebarContainer_m6qY"><div class="sidebarViewport_R_ZS"><div class="sidebar_VeEV"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iEUx"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/api">Tairu packages</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Tiles handling</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/handler">@tairu/handler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/json-handler">@tairu/json-handler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Tiles rendering</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/web-client">@tairu/web-client</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/jquery">@tairu/jquery</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/react-dom/react-dom">@tairu/react-dom</a><button aria-label="Expand sidebar category &#x27;@tairu/react-dom&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react-native">@tairu/react-native</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Integrations</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/next/next">@tairu/next</a><button aria-label="Expand sidebar category &#x27;@tairu/next&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">Utilities</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/protocol">@tairu/protocol</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/api/loader">@tairu/loader</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/renderer">@tairu/renderer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/testing">@tairu/testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/jsx">@tairu/jsx</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react">@tairu/react</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_l7w_"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_Oso4"><div class="docItemContainer_wfoJ"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_NOSR" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_WmEB"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Utilities</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">@tairu/loader</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_Cm4U theme-doc-toc-mobile tocMobile_vepl"><button type="button" class="clean-btn tocCollapsibleButton_gyNk">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>@tairu/loader</h1></header>
 <p>Tairu loader, loading and verifying tiles served by a Tairu handler.</p>
-<h2 class="anchor anchorWithStickyNavbar_PyYa" id="installation">Installation<a class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation" href="/docs/api/loader#installation">​</a></h2>
-<div class="language-sh codeBlockContainer_nGPI theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_NZRb"><pre tabindex="0" class="prism-code language-sh codeBlock_fZOY thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_PT6t"><span class="token-line" style="color:#393A34"><span class="token plain">npm install @tairu/loader</span><br></span></code></pre><div class="buttonGroup_Hbbu"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_hf46" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_W07c"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_nSTc"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h2 class="anchor anchorWithStickyNavbar_PyYa" id="classes">Classes<a class="hash-link" aria-label="Direct link to Classes" title="Direct link to Classes" href="/docs/api/loader#classes">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="loader-1">Loader<a class="hash-link" aria-label="Direct link to Loader" title="Direct link to Loader" href="/docs/api/loader#loader-1">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="constructors">Constructors<a class="hash-link" aria-label="Direct link to Constructors" title="Direct link to Constructors" href="/docs/api/loader#constructors">​</a></h4>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="new-loader">new Loader()<a class="hash-link" aria-label="Direct link to new Loader()" title="Direct link to new Loader()" href="/docs/api/loader#new-loader">​</a></h5>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="installation">Installation<a href="#installation" class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation">​</a></h2>
+<div class="language-sh codeBlockContainer_VY_X theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_Emf2"><pre tabindex="0" class="prism-code language-sh codeBlock_cEVj thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_o66c"><span class="token-line" style="color:#393A34"><span class="token plain">npm install @tairu/loader</span><br></span></code></pre><div class="buttonGroup_JuMy"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_nyAL" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_Qh1x"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_BI7y"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="classes">Classes<a href="#classes" class="hash-link" aria-label="Direct link to Classes" title="Direct link to Classes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="loader">Loader<a href="#loader" class="hash-link" aria-label="Direct link to Loader" title="Direct link to Loader">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="constructors">Constructors<a href="#constructors" class="hash-link" aria-label="Direct link to Constructors" title="Direct link to Constructors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="new-loader">new Loader()<a href="#new-loader" class="hash-link" aria-label="Direct link to new Loader()" title="Direct link to new Loader()">​</a></h5>
 <blockquote>
 <p><strong>new Loader</strong>(<code>params</code>): <a href="/docs/api/loader#loader"><code>Loader</code></a></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="parameters">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
 <p>• <strong>params</strong>: <a href="/docs/api/loader#loaderparams"><code>LoaderParams</code></a> = <code>{}</code></p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="returns">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
 <p><a href="/docs/api/loader#loader"><code>Loader</code></a></p>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="accessors">Accessors<a class="hash-link" aria-label="Direct link to Accessors" title="Direct link to Accessors" href="/docs/api/loader#accessors">​</a></h4>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="signer">signer<a class="hash-link" aria-label="Direct link to signer" title="Direct link to signer" href="/docs/api/loader#signer">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="accessors">Accessors<a href="#accessors" class="hash-link" aria-label="Direct link to Accessors" title="Direct link to Accessors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="signer">signer<a href="#signer" class="hash-link" aria-label="Direct link to signer" title="Direct link to signer">​</a></h5>
 <blockquote>
 <p><code>get</code> <strong>signer</strong>(): <a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
 </blockquote>
 <blockquote>
 <p><code>set</code> <strong>signer</strong>(<code>value</code>): <code>void</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-1">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-1">Parameters<a href="#parameters-1" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
 <p>• <strong>value</strong>: <a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="returns-1">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
 <p><a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="methods">Methods<a class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods" href="/docs/api/loader#methods">​</a></h4>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="getrenderedtile">getRenderedTile()<a class="hash-link" aria-label="Direct link to getRenderedTile()" title="Direct link to getRenderedTile()" href="/docs/api/loader#getrenderedtile">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in">Defined in<a href="#defined-in" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="methods">Methods<a href="#methods" class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="getrenderedtile">getRenderedTile()<a href="#getrenderedtile" class="hash-link" aria-label="Direct link to getRenderedTile()" title="Direct link to getRenderedTile()">​</a></h5>
 <blockquote>
 <p><strong>getRenderedTile</strong>(<code>url</code>, <code>format</code>, <code>options</code>): <code>Promise</code>&lt;<code>string</code>&gt;</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-2">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-2">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
 <p>• <strong>url</strong>: <code>string</code></p>
 <p>• <strong>format</strong>: <a href="/docs/api/loader#renderformat"><code>RenderFormat</code></a></p>
 <p>• <strong>options</strong>: <code>Options</code> = <code>{}</code></p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="returns-2">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-2">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-2">Returns<a href="#returns-2" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
 <p><code>Promise</code>&lt;<code>string</code>&gt;</p>
 <hr>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="gettile">getTile()<a class="hash-link" aria-label="Direct link to getTile()" title="Direct link to getTile()" href="/docs/api/loader#gettile">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="getstatictileasbox">getStaticTileAsBox()<a href="#getstatictileasbox" class="hash-link" aria-label="Direct link to getStaticTileAsBox()" title="Direct link to getStaticTileAsBox()">​</a></h5>
+<blockquote>
+<p><strong>getStaticTileAsBox</strong>(<code>url</code>, <code>options</code>?): <code>Promise</code>&lt;<code>object</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-3">Parameters<a href="#parameters-3" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>url</strong>: <code>string</code></p>
+<p>• <strong>options?</strong>: <code>Options</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-3">Returns<a href="#returns-3" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>object</code>&gt;</p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="props">props<a href="#props" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>props</strong>: <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propschildren">props.children?<a href="#propschildren" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.children</strong>: <code>object</code> &amp; <code>object</code> | <code>object</code> &amp; <code>object</code>[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propskey">props.key?<a href="#propskey" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.key</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyle">props.style?<a href="#propsstyle" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.style</strong>: <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignitems">props.style.alignItems?<a href="#propsstylealignitems" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignself">props.style.alignSelf?<a href="#propsstylealignself" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundclip">props.style.backgroundClip?<a href="#propsstylebackgroundclip" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundcolor">props.style.backgroundColor?<a href="#propsstylebackgroundcolor" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundimage">props.style.backgroundImage?<a href="#propsstylebackgroundimage" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundImage</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundposition">props.style.backgroundPosition?<a href="#propsstylebackgroundposition" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundPosition</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundrepeat">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundsize">props.style.backgroundSize?<a href="#propsstylebackgroundsize" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundSize</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomcolor">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomleftradius">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomLeftRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomrightradius">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?"> ​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomRightRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomstyle">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomwidth">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordercolor">props.style.borderColor?<a href="#propsstylebordercolor" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftcolor">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftstyle">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftwidth">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderradius">props.style.borderRadius?<a href="#propsstyleborderradius" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightcolor">props.style.borderRightColor?<a href="#propsstyleborderrightcolor" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightstyle">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightwidth">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderstyle">props.style.borderStyle?<a href="#propsstyleborderstyle" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopcolor">props.style.borderTopColor?<a href="#propsstylebordertopcolor" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopleftradius">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopLeftRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertoprightradius">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopRightRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopstyle">props.style.borderTopStyle?<a href="#propsstylebordertopstyle" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopwidth">props.style.borderTopWidth?<a href="#propsstylebordertopwidth" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderwidth">props.style.borderWidth?<a href="#propsstyleborderwidth" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebottom">props.style.bottom?<a href="#propsstylebottom" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.bottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleboxshadow">props.style.boxShadow?<a href="#propsstyleboxshadow" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.boxShadow</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyledisplay">props.style.display?<a href="#propsstyledisplay" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?"> ​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexbasis">props.style.flexBasis?<a href="#propsstyleflexbasis" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexBasis</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexdirection">props.style.flexDirection?<a href="#propsstyleflexdirection" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexgrow">props.style.flexGrow?<a href="#propsstyleflexgrow" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexGrow</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexshrink">props.style.flexShrink?<a href="#propsstyleflexshrink" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexShrink</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexwrap">props.style.flexWrap?<a href="#propsstyleflexwrap" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylegap">props.style.gap?<a href="#propsstylegap" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.gap</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleheight">props.style.height?<a href="#propsstyleheight" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.height</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylejustifycontent">props.style.justifyContent?<a href="#propsstylejustifycontent" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleleft">props.style.left?<a href="#propsstyleleft" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.left</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargin">props.style.margin?<a href="#propsstylemargin" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.margin</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginbottom">props.style.marginBottom?<a href="#propsstylemarginbottom" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginleft">props.style.marginLeft?<a href="#propsstylemarginleft" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginright">props.style.marginRight?<a href="#propsstylemarginright" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargintop">props.style.marginTop?<a href="#propsstylemargintop" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxheight">props.style.maxHeight?<a href="#propsstylemaxheight" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.maxHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxwidth">props.style.maxWidth?<a href="#propsstylemaxwidth" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.maxWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminheight">props.style.minHeight?<a href="#propsstyleminheight" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.minHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminwidth">props.style.minWidth?<a href="#propsstyleminwidth" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.minWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleobjectfit">props.style.objectFit?<a href="#propsstyleobjectfit" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleopacity">props.style.opacity?<a href="#propsstyleopacity" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.opacity</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleoverflow">props.style.overflow?<a href="#propsstyleoverflow" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepadding">props.style.padding?<a href="#propsstylepadding" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.padding</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingbottom">props.style.paddingBottom?<a href="#propsstylepaddingbottom" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingleft">props.style.paddingLeft?<a href="#propsstylepaddingleft" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingright">props.style.paddingRight?<a href="#propsstylepaddingright" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingtop">props.style.paddingTop?<a href="#propsstylepaddingtop" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleposition">props.style.position?<a href="#propsstyleposition" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleright">props.style.right?<a href="#propsstyleright" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.right</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyletop">props.style.top?<a href="#propsstyletop" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.top</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylewidth">props.style.width?<a href="#propsstylewidth" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.width</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type">type<a href="#type" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>type</strong>: <code>&quot;Box&quot;</code></p>
+</blockquote>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="gettile">getTile()<a href="#gettile" class="hash-link" aria-label="Direct link to getTile()" title="Direct link to getTile()">​</a></h5>
 <blockquote>
 <p><strong>getTile</strong>(<code>url</code>, <code>options</code>?): <code>Promise</code>&lt;<code>object</code>&gt;</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-3">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-3">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-4">Parameters<a href="#parameters-4" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
 <p>• <strong>url</strong>: <code>string</code></p>
 <p>• <strong>options?</strong>: <code>Options</code></p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="returns-3">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-3">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-4">Returns<a href="#returns-4" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
 <p><code>Promise</code>&lt;<code>object</code>&gt;</p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="props">props<a class="hash-link" aria-label="Direct link to props" title="Direct link to props" href="/docs/api/loader#props">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="props-1">props<a href="#props-1" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
 <blockquote>
-<p><strong>props</strong>: <code>object</code></p>
+<p><code>readonly</code> <strong>props</strong>: <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsactions">props.actions?<a class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?" href="/docs/api/loader#propsactions">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsactions">props.actions?<a href="#propsactions" class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>actions</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
+<p><code>readonly</code> <code>optional</code> <strong>props.actions</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propschildren">props.children?<a class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?" href="/docs/api/loader#propschildren">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propschildren-1">props.children?<a href="#propschildren-1" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>children</strong>: <code>objectOutputType</code>&lt;<code>object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt; | <code>objectOutputType</code>&lt;<code>object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt;[]</p>
+<p><code>readonly</code> <code>optional</code> <strong>props.children</strong>: <code>object</code> &amp; <code>object</code> | <code>object</code> &amp; <code>object</code>[]</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsdescription">props.description?<a class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?" href="/docs/api/loader#propsdescription">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsdescription">props.description?<a href="#propsdescription" class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>description</strong>: <code>string</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.description</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsinput">props.input?<a class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?" href="/docs/api/loader#propsinput">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsinput">props.input?<a href="#propsinput" class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>input</strong>: <code>object</code> | <code>object</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.input</strong>: <code>object</code> | <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propskey">props.key?<a class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?" href="/docs/api/loader#propskey">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propskey-1">props.key?<a href="#propskey-1" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>key</strong>: <code>string</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.key</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyle">props.style?<a class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?" href="/docs/api/loader#propsstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyle-1">props.style?<a href="#propsstyle-1" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>style</strong>: <code>object</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.style</strong>: <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylealignitems">props.style.alignItems?<a class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?" href="/docs/api/loader#propsstylealignitems">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignitems-1">props.style.alignItems?<a href="#propsstylealignitems-1" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
+<p><code>optional</code> <strong>props.style.alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylealignself">props.style.alignSelf?<a class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?" href="/docs/api/loader#propsstylealignself">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignself-1">props.style.alignSelf?<a href="#propsstylealignself-1" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
+<p><code>optional</code> <strong>props.style.alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundclip">props.style.backgroundClip?<a class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?" href="/docs/api/loader#propsstylebackgroundclip">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundclip-1">props.style.backgroundClip?<a href="#propsstylebackgroundclip-1" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
+<p><code>optional</code> <strong>props.style.backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundcolor">props.style.backgroundColor?<a class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?" href="/docs/api/loader#propsstylebackgroundcolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundcolor-1">props.style.backgroundColor?<a href="#propsstylebackgroundcolor-1" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundimage">props.style.backgroundImage?<a class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?" href="/docs/api/loader#propsstylebackgroundimage">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundimage-1">props.style.backgroundImage?<a href="#propsstylebackgroundimage-1" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundImage</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundImage</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundposition">props.style.backgroundPosition?<a class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?" href="/docs/api/loader#propsstylebackgroundposition">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundposition-1">props.style.backgroundPosition?<a href="#propsstylebackgroundposition-1" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundPosition</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundPosition</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundrepeat">props.style.backgroundRepeat?<a class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?" href="/docs/api/loader#propsstylebackgroundrepeat">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundrepeat-1">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat-1" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
+<p><code>optional</code> <strong>props.style.backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundsize">props.style.backgroundSize?<a class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?" href="/docs/api/loader#propsstylebackgroundsize">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundsize-1">props.style.backgroundSize?<a href="#propsstylebackgroundsize-1" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundSize</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundSize</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomcolor">props.style.borderBottomColor?<a class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?" href="/docs/api/loader#propsstyleborderbottomcolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomcolor-1">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor-1" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomleftradius">props.style.borderBottomLeftRadius?<a class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?" href="/docs/api/loader#propsstyleborderbottomleftradius">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomleftradius-1">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius-1" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomLeftRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomLeftRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomrightradius">props.style.borderBottomRightRadius?<a class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?" href="/docs/api/loader#propsstyleborderbottomrightradius">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomrightradius-1">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius-1" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomRightRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomRightRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomstyle">props.style.borderBottomStyle?<a class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?" href="/docs/api/loader#propsstyleborderbottomstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomstyle-1">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle-1" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomwidth">props.style.borderBottomWidth?<a class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?" href="/docs/api/loader#propsstyleborderbottomwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomwidth-1">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth-1" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordercolor">props.style.borderColor?<a class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?" href="/docs/api/loader#propsstylebordercolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordercolor-1">props.style.borderColor?<a href="#propsstylebordercolor-1" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftcolor">props.style.borderLeftColor?<a class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?" href="/docs/api/loader#propsstyleborderleftcolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftcolor-1">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor-1" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftstyle">props.style.borderLeftStyle?<a class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?" href="/docs/api/loader#propsstyleborderleftstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftstyle-1">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle-1" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftwidth">props.style.borderLeftWidth?<a class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?" href="/docs/api/loader#propsstyleborderleftwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftwidth-1">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth-1" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderradius">props.style.borderRadius?<a class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?" href="/docs/api/loader#propsstyleborderradius">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderradius-1">props.style.borderRadius?<a href="#propsstyleborderradius-1" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightcolor">props.style.borderRightColor?<a class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?" href="/docs/api/loader#propsstyleborderrightcolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightcolor-1">props.style.borderRightColor?<a href="#propsstyleborderrightcolor-1" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderRightColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightstyle">props.style.borderRightStyle?<a class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?" href="/docs/api/loader#propsstyleborderrightstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightstyle-1">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle-1" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightwidth">props.style.borderRightWidth?<a class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?" href="/docs/api/loader#propsstyleborderrightwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightwidth-1">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth-1" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderRightWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderstyle">props.style.borderStyle?<a class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?" href="/docs/api/loader#propsstyleborderstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderstyle-1">props.style.borderStyle?<a href="#propsstyleborderstyle-1" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopcolor">props.style.borderTopColor?<a class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?" href="/docs/api/loader#propsstylebordertopcolor">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopcolor-1">props.style.borderTopColor?<a href="#propsstylebordertopcolor-1" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderTopColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopleftradius">props.style.borderTopLeftRadius?<a class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?" href="/docs/api/loader#propsstylebordertopleftradius">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopleftradius-1">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius-1" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopLeftRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopLeftRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertoprightradius">props.style.borderTopRightRadius?<a class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?" href="/docs/api/loader#propsstylebordertoprightradius">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertoprightradius-1">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius-1" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopRightRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopRightRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopstyle">props.style.borderTopStyle?<a class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?" href="/docs/api/loader#propsstylebordertopstyle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopstyle-1">props.style.borderTopStyle?<a href="#propsstylebordertopstyle-1" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopwidth">props.style.borderTopWidth?<a class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?" href="/docs/api/loader#propsstylebordertopwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopwidth-1">props.style.borderTopWidth?<a href="#propsstylebordertopwidth-1" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderwidth">props.style.borderWidth?<a class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?" href="/docs/api/loader#propsstyleborderwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderwidth-1">props.style.borderWidth?<a href="#propsstyleborderwidth-1" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebottom">props.style.bottom?<a class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?" href="/docs/api/loader#propsstylebottom">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebottom-1">props.style.bottom?<a href="#propsstylebottom-1" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>bottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.bottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleboxshadow">props.style.boxShadow?<a class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?" href="/docs/api/loader#propsstyleboxshadow">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleboxshadow-1">props.style.boxShadow?<a href="#propsstyleboxshadow-1" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>boxShadow</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.boxShadow</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyledisplay">props.style.display?<a class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?" href="/docs/api/loader#propsstyledisplay">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyledisplay-1">props.style.display?<a href="#propsstyledisplay-1" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
+<p><code>optional</code> <strong>props.style.display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexbasis">props.style.flexBasis?<a class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?" href="/docs/api/loader#propsstyleflexbasis">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexbasis-1">props.style.flexBasis?<a href="#propsstyleflexbasis-1" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexBasis</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexBasis</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexdirection">props.style.flexDirection?<a class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?" href="/docs/api/loader#propsstyleflexdirection">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexdirection-1">props.style.flexDirection?<a href="#propsstyleflexdirection-1" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
+<p><code>optional</code> <strong>props.style.flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexgrow">props.style.flexGrow?<a class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?" href="/docs/api/loader#propsstyleflexgrow">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexgrow-1">props.style.flexGrow?<a href="#propsstyleflexgrow-1" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexGrow</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexGrow</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexshrink">props.style.flexShrink?<a class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?" href="/docs/api/loader#propsstyleflexshrink">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexshrink-1">props.style.flexShrink?<a href="#propsstyleflexshrink-1" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexShrink</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexShrink</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexwrap">props.style.flexWrap?<a class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?" href="/docs/api/loader#propsstyleflexwrap">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexwrap-1">props.style.flexWrap?<a href="#propsstyleflexwrap-1" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+<p><code>optional</code> <strong>props.style.flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylegap">props.style.gap?<a class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?" href="/docs/api/loader#propsstylegap">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylegap-1">props.style.gap?<a href="#propsstylegap-1" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>gap</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.gap</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleheight">props.style.height?<a class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?" href="/docs/api/loader#propsstyleheight">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleheight-1">props.style.height?<a href="#propsstyleheight-1" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>height</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.height</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylejustifycontent">props.style.justifyContent?<a class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?" href="/docs/api/loader#propsstylejustifycontent">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylejustifycontent-1">props.style.justifyContent?<a href="#propsstylejustifycontent-1" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
+<p><code>optional</code> <strong>props.style.justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleleft">props.style.left?<a class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?" href="/docs/api/loader#propsstyleleft">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleleft-1">props.style.left?<a href="#propsstyleleft-1" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>left</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.left</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemargin">props.style.margin?<a class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?" href="/docs/api/loader#propsstylemargin">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargin-1">props.style.margin?<a href="#propsstylemargin-1" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>margin</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.margin</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginbottom">props.style.marginBottom?<a class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?" href="/docs/api/loader#propsstylemarginbottom">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginbottom-1">props.style.marginBottom?<a href="#propsstylemarginbottom-1" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginBottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginBottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginleft">props.style.marginLeft?<a class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?" href="/docs/api/loader#propsstylemarginleft">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginleft-1">props.style.marginLeft?<a href="#propsstylemarginleft-1" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginLeft</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginLeft</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginright">props.style.marginRight?<a class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?" href="/docs/api/loader#propsstylemarginright">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginright-1">props.style.marginRight?<a href="#propsstylemarginright-1" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginRight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginRight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemargintop">props.style.marginTop?<a class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?" href="/docs/api/loader#propsstylemargintop">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargintop-1">props.style.marginTop?<a href="#propsstylemargintop-1" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginTop</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginTop</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemaxheight">props.style.maxHeight?<a class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?" href="/docs/api/loader#propsstylemaxheight">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxheight-1">props.style.maxHeight?<a href="#propsstylemaxheight-1" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>maxHeight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.maxHeight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemaxwidth">props.style.maxWidth?<a class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?" href="/docs/api/loader#propsstylemaxwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxwidth-1">props.style.maxWidth?<a href="#propsstylemaxwidth-1" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>maxWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.maxWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleminheight">props.style.minHeight?<a class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?" href="/docs/api/loader#propsstyleminheight">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminheight-1">props.style.minHeight?<a href="#propsstyleminheight-1" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>minHeight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.minHeight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleminwidth">props.style.minWidth?<a class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?" href="/docs/api/loader#propsstyleminwidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminwidth-1">props.style.minWidth?<a href="#propsstyleminwidth-1" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>minWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.minWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleobjectfit">props.style.objectFit?<a class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?" href="/docs/api/loader#propsstyleobjectfit">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleobjectfit-1">props.style.objectFit?<a href="#propsstyleobjectfit-1" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+<p><code>optional</code> <strong>props.style.objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleopacity">props.style.opacity?<a class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?" href="/docs/api/loader#propsstyleopacity">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleopacity-1">props.style.opacity?<a href="#propsstyleopacity-1" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>opacity</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.opacity</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleoverflow">props.style.overflow?<a class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?" href="/docs/api/loader#propsstyleoverflow">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleoverflow-1">props.style.overflow?<a href="#propsstyleoverflow-1" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
+<p><code>optional</code> <strong>props.style.overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepadding">props.style.padding?<a class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?" href="/docs/api/loader#propsstylepadding">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepadding-1">props.style.padding?<a href="#propsstylepadding-1" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>padding</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.padding</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingbottom">props.style.paddingBottom?<a class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?" href="/docs/api/loader#propsstylepaddingbottom">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingbottom-1">props.style.paddingBottom?<a href="#propsstylepaddingbottom-1" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingBottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingBottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingleft">props.style.paddingLeft?<a class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?" href="/docs/api/loader#propsstylepaddingleft">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingleft-1">props.style.paddingLeft?<a href="#propsstylepaddingleft-1" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingLeft</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingLeft</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingright">props.style.paddingRight?<a class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?" href="/docs/api/loader#propsstylepaddingright">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingright-1">props.style.paddingRight?<a href="#propsstylepaddingright-1" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingRight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingRight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingtop">props.style.paddingTop?<a class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?" href="/docs/api/loader#propsstylepaddingtop">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingtop-1">props.style.paddingTop?<a href="#propsstylepaddingtop-1" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingTop</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingTop</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleposition">props.style.position?<a class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?" href="/docs/api/loader#propsstyleposition">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleposition-1">props.style.position?<a href="#propsstyleposition-1" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
+<p><code>optional</code> <strong>props.style.position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleright">props.style.right?<a class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?" href="/docs/api/loader#propsstyleright">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleright-1">props.style.right?<a href="#propsstyleright-1" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>right</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.right</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyletop">props.style.top?<a class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?" href="/docs/api/loader#propsstyletop">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyletop-1">props.style.top?<a href="#propsstyletop-1" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>top</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.top</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylewidth">props.style.width?<a class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?" href="/docs/api/loader#propsstylewidth">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylewidth-1">props.style.width?<a href="#propsstylewidth-1" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>width</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.width</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propstitle">props.title<a class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title" href="/docs/api/loader#propstitle">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propstitle">props.title<a href="#propstitle" class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title">​</a></h6>
 <blockquote>
-<p><strong>title</strong>: <code>string</code></p>
+<p><code>readonly</code> <strong>props.title</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="type">type<a class="hash-link" aria-label="Direct link to type" title="Direct link to type" href="/docs/api/loader#type">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type-1">type<a href="#type-1" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
 <blockquote>
-<p><strong>type</strong>: <code>&quot;Tile&quot;</code></p>
+<p><code>readonly</code> <strong>type</strong>: <code>&quot;Tile&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="version">version<a class="hash-link" aria-label="Direct link to version" title="Direct link to version" href="/docs/api/loader#version">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="version">version<a href="#version" class="hash-link" aria-label="Direct link to version" title="Direct link to version">​</a></h6>
 <blockquote>
-<p><strong>version</strong>: <code>&quot;0.1&quot;</code></p>
+<p><code>readonly</code> <strong>version</strong>: <code>&quot;0.1&quot;</code></p>
 </blockquote>
 <hr>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="postaction">postAction()<a class="hash-link" aria-label="Direct link to postAction()" title="Direct link to postAction()" href="/docs/api/loader#postaction">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="postaction">postAction()<a href="#postaction" class="hash-link" aria-label="Direct link to postAction()" title="Direct link to postAction()">​</a></h5>
 <blockquote>
 <p><strong>postAction</strong>(<code>url</code>, <code>action</code>, <code>useSigner</code>?, <code>options</code>?): <code>Promise</code>&lt;<code>object</code>&gt;</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-4">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-4">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-5">Parameters<a href="#parameters-5" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
 <p>• <strong>url</strong>: <code>string</code></p>
 <p>• <strong>action</strong>: <code>object</code> | <code>object</code></p>
 <p>• <strong>useSigner?</strong>: <a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
 <p>• <strong>options?</strong>: <code>Options</code></p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="returns-4">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-4">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-5">Returns<a href="#returns-5" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
 <p><code>Promise</code>&lt;<code>object</code>&gt;</p>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="props-1">props<a class="hash-link" aria-label="Direct link to props" title="Direct link to props" href="/docs/api/loader#props-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="props-2">props<a href="#props-2" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
 <blockquote>
-<p><strong>props</strong>: <code>object</code></p>
+<p><code>readonly</code> <strong>props</strong>: <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsactions-1">props.actions?<a class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?" href="/docs/api/loader#propsactions-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsactions-1">props.actions?<a href="#propsactions-1" class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>actions</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
+<p><code>readonly</code> <code>optional</code> <strong>props.actions</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propschildren-1">props.children?<a class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?" href="/docs/api/loader#propschildren-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propschildren-2">props.children?<a href="#propschildren-2" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>children</strong>: <code>objectOutputType</code>&lt;<code>object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt; | <code>objectOutputType</code>&lt;<code>object</code>, <code>ZodTypeAny</code>, <code>&quot;passthrough&quot;</code>&gt;[]</p>
+<p><code>readonly</code> <code>optional</code> <strong>props.children</strong>: <code>object</code> &amp; <code>object</code> | <code>object</code> &amp; <code>object</code>[]</p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsdescription-1">props.description?<a class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?" href="/docs/api/loader#propsdescription-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsdescription-1">props.description?<a href="#propsdescription-1" class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>description</strong>: <code>string</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.description</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsinput-1">props.input?<a class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?" href="/docs/api/loader#propsinput-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsinput-1">props.input?<a href="#propsinput-1" class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>input</strong>: <code>object</code> | <code>object</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.input</strong>: <code>object</code> | <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propskey-1">props.key?<a class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?" href="/docs/api/loader#propskey-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propskey-2">props.key?<a href="#propskey-2" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>key</strong>: <code>string</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.key</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyle-1">props.style?<a class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?" href="/docs/api/loader#propsstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyle-2">props.style?<a href="#propsstyle-2" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>style</strong>: <code>object</code></p>
+<p><code>readonly</code> <code>optional</code> <strong>props.style</strong>: <code>object</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylealignitems-1">props.style.alignItems?<a class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?" href="/docs/api/loader#propsstylealignitems-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignitems-2">props.style.alignItems?<a href="#propsstylealignitems-2" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
+<p><code>optional</code> <strong>props.style.alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylealignself-1">props.style.alignSelf?<a class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?" href="/docs/api/loader#propsstylealignself-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignself-2">props.style.alignSelf?<a href="#propsstylealignself-2" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
+<p><code>optional</code> <strong>props.style.alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundclip-1">props.style.backgroundClip?<a class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?" href="/docs/api/loader#propsstylebackgroundclip-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundclip-2">props.style.backgroundClip?<a href="#propsstylebackgroundclip-2" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
+<p><code>optional</code> <strong>props.style.backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundcolor-1">props.style.backgroundColor?<a class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?" href="/docs/api/loader#propsstylebackgroundcolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundcolor-2">props.style.backgroundColor?<a href="#propsstylebackgroundcolor-2" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundimage-1">props.style.backgroundImage?<a class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?" href="/docs/api/loader#propsstylebackgroundimage-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundimage-2">props.style.backgroundImage?<a href="#propsstylebackgroundimage-2" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundImage</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundImage</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundposition-1">props.style.backgroundPosition?<a class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?" href="/docs/api/loader#propsstylebackgroundposition-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundposition-2">props.style.backgroundPosition?<a href="#propsstylebackgroundposition-2" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundPosition</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundPosition</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundrepeat-1">props.style.backgroundRepeat?<a class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?" href="/docs/api/loader#propsstylebackgroundrepeat-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundrepeat-2">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat-2" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
+<p><code>optional</code> <strong>props.style.backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebackgroundsize-1">props.style.backgroundSize?<a class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?" href="/docs/api/loader#propsstylebackgroundsize-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundsize-2">props.style.backgroundSize?<a href="#propsstylebackgroundsize-2" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>backgroundSize</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.backgroundSize</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomcolor-1">props.style.borderBottomColor?<a class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?" href="/docs/api/loader#propsstyleborderbottomcolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomcolor-2">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor-2" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomleftradius-1">props.style.borderBottomLeftRadius?<a class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?" href="/docs/api/loader#propsstyleborderbottomleftradius-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomleftradius-2">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius-2" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomLeftRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomLeftRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomrightradius-1">props.style.borderBottomRightRadius?<a class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?" href="/docs/api/loader#propsstyleborderbottomrightradius-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomrightradius-2">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius-2" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomRightRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomRightRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomstyle-1">props.style.borderBottomStyle?<a class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?" href="/docs/api/loader#propsstyleborderbottomstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomstyle-2">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle-2" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderbottomwidth-1">props.style.borderBottomWidth?<a class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?" href="/docs/api/loader#propsstyleborderbottomwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomwidth-2">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth-2" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderBottomWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderBottomWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordercolor-1">props.style.borderColor?<a class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?" href="/docs/api/loader#propsstylebordercolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordercolor-2">props.style.borderColor?<a href="#propsstylebordercolor-2" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftcolor-1">props.style.borderLeftColor?<a class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?" href="/docs/api/loader#propsstyleborderleftcolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftcolor-2">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor-2" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftstyle-1">props.style.borderLeftStyle?<a class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?" href="/docs/api/loader#propsstyleborderleftstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftstyle-2">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle-2" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderleftwidth-1">props.style.borderLeftWidth?<a class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?" href="/docs/api/loader#propsstyleborderleftwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftwidth-2">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth-2" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderLeftWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderLeftWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderradius-1">props.style.borderRadius?<a class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?" href="/docs/api/loader#propsstyleborderradius-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderradius-2">props.style.borderRadius?<a href="#propsstyleborderradius-2" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightcolor-1">props.style.borderRightColor?<a class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?" href="/docs/api/loader#propsstyleborderrightcolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightcolor-2">props.style.borderRightColor?<a href="#propsstyleborderrightcolor-2" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderRightColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightstyle-1">props.style.borderRightStyle?<a class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?" href="/docs/api/loader#propsstyleborderrightstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightstyle-2">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle-2" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderrightwidth-1">props.style.borderRightWidth?<a class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?" href="/docs/api/loader#propsstyleborderrightwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightwidth-2">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth-2" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderRightWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderRightWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderstyle-1">props.style.borderStyle?<a class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?" href="/docs/api/loader#propsstyleborderstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderstyle-2">props.style.borderStyle?<a href="#propsstyleborderstyle-2" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopcolor-1">props.style.borderTopColor?<a class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?" href="/docs/api/loader#propsstylebordertopcolor-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopcolor-2">props.style.borderTopColor?<a href="#propsstylebordertopcolor-2" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopColor</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.borderTopColor</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopleftradius-1">props.style.borderTopLeftRadius?<a class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?" href="/docs/api/loader#propsstylebordertopleftradius-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopleftradius-2">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius-2" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopLeftRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopLeftRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertoprightradius-1">props.style.borderTopRightRadius?<a class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?" href="/docs/api/loader#propsstylebordertoprightradius-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertoprightradius-2">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius-2" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopRightRadius</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopRightRadius</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopstyle-1">props.style.borderTopStyle?<a class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?" href="/docs/api/loader#propsstylebordertopstyle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopstyle-2">props.style.borderTopStyle?<a href="#propsstylebordertopstyle-2" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p><code>optional</code> <strong>props.style.borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebordertopwidth-1">props.style.borderTopWidth?<a class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?" href="/docs/api/loader#propsstylebordertopwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopwidth-2">props.style.borderTopWidth?<a href="#propsstylebordertopwidth-2" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderTopWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderTopWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleborderwidth-1">props.style.borderWidth?<a class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?" href="/docs/api/loader#propsstyleborderwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderwidth-2">props.style.borderWidth?<a href="#propsstyleborderwidth-2" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>borderWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.borderWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylebottom-1">props.style.bottom?<a class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?" href="/docs/api/loader#propsstylebottom-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebottom-2">props.style.bottom?<a href="#propsstylebottom-2" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>bottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.bottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleboxshadow-1">props.style.boxShadow?<a class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?" href="/docs/api/loader#propsstyleboxshadow-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleboxshadow-2">props.style.boxShadow?<a href="#propsstyleboxshadow-2" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>boxShadow</strong>: <code>string</code></p>
+<p><code>optional</code> <strong>props.style.boxShadow</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyledisplay-1">props.style.display?<a class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?" href="/docs/api/loader#propsstyledisplay-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyledisplay-2">props.style.display?<a href="#propsstyledisplay-2" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
+<p><code>optional</code> <strong>props.style.display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexbasis-1">props.style.flexBasis?<a class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?" href="/docs/api/loader#propsstyleflexbasis-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexbasis-2">props.style.flexBasis?<a href="#propsstyleflexbasis-2" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexBasis</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexBasis</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexdirection-1">props.style.flexDirection?<a class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?" href="/docs/api/loader#propsstyleflexdirection-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexdirection-2">props.style.flexDirection?<a href="#propsstyleflexdirection-2" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
+<p><code>optional</code> <strong>props.style.flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexgrow-1">props.style.flexGrow?<a class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?" href="/docs/api/loader#propsstyleflexgrow-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexgrow-2">props.style.flexGrow?<a href="#propsstyleflexgrow-2" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexGrow</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexGrow</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexshrink-1">props.style.flexShrink?<a class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?" href="/docs/api/loader#propsstyleflexshrink-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexshrink-2">props.style.flexShrink?<a href="#propsstyleflexshrink-2" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexShrink</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.flexShrink</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleflexwrap-1">props.style.flexWrap?<a class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?" href="/docs/api/loader#propsstyleflexwrap-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexwrap-2">props.style.flexWrap?<a href="#propsstyleflexwrap-2" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+<p><code>optional</code> <strong>props.style.flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylegap-1">props.style.gap?<a class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?" href="/docs/api/loader#propsstylegap-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylegap-2">props.style.gap?<a href="#propsstylegap-2" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>gap</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.gap</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleheight-1">props.style.height?<a class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?" href="/docs/api/loader#propsstyleheight-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleheight-2">props.style.height?<a href="#propsstyleheight-2" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>height</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.height</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylejustifycontent-1">props.style.justifyContent?<a class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?" href="/docs/api/loader#propsstylejustifycontent-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylejustifycontent-2">props.style.justifyContent?<a href="#propsstylejustifycontent-2" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
+<p><code>optional</code> <strong>props.style.justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleleft-1">props.style.left?<a class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?" href="/docs/api/loader#propsstyleleft-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleleft-2">props.style.left?<a href="#propsstyleleft-2" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>left</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.left</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemargin-1">props.style.margin?<a class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?" href="/docs/api/loader#propsstylemargin-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargin-2">props.style.margin?<a href="#propsstylemargin-2" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>margin</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.margin</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginbottom-1">props.style.marginBottom?<a class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?" href="/docs/api/loader#propsstylemarginbottom-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginbottom-2">props.style.marginBottom?<a href="#propsstylemarginbottom-2" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginBottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginBottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginleft-1">props.style.marginLeft?<a class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?" href="/docs/api/loader#propsstylemarginleft-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginleft-2">props.style.marginLeft?<a href="#propsstylemarginleft-2" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginLeft</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginLeft</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemarginright-1">props.style.marginRight?<a class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?" href="/docs/api/loader#propsstylemarginright-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginright-2">props.style.marginRight?<a href="#propsstylemarginright-2" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginRight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginRight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemargintop-1">props.style.marginTop?<a class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?" href="/docs/api/loader#propsstylemargintop-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargintop-2">props.style.marginTop?<a href="#propsstylemargintop-2" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>marginTop</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.marginTop</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemaxheight-1">props.style.maxHeight?<a class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?" href="/docs/api/loader#propsstylemaxheight-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxheight-2">props.style.maxHeight?<a href="#propsstylemaxheight-2" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>maxHeight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.maxHeight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylemaxwidth-1">props.style.maxWidth?<a class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?" href="/docs/api/loader#propsstylemaxwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxwidth-2">props.style.maxWidth?<a href="#propsstylemaxwidth-2" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>maxWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.maxWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleminheight-1">props.style.minHeight?<a class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?" href="/docs/api/loader#propsstyleminheight-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminheight-2">props.style.minHeight?<a href="#propsstyleminheight-2" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>minHeight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.minHeight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleminwidth-1">props.style.minWidth?<a class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?" href="/docs/api/loader#propsstyleminwidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminwidth-2">props.style.minWidth?<a href="#propsstyleminwidth-2" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>minWidth</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.minWidth</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleobjectfit-1">props.style.objectFit?<a class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?" href="/docs/api/loader#propsstyleobjectfit-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleobjectfit-2">props.style.objectFit?<a href="#propsstyleobjectfit-2" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+<p><code>optional</code> <strong>props.style.objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleopacity-1">props.style.opacity?<a class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?" href="/docs/api/loader#propsstyleopacity-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleopacity-2">props.style.opacity?<a href="#propsstyleopacity-2" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>opacity</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.opacity</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleoverflow-1">props.style.overflow?<a class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?" href="/docs/api/loader#propsstyleoverflow-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleoverflow-2">props.style.overflow?<a href="#propsstyleoverflow-2" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
+<p><code>optional</code> <strong>props.style.overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepadding-1">props.style.padding?<a class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?" href="/docs/api/loader#propsstylepadding-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepadding-2">props.style.padding?<a href="#propsstylepadding-2" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>padding</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.padding</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingbottom-1">props.style.paddingBottom?<a class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?" href="/docs/api/loader#propsstylepaddingbottom-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingbottom-2">props.style.paddingBottom?<a href="#propsstylepaddingbottom-2" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingBottom</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingBottom</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingleft-1">props.style.paddingLeft?<a class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?" href="/docs/api/loader#propsstylepaddingleft-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingleft-2">props.style.paddingLeft?<a href="#propsstylepaddingleft-2" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingLeft</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingLeft</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingright-1">props.style.paddingRight?<a class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?" href="/docs/api/loader#propsstylepaddingright-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingright-2">props.style.paddingRight?<a href="#propsstylepaddingright-2" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingRight</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingRight</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylepaddingtop-1">props.style.paddingTop?<a class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?" href="/docs/api/loader#propsstylepaddingtop-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingtop-2">props.style.paddingTop?<a href="#propsstylepaddingtop-2" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>paddingTop</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.paddingTop</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleposition-1">props.style.position?<a class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?" href="/docs/api/loader#propsstyleposition-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleposition-2">props.style.position?<a href="#propsstyleposition-2" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
+<p><code>optional</code> <strong>props.style.position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyleright-1">props.style.right?<a class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?" href="/docs/api/loader#propsstyleright-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleright-2">props.style.right?<a href="#propsstyleright-2" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>right</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.right</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstyletop-1">props.style.top?<a class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?" href="/docs/api/loader#propsstyletop-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyletop-2">props.style.top?<a href="#propsstyletop-2" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>top</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.top</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propsstylewidth-1">props.style.width?<a class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?" href="/docs/api/loader#propsstylewidth-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylewidth-2">props.style.width?<a href="#propsstylewidth-2" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
 <blockquote>
-<p><code>optional</code> <strong>width</strong>: <code>number</code></p>
+<p><code>optional</code> <strong>props.style.width</strong>: <code>number</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="propstitle-1">props.title<a class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title" href="/docs/api/loader#propstitle-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propstitle-1">props.title<a href="#propstitle-1" class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title">​</a></h6>
 <blockquote>
-<p><strong>title</strong>: <code>string</code></p>
+<p><code>readonly</code> <strong>props.title</strong>: <code>string</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="type-1">type<a class="hash-link" aria-label="Direct link to type" title="Direct link to type" href="/docs/api/loader#type-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type-2">type<a href="#type-2" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
 <blockquote>
-<p><strong>type</strong>: <code>&quot;Tile&quot;</code></p>
+<p><code>readonly</code> <strong>type</strong>: <code>&quot;Tile&quot;</code></p>
 </blockquote>
-<h6 class="anchor anchorWithStickyNavbar_PyYa" id="version-1">version<a class="hash-link" aria-label="Direct link to version" title="Direct link to version" href="/docs/api/loader#version-1">​</a></h6>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="version-1">version<a href="#version-1" class="hash-link" aria-label="Direct link to version" title="Direct link to version">​</a></h6>
 <blockquote>
-<p><strong>version</strong>: <code>&quot;0.1&quot;</code></p>
+<p><code>readonly</code> <strong>version</strong>: <code>&quot;0.1&quot;</code></p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_PyYa" id="type-aliases">Type Aliases<a class="hash-link" aria-label="Direct link to Type Aliases" title="Direct link to Type Aliases" href="/docs/api/loader#type-aliases">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="actionsigner">ActionSigner<a class="hash-link" aria-label="Direct link to ActionSigner" title="Direct link to ActionSigner" href="/docs/api/loader#actionsigner">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="type-aliases">Type Aliases<a href="#type-aliases" class="hash-link" aria-label="Direct link to Type Aliases" title="Direct link to Type Aliases">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="actionsigner">ActionSigner<a href="#actionsigner" class="hash-link" aria-label="Direct link to ActionSigner" title="Direct link to ActionSigner">​</a></h3>
 <blockquote>
-<p><strong>ActionSigner</strong>: <code>DIDSigner</code> | <code>Promise</code>&lt;<code>DIDSigner</code>&gt;</p>
+<p><strong>ActionSigner</strong>: <a href="/docs/api/protocol#didsigner"><code>DIDSigner</code></a> | <code>Promise</code>&lt;<a href="/docs/api/protocol#didsigner"><code>DIDSigner</code></a>&gt;</p>
 </blockquote>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="loaderparams">LoaderParams<a class="hash-link" aria-label="Direct link to LoaderParams" title="Direct link to LoaderParams" href="/docs/api/loader#loaderparams">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="loaderparams">LoaderParams<a href="#loaderparams" class="hash-link" aria-label="Direct link to LoaderParams" title="Direct link to LoaderParams">​</a></h3>
 <blockquote>
 <p><strong>LoaderParams</strong>: <code>object</code></p>
 </blockquote>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="type-declaration">Type declaration<a class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration" href="/docs/api/loader#type-declaration">​</a></h4>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="options">options?<a class="hash-link" aria-label="Direct link to options?" title="Direct link to options?" href="/docs/api/loader#options">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration">Type declaration<a href="#type-declaration" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="options">options?<a href="#options" class="hash-link" aria-label="Direct link to options?" title="Direct link to options?">​</a></h5>
 <blockquote>
 <p><code>optional</code> <strong>options</strong>: <code>Options</code></p>
 </blockquote>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="signer-1">signer?<a class="hash-link" aria-label="Direct link to signer?" title="Direct link to signer?" href="/docs/api/loader#signer-1">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="signer-1">signer?<a href="#signer-1" class="hash-link" aria-label="Direct link to signer?" title="Direct link to signer?">​</a></h5>
 <blockquote>
 <p><code>optional</code> <strong>signer</strong>: <a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
 </blockquote>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="postactionparams">PostActionParams<a class="hash-link" aria-label="Direct link to PostActionParams" title="Direct link to PostActionParams" href="/docs/api/loader#postactionparams">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="postactionparams">PostActionParams<a href="#postactionparams" class="hash-link" aria-label="Direct link to PostActionParams" title="Direct link to PostActionParams">​</a></h3>
 <blockquote>
 <p><strong>PostActionParams</strong>: <code>object</code></p>
 </blockquote>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="type-declaration-1">Type declaration<a class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration" href="/docs/api/loader#type-declaration-1">​</a></h4>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="action">action<a class="hash-link" aria-label="Direct link to action" title="Direct link to action" href="/docs/api/loader#action">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-1">Type declaration<a href="#type-declaration-1" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="action">action<a href="#action" class="hash-link" aria-label="Direct link to action" title="Direct link to action">​</a></h5>
 <blockquote>
-<p><strong>action</strong>: <code>PostActionV0</code></p>
+<p><strong>action</strong>: <a href="/docs/api/protocol#postactionv0"><code>PostActionV0</code></a></p>
 </blockquote>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="options-1">options?<a class="hash-link" aria-label="Direct link to options?" title="Direct link to options?" href="/docs/api/loader#options-1">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="options-1">options?<a href="#options-1" class="hash-link" aria-label="Direct link to options?" title="Direct link to options?">​</a></h5>
 <blockquote>
 <p><code>optional</code> <strong>options</strong>: <code>Options</code></p>
 </blockquote>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="signer-2">signer<a class="hash-link" aria-label="Direct link to signer" title="Direct link to signer" href="/docs/api/loader#signer-2">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="signer-2">signer<a href="#signer-2" class="hash-link" aria-label="Direct link to signer" title="Direct link to signer">​</a></h5>
 <blockquote>
 <p><strong>signer</strong>: <a href="/docs/api/loader#actionsigner"><code>ActionSigner</code></a></p>
 </blockquote>
-<h5 class="anchor anchorWithStickyNavbar_PyYa" id="url">url<a class="hash-link" aria-label="Direct link to url" title="Direct link to url" href="/docs/api/loader#url">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="url">url<a href="#url" class="hash-link" aria-label="Direct link to url" title="Direct link to url">​</a></h5>
 <blockquote>
 <p><strong>url</strong>: <code>string</code></p>
 </blockquote>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="renderformat">RenderFormat<a class="hash-link" aria-label="Direct link to RenderFormat" title="Direct link to RenderFormat" href="/docs/api/loader#renderformat">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="renderformat">RenderFormat<a href="#renderformat" class="hash-link" aria-label="Direct link to RenderFormat" title="Direct link to RenderFormat">​</a></h3>
 <blockquote>
-<p><strong>RenderFormat</strong>: <code>Exclude</code>&lt;<code>HandlerFormatV0</code>, <code>&quot;json&quot;</code>&gt;</p>
+<p><strong>RenderFormat</strong>: <code>Exclude</code>&lt;<a href="/docs/api/protocol#handlerformatv0"><code>HandlerFormatV0</code></a>, <code>&quot;json&quot;</code>&gt;</p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_PyYa" id="functions">Functions<a class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" href="/docs/api/loader#functions">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="gettile-1">getTile()<a class="hash-link" aria-label="Direct link to getTile()" title="Direct link to getTile()" href="/docs/api/loader#gettile-1">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="gettile-1">getTile()<a href="#gettile-1" class="hash-link" aria-label="Direct link to getTile()" title="Direct link to getTile()">​</a></h3>
 <blockquote>
-<p><strong>getTile</strong>(<code>url</code>, <code>options</code>?): <code>Promise</code>&lt;<code>TileV0</code>&gt;</p>
+<p><strong>getTile</strong>(<code>url</code>, <code>options</code>?): <code>Promise</code>&lt;<a href="/docs/api/protocol#tilev0"><code>TileV0</code></a>&gt;</p>
 </blockquote>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-5">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-5">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-6">Parameters<a href="#parameters-6" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
 <p>• <strong>url</strong>: <code>string</code></p>
 <p>• <strong>options?</strong>: <code>Options</code></p>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="returns-5">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-5">​</a></h4>
-<p><code>Promise</code>&lt;<code>TileV0</code>&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-6">Returns<a href="#returns-6" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>Promise</code>&lt;<a href="/docs/api/protocol#tilev0"><code>TileV0</code></a>&gt;</p>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_PyYa" id="postaction-1">postAction()<a class="hash-link" aria-label="Direct link to postAction()" title="Direct link to postAction()" href="/docs/api/loader#postaction-1">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="postaction-1">postAction()<a href="#postaction-1" class="hash-link" aria-label="Direct link to postAction()" title="Direct link to postAction()">​</a></h3>
 <blockquote>
-<p><strong>postAction</strong>(<code>params</code>): <code>Promise</code>&lt;<code>TileV0</code>&gt;</p>
+<p><strong>postAction</strong>(<code>params</code>): <code>Promise</code>&lt;<a href="/docs/api/protocol#tilev0"><code>TileV0</code></a>&gt;</p>
 </blockquote>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="parameters-6">Parameters<a class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" href="/docs/api/loader#parameters-6">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-7">Parameters<a href="#parameters-7" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
 <p>• <strong>params</strong>: <a href="/docs/api/loader#postactionparams"><code>PostActionParams</code></a></p>
-<h4 class="anchor anchorWithStickyNavbar_PyYa" id="returns-6">Returns<a class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" href="/docs/api/loader#returns-6">​</a></h4>
-<p><code>Promise</code>&lt;<code>TileV0</code>&gt;</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/api/handler"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">handler</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/api/renderer"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">renderer</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_PnU7 thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#installation">Installation</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#classes">Classes</a><ul><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#loader-1">Loader</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#type-aliases">Type Aliases</a><ul><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#actionsigner">ActionSigner</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#loaderparams">LoaderParams</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#postactionparams">PostActionParams</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#renderformat">RenderFormat</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#functions">Functions</a><ul><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#gettile-1">getTile()</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/api/loader#postaction-1">postAction()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/overview">Overview</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Getting started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/concepts">Concepts</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/protocol">Protocol</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/cli">CLI</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/api">APIs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Tairu Framework.</div></div></div></footer></div>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-7">Returns<a href="#returns-7" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>Promise</code>&lt;<a href="/docs/api/protocol#tilev0"><code>TileV0</code></a>&gt;</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/api/protocol"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">@tairu/protocol</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/api/renderer"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">@tairu/renderer</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_yKKF thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#installation" class="table-of-contents__link toc-highlight">Installation</a></li><li><a href="#classes" class="table-of-contents__link toc-highlight">Classes</a><ul><li><a href="#loader" class="table-of-contents__link toc-highlight">Loader</a></li></ul></li><li><a href="#type-aliases" class="table-of-contents__link toc-highlight">Type Aliases</a><ul><li><a href="#actionsigner" class="table-of-contents__link toc-highlight">ActionSigner</a></li><li><a href="#loaderparams" class="table-of-contents__link toc-highlight">LoaderParams</a></li><li><a href="#postactionparams" class="table-of-contents__link toc-highlight">PostActionParams</a></li><li><a href="#renderformat" class="table-of-contents__link toc-highlight">RenderFormat</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#gettile-1" class="table-of-contents__link toc-highlight">getTile()</a></li><li><a href="#postaction-1" class="table-of-contents__link toc-highlight">postAction()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/overview">Overview</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Getting started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/concepts">Concepts</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/protocol">Protocol</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/cli">CLI</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/api">APIs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Tairu Framework.</div></div></div></footer></div>
 </body>
 </html>

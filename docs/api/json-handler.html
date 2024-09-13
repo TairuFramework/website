@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/json-handler/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">@tairu/json-handler | Tairu: the Tiles framework</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tairu.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tairu.dev/docs/api/json-handler"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="@tairu/json-handler | Tairu: the Tiles framework"><meta data-rh="true" name="description" content="Tairu JSON handler, handling HTTP requests to serve JSON tiles only."><meta data-rh="true" property="og:description" content="Tairu JSON handler, handling HTTP requests to serve JSON tiles only."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://tairu.dev/docs/api/json-handler"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/json-handler" hreflang="en"><link data-rh="true" rel="alternate" href="https://tairu.dev/docs/api/json-handler" hreflang="x-default"><link rel="preconnect" href="https://metrics.tairu.dev">
+<script async defer="defer" src="https://metrics.tairu.dev/script.js" data-website-id="008da516-7e31-40c3-9f05-1b72bed9ffb3" data-auto-track data-do-not-track data-cache></script><link rel="stylesheet" href="/assets/css/styles.e35a6d73.css">
+<script src="/assets/js/runtime~main.16b2a910.js" defer="defer"></script>
+<script src="/assets/js/main.e2be1324.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_Fcti" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo-light.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--light_X8li"><img src="/img/logo-dark.svg" alt="Tairu" class="themedComponent_vw9e themedComponent--dark_XK36"></div></a><a class="navbar__item navbar__link" href="/docs/overview">Documentation</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/api">API</a><a class="navbar__item navbar__link" href="/pricing">Pricing</a></div><div class="navbar__items navbar__items--right"><div class="toggle_qFPC colorModeToggle__Dgc"><button class="clean-btn toggleButton_r8nl toggleButtonDisabled_Bf6S" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_V9fX"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_V2ie"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_tUn5"><div><div class="searchbutton-module_searchbutton_container__qUZ4Q"><style>
+      @import url(&#x27;https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap&#x27;);
+      :root {
+        --search-btn-text-color: #54525B; --search-btn-text-color-hover: #54525B; --search-btn-text-color-focus: #54525B; --search-btn-background-color: #F6F8F9; --search-btn-background-color-hover: #F6F8F9; --search-btn-background-color-focus: #F6F8F9; --search-btn-border-color: transparent; --search-btn-border-color-hover: #a8b1ff; --search-btn-border-color-focus: #a8b1ff; --search-btn-icon-color: #71717A;
+        --font-primary: &quot;Instrument Sans&quot;, sans-serif;;
+        font-size: 100%;
+      }
+    </style><button type="button" class="searchbutton-module_searchbutton__gg7JJ"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" aria-label="Search" role="img"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><span class="searchbutton-module_searchbutton__label__TfmnN">Search</span><span class="searchbutton-module_searchbutton__keys__qckL6"><kbd>⌘</kbd><kbd>K</kbd></span></button></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_juSb"><div class="docsWrapper_EIHb"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_RnRE" type="button"></button><div class="docRoot_RpBZ"><aside class="theme-doc-sidebar-container docSidebarContainer_m6qY"><div class="sidebarViewport_R_ZS"><div class="sidebar_VeEV"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iEUx"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/api">Tairu packages</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">Tiles handling</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/handler">@tairu/handler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/api/json-handler">@tairu/json-handler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Tiles rendering</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/web-client">@tairu/web-client</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/jquery">@tairu/jquery</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/react-dom/react-dom">@tairu/react-dom</a><button aria-label="Expand sidebar category &#x27;@tairu/react-dom&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react-native">@tairu/react-native</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Integrations</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/api/next/next">@tairu/next</a><button aria-label="Expand sidebar category &#x27;@tairu/next&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Utilities</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/protocol">@tairu/protocol</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/loader">@tairu/loader</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/renderer">@tairu/renderer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/testing">@tairu/testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/jsx">@tairu/jsx</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api/react">@tairu/react</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_l7w_"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_Oso4"><div class="docItemContainer_wfoJ"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_NOSR" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_WmEB"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Tiles handling</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">@tairu/json-handler</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_Cm4U theme-doc-toc-mobile tocMobile_vepl"><button type="button" class="clean-btn tocCollapsibleButton_gyNk">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>@tairu/json-handler</h1></header>
+<p>Tairu JSON handler, handling HTTP requests to serve JSON tiles only.</p>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="installation">Installation<a href="#installation" class="hash-link" aria-label="Direct link to Installation" title="Direct link to Installation">​</a></h2>
+<div class="language-sh codeBlockContainer_VY_X theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_Emf2"><pre tabindex="0" class="prism-code language-sh codeBlock_cEVj thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_o66c"><span class="token-line" style="color:#393A34"><span class="token plain">npm install @tairu/json-handler</span><br></span></code></pre><div class="buttonGroup_JuMy"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_nyAL" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_Qh1x"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_BI7y"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="classes">Classes<a href="#classes" class="hash-link" aria-label="Direct link to Classes" title="Direct link to Classes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tairuresulttype-context">Tairu&lt;ResultType, Context&gt;<a href="#tairuresulttype-context" class="hash-link" aria-label="Direct link to Tairu&lt;ResultType, Context&gt;" title="Direct link to Tairu&lt;ResultType, Context&gt;">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters">Type Parameters<a href="#type-parameters" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>ResultType</strong> = <a href="/docs/api/protocol#tile"><code>Tile</code></a></p>
+<p>• <strong>Context</strong> = <a href="/docs/api/json-handler#tilerequestcontext"><code>TileRequestContext</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="constructors">Constructors<a href="#constructors" class="hash-link" aria-label="Direct link to Constructors" title="Direct link to Constructors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="new-tairu">new Tairu()<a href="#new-tairu" class="hash-link" aria-label="Direct link to new Tairu()" title="Direct link to new Tairu()">​</a></h5>
+<blockquote>
+<p><strong>new Tairu</strong>&lt;<code>ResultType</code>, <code>Context</code>&gt;(<code>options</code>): <a href="/docs/api/json-handler#tairuresulttype-context"><code>Tairu</code></a>&lt;<code>ResultType</code>, <code>Context</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>options</strong>: <a href="/docs/api/json-handler#tairuoptions"><code>TairuOptions</code></a> = <code>{}</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/json-handler#tairuresulttype-context"><code>Tairu</code></a>&lt;<code>ResultType</code>, <code>Context</code>&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="accessors">Accessors<a href="#accessors" class="hash-link" aria-label="Direct link to Accessors" title="Direct link to Accessors">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="app">app<a href="#app" class="hash-link" aria-label="Direct link to app" title="Direct link to app">​</a></h5>
+<blockquote>
+<p><code>get</code> <strong>app</strong>(): <code>App</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>App</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in">Defined in<a href="#defined-in" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="handler">handler<a href="#handler" class="hash-link" aria-label="Direct link to handler" title="Direct link to handler">​</a></h5>
+<blockquote>
+<p><code>get</code> <strong>handler</strong>(): <a href="/docs/api/json-handler#tairuhandler"><code>TairuHandler</code></a></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-2">Returns<a href="#returns-2" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/json-handler#tairuhandler"><code>TairuHandler</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in-1">Defined in<a href="#defined-in-1" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="nodelistener">nodeListener<a href="#nodelistener" class="hash-link" aria-label="Direct link to nodeListener" title="Direct link to nodeListener">​</a></h5>
+<blockquote>
+<p><code>get</code> <strong>nodeListener</strong>(): <a href="/docs/api/json-handler#nodelistener-1"><code>NodeListener</code></a></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-3">Returns<a href="#returns-3" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><a href="/docs/api/json-handler#nodelistener-1"><code>NodeListener</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in-2">Defined in<a href="#defined-in-2" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="plainhandler">plainHandler<a href="#plainhandler" class="hash-link" aria-label="Direct link to plainHandler" title="Direct link to plainHandler">​</a></h5>
+<blockquote>
+<p><code>get</code> <strong>plainHandler</strong>(): <code>PlainHandler</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-4">Returns<a href="#returns-4" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>PlainHandler</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in-3">Defined in<a href="#defined-in-3" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="urlprefix">urlPrefix<a href="#urlprefix" class="hash-link" aria-label="Direct link to urlPrefix" title="Direct link to urlPrefix">​</a></h5>
+<blockquote>
+<p><code>get</code> <strong>urlPrefix</strong>(): <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-5">Returns<a href="#returns-5" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>string</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="defined-in-4">Defined in<a href="#defined-in-4" class="hash-link" aria-label="Direct link to Defined in" title="Direct link to Defined in">​</a></h6>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="methods">Methods<a href="#methods" class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="addhandler">addHandler()<a href="#addhandler" class="hash-link" aria-label="Direct link to addHandler()" title="Direct link to addHandler()">​</a></h5>
+<blockquote>
+<p><strong>addHandler</strong>&lt;<code>PathParams</code>, <code>SearchParams</code>&gt;(<code>path</code>, <code>handler</code>): <code>void</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-1">Type Parameters<a href="#type-parameters-1" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h6>
+<p>• <strong>PathParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>SearchParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-1">Parameters<a href="#parameters-1" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>path</strong>: <code>string</code></p>
+<p>• <strong>handler</strong>: <a href="/docs/api/json-handler#tilehandlerpathparams-searchparams-resulttype-context"><code>TileHandler</code></a>&lt;<code>PathParams</code>, <code>SearchParams</code>, <code>ResultType</code>, <code>Context</code>&gt;</p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-6">Returns<a href="#returns-6" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>void</code></p>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="executehandler">executeHandler()<a href="#executehandler" class="hash-link" aria-label="Direct link to executeHandler()" title="Direct link to executeHandler()">​</a></h5>
+<blockquote>
+<p><strong>executeHandler</strong>&lt;<code>PathParams</code>, <code>SearchParams</code>&gt;(<code>handler</code>, <code>event</code>): <code>Promise</code>&lt;<code>ResultType</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-2">Type Parameters<a href="#type-parameters-2" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h6>
+<p>• <strong>PathParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>SearchParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>handler</strong>: <a href="/docs/api/json-handler#tilehandlerpathparams-searchparams-resulttype-context"><code>TileHandler</code></a>&lt;<code>PathParams</code>, <code>SearchParams</code>, <code>ResultType</code>, <code>Context</code>&gt;</p>
+<p>• <strong>event</strong>: <a href="/docs/api/json-handler#tairuevent"><code>TairuEvent</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-7">Returns<a href="#returns-7" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Promise</code>&lt;<code>ResultType</code>&gt;</p>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="parsehandlerresult">parseHandlerResult()<a href="#parsehandlerresult" class="hash-link" aria-label="Direct link to parseHandlerResult()" title="Direct link to parseHandlerResult()">​</a></h5>
+<blockquote>
+<p><strong>parseHandlerResult</strong>(<code>result</code>): <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-3">Parameters<a href="#parameters-3" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>result</strong>: <code>ResultType</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-8">Returns<a href="#returns-8" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>object</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="props">props<a href="#props" class="hash-link" aria-label="Direct link to props" title="Direct link to props">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>props</strong>: <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsactions">props.actions?<a href="#propsactions" class="hash-link" aria-label="Direct link to props.actions?" title="Direct link to props.actions?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.actions</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propschildren">props.children?<a href="#propschildren" class="hash-link" aria-label="Direct link to props.children?" title="Direct link to props.children?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.children</strong>: <code>object</code> &amp; <code>object</code> | <code>object</code> &amp; <code>object</code>[]</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsdescription">props.description?<a href="#propsdescription" class="hash-link" aria-label="Direct link to props.description?" title="Direct link to props.description?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.description</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsinput">props.input?<a href="#propsinput" class="hash-link" aria-label="Direct link to props.input?" title="Direct link to props.input?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.input</strong>: <code>object</code> | <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propskey">props.key?<a href="#propskey" class="hash-link" aria-label="Direct link to props.key?" title="Direct link to props.key?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.key</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyle">props.style?<a href="#propsstyle" class="hash-link" aria-label="Direct link to props.style?" title="Direct link to props.style?">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <code>optional</code> <strong>props.style</strong>: <code>object</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignitems">props.style.alignItems?<a href="#propsstylealignitems" class="hash-link" aria-label="Direct link to props.style.alignItems?" title="Direct link to props.style.alignItems?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.alignItems</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylealignself">props.style.alignSelf?<a href="#propsstylealignself" class="hash-link" aria-label="Direct link to props.style.alignSelf?" title="Direct link to props.style.alignSelf?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.alignSelf</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundclip">props.style.backgroundClip?<a href="#propsstylebackgroundclip" class="hash-link" aria-label="Direct link to props.style.backgroundClip?" title="Direct link to props.style.backgroundClip?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundClip</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundcolor">props.style.backgroundColor?<a href="#propsstylebackgroundcolor" class="hash-link" aria-label="Direct link to props.style.backgroundColor?" title="Direct link to props.style.backgroundColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundimage">props.style.backgroundImage?<a href="#propsstylebackgroundimage" class="hash-link" aria-label="Direct link to props.style.backgroundImage?" title="Direct link to props.style.backgroundImage?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundImage</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundposition">props.style.backgroundPosition?<a href="#propsstylebackgroundposition" class="hash-link" aria-label="Direct link to props.style.backgroundPosition?" title="Direct link to props.style.backgroundPosition?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundPosition</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundrepeat">props.style.backgroundRepeat?<a href="#propsstylebackgroundrepeat" class="hash-link" aria-label="Direct link to props.style.backgroundRepeat?" title="Direct link to props.style.backgroundRepeat?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundRepeat</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebackgroundsize">props.style.backgroundSize?<a href="#propsstylebackgroundsize" class="hash-link" aria-label="Direct link to props.style.backgroundSize?" title="Direct link to props.style.backgroundSize?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.backgroundSize</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomcolor">props.style.borderBottomColor?<a href="#propsstyleborderbottomcolor" class="hash-link" aria-label="Direct link to props.style.borderBottomColor?" title="Direct link to props.style.borderBottomColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomleftradius">props.style.borderBottomLeftRadius?<a href="#propsstyleborderbottomleftradius" class="hash-link" aria-label="Direct link to props.style.borderBottomLeftRadius?" title="Direct link to props.style.borderBottomLeftRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomLeftRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomrightradius">props.style.borderBottomRightRadius?<a href="#propsstyleborderbottomrightradius" class="hash-link" aria-label="Direct link to props.style.borderBottomRightRadius?" title="Direct link to props.style.borderBottomRightRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomRightRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomstyle">props.style.borderBottomStyle?<a href="#propsstyleborderbottomstyle" class="hash-link" aria-label="Direct link to props.style.borderBottomStyle?" title="Direct link to props.style.borderBottomStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderbottomwidth">props.style.borderBottomWidth?<a href="#propsstyleborderbottomwidth" class="hash-link" aria-label="Direct link to props.style.borderBottomWidth?" title="Direct link to props.style.borderBottomWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderBottomWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordercolor">props.style.borderColor?<a href="#propsstylebordercolor" class="hash-link" aria-label="Direct link to props.style.borderColor?" title="Direct link to props.style.borderColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftcolor">props.style.borderLeftColor?<a href="#propsstyleborderleftcolor" class="hash-link" aria-label="Direct link to props.style.borderLeftColor?" title="Direct link to props.style.borderLeftColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftstyle">props.style.borderLeftStyle?<a href="#propsstyleborderleftstyle" class="hash-link" aria-label="Direct link to props.style.borderLeftStyle?" title="Direct link to props.style.borderLeftStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderleftwidth">props.style.borderLeftWidth?<a href="#propsstyleborderleftwidth" class="hash-link" aria-label="Direct link to props.style.borderLeftWidth?" title="Direct link to props.style.borderLeftWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderLeftWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderradius">props.style.borderRadius?<a href="#propsstyleborderradius" class="hash-link" aria-label="Direct link to props.style.borderRadius?" title="Direct link to props.style.borderRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightcolor">props.style.borderRightColor?<a href="#propsstyleborderrightcolor" class="hash-link" aria-label="Direct link to props.style.borderRightColor?" title="Direct link to props.style.borderRightColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightstyle">props.style.borderRightStyle?<a href="#propsstyleborderrightstyle" class="hash-link" aria-label="Direct link to props.style.borderRightStyle?" title="Direct link to props.style.borderRightStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderrightwidth">props.style.borderRightWidth?<a href="#propsstyleborderrightwidth" class="hash-link" aria-label="Direct link to props.style.borderRightWidth?" title="Direct link to props.style.borderRightWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderRightWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderstyle">props.style.borderStyle?<a href="#propsstyleborderstyle" class="hash-link" aria-label="Direct link to props.style.borderStyle?" title="Direct link to props.style.borderStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopcolor">props.style.borderTopColor?<a href="#propsstylebordertopcolor" class="hash-link" aria-label="Direct link to props.style.borderTopColor?" title="Direct link to props.style.borderTopColor?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopColor</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopleftradius">props.style.borderTopLeftRadius?<a href="#propsstylebordertopleftradius" class="hash-link" aria-label="Direct link to props.style.borderTopLeftRadius?" title="Direct link to props.style.borderTopLeftRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopLeftRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertoprightradius">props.style.borderTopRightRadius?<a href="#propsstylebordertoprightradius" class="hash-link" aria-label="Direct link to props.style.borderTopRightRadius?" title="Direct link to props.style.borderTopRightRadius?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopRightRadius</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopstyle">props.style.borderTopStyle?<a href="#propsstylebordertopstyle" class="hash-link" aria-label="Direct link to props.style.borderTopStyle?" title="Direct link to props.style.borderTopStyle?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopStyle</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebordertopwidth">props.style.borderTopWidth?<a href="#propsstylebordertopwidth" class="hash-link" aria-label="Direct link to props.style.borderTopWidth?" title="Direct link to props.style.borderTopWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderTopWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleborderwidth">props.style.borderWidth?<a href="#propsstyleborderwidth" class="hash-link" aria-label="Direct link to props.style.borderWidth?" title="Direct link to props.style.borderWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.borderWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylebottom">props.style.bottom?<a href="#propsstylebottom" class="hash-link" aria-label="Direct link to props.style.bottom?" title="Direct link to props.style.bottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.bottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleboxshadow">props.style.boxShadow?<a href="#propsstyleboxshadow" class="hash-link" aria-label="Direct link to props.style.boxShadow?" title="Direct link to props.style.boxShadow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.boxShadow</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyledisplay">props.style.display?<a href="#propsstyledisplay" class="hash-link" aria-label="Direct link to props.style.display?" title="Direct link to props.style.display?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.display</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexbasis">props.style.flexBasis?<a href="#propsstyleflexbasis" class="hash-link" aria-label="Direct link to props.style.flexBasis?" title="Direct link to props.style.flexBasis?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexBasis</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexdirection">props.style.flexDirection?<a href="#propsstyleflexdirection" class="hash-link" aria-label="Direct link to props.style.flexDirection?" title="Direct link to props.style.flexDirection?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexDirection</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexgrow">props.style.flexGrow?<a href="#propsstyleflexgrow" class="hash-link" aria-label="Direct link to props.style.flexGrow?" title="Direct link to props.style.flexGrow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexGrow</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexshrink">props.style.flexShrink?<a href="#propsstyleflexshrink" class="hash-link" aria-label="Direct link to props.style.flexShrink?" title="Direct link to props.style.flexShrink?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexShrink</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleflexwrap">props.style.flexWrap?<a href="#propsstyleflexwrap" class="hash-link" aria-label="Direct link to props.style.flexWrap?" title="Direct link to props.style.flexWrap?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.flexWrap</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylegap">props.style.gap?<a href="#propsstylegap" class="hash-link" aria-label="Direct link to props.style.gap?" title="Direct link to props.style.gap?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.gap</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleheight">props.style.height?<a href="#propsstyleheight" class="hash-link" aria-label="Direct link to props.style.height?" title="Direct link to props.style.height?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.height</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylejustifycontent">props.style.justifyContent?<a href="#propsstylejustifycontent" class="hash-link" aria-label="Direct link to props.style.justifyContent?" title="Direct link to props.style.justifyContent?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.justifyContent</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleleft">props.style.left?<a href="#propsstyleleft" class="hash-link" aria-label="Direct link to props.style.left?" title="Direct link to props.style.left?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.left</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargin">props.style.margin?<a href="#propsstylemargin" class="hash-link" aria-label="Direct link to props.style.margin?" title="Direct link to props.style.margin?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.margin</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginbottom">props.style.marginBottom?<a href="#propsstylemarginbottom" class="hash-link" aria-label="Direct link to props.style.marginBottom?" title="Direct link to props.style.marginBottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginleft">props.style.marginLeft?<a href="#propsstylemarginleft" class="hash-link" aria-label="Direct link to props.style.marginLeft?" title="Direct link to props.style.marginLeft?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemarginright">props.style.marginRight?<a href="#propsstylemarginright" class="hash-link" aria-label="Direct link to props.style.marginRight?" title="Direct link to props.style.marginRight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemargintop">props.style.marginTop?<a href="#propsstylemargintop" class="hash-link" aria-label="Direct link to props.style.marginTop?" title="Direct link to props.style.marginTop?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.marginTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxheight">props.style.maxHeight?<a href="#propsstylemaxheight" class="hash-link" aria-label="Direct link to props.style.maxHeight?" title="Direct link to props.style.maxHeight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.maxHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylemaxwidth">props.style.maxWidth?<a href="#propsstylemaxwidth" class="hash-link" aria-label="Direct link to props.style.maxWidth?" title="Direct link to props.style.maxWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.maxWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminheight">props.style.minHeight?<a href="#propsstyleminheight" class="hash-link" aria-label="Direct link to props.style.minHeight?" title="Direct link to props.style.minHeight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.minHeight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleminwidth">props.style.minWidth?<a href="#propsstyleminwidth" class="hash-link" aria-label="Direct link to props.style.minWidth?" title="Direct link to props.style.minWidth?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.minWidth</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleobjectfit">props.style.objectFit?<a href="#propsstyleobjectfit" class="hash-link" aria-label="Direct link to props.style.objectFit?" title="Direct link to props.style.objectFit?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.objectFit</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleopacity">props.style.opacity?<a href="#propsstyleopacity" class="hash-link" aria-label="Direct link to props.style.opacity?" title="Direct link to props.style.opacity?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.opacity</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleoverflow">props.style.overflow?<a href="#propsstyleoverflow" class="hash-link" aria-label="Direct link to props.style.overflow?" title="Direct link to props.style.overflow?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.overflow</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepadding">props.style.padding?<a href="#propsstylepadding" class="hash-link" aria-label="Direct link to props.style.padding?" title="Direct link to props.style.padding?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.padding</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingbottom">props.style.paddingBottom?<a href="#propsstylepaddingbottom" class="hash-link" aria-label="Direct link to props.style.paddingBottom?" title="Direct link to props.style.paddingBottom?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingBottom</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingleft">props.style.paddingLeft?<a href="#propsstylepaddingleft" class="hash-link" aria-label="Direct link to props.style.paddingLeft?" title="Direct link to props.style.paddingLeft?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingLeft</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingright">props.style.paddingRight?<a href="#propsstylepaddingright" class="hash-link" aria-label="Direct link to props.style.paddingRight?" title="Direct link to props.style.paddingRight?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingRight</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylepaddingtop">props.style.paddingTop?<a href="#propsstylepaddingtop" class="hash-link" aria-label="Direct link to props.style.paddingTop?" title="Direct link to props.style.paddingTop?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.paddingTop</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleposition">props.style.position?<a href="#propsstyleposition" class="hash-link" aria-label="Direct link to props.style.position?" title="Direct link to props.style.position?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.position</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyleright">props.style.right?<a href="#propsstyleright" class="hash-link" aria-label="Direct link to props.style.right?" title="Direct link to props.style.right?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.right</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstyletop">props.style.top?<a href="#propsstyletop" class="hash-link" aria-label="Direct link to props.style.top?" title="Direct link to props.style.top?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.top</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propsstylewidth">props.style.width?<a href="#propsstylewidth" class="hash-link" aria-label="Direct link to props.style.width?" title="Direct link to props.style.width?">​</a></h6>
+<blockquote>
+<p><code>optional</code> <strong>props.style.width</strong>: <code>number</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="propstitle">props.title<a href="#propstitle" class="hash-link" aria-label="Direct link to props.title" title="Direct link to props.title">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>props.title</strong>: <code>string</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="type">type<a href="#type" class="hash-link" aria-label="Direct link to type" title="Direct link to type">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>type</strong>: <code>&quot;Tile&quot;</code></p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="version">version<a href="#version" class="hash-link" aria-label="Direct link to version" title="Direct link to version">​</a></h6>
+<blockquote>
+<p><code>readonly</code> <strong>version</strong>: <code>&quot;0.1&quot;</code></p>
+</blockquote>
+<hr>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="render">render()<a href="#render" class="hash-link" aria-label="Direct link to render()" title="Direct link to render()">​</a></h5>
+<blockquote>
+<p><strong>render</strong>(<code>event</code>, <code>tile</code>): <code>Response</code> | <code>Promise</code>&lt;<code>Response</code>&gt;</p>
+</blockquote>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-4">Parameters<a href="#parameters-4" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h6>
+<p>• <strong>event</strong>: <a href="/docs/api/json-handler#tairuevent"><code>TairuEvent</code></a></p>
+<p>• <strong>tile</strong></p>
+<p>• <strong>tile.props</strong></p>
+<p>• <strong>tile.props.actions?</strong>: (<code>object</code> | <code>object</code> | <code>object</code>)[]</p>
+<p>• <strong>tile.props.children?</strong>: <code>object</code> &amp; <code>object</code> | <code>object</code> &amp; <code>object</code>[]</p>
+<p>• <strong>tile.props.description?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.input?</strong>: <code>object</code> | <code>object</code></p>
+<p>• <strong>tile.props.key?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style?</strong></p>
+<p>• <strong>tile.props.style.alignItems?</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code></p>
+<p>• <strong>tile.props.style.alignSelf?</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;auto&quot;</code></p>
+<p>• <strong>tile.props.style.backgroundClip?</strong>: <code>&quot;text&quot;</code> | <code>&quot;border-box&quot;</code></p>
+<p>• <strong>tile.props.style.backgroundColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.backgroundImage?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.backgroundPosition?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.backgroundRepeat?</strong>: <code>&quot;repeat&quot;</code> | <code>&quot;repeat-x&quot;</code> | <code>&quot;repeat-y&quot;</code> | <code>&quot;no-repeat&quot;</code></p>
+<p>• <strong>tile.props.style.backgroundSize?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderBottomColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderBottomLeftRadius?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderBottomRightRadius?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderBottomStyle?</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p>• <strong>tile.props.style.borderBottomWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderLeftColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderLeftStyle?</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p>• <strong>tile.props.style.borderLeftWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderRadius?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderRightColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderRightStyle?</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p>• <strong>tile.props.style.borderRightWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderStyle?</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p>• <strong>tile.props.style.borderTopColor?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.borderTopLeftRadius?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderTopRightRadius?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderTopStyle?</strong>: <code>&quot;solid&quot;</code> | <code>&quot;dashed&quot;</code></p>
+<p>• <strong>tile.props.style.borderTopWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.borderWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.bottom?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.boxShadow?</strong>: <code>string</code></p>
+<p>• <strong>tile.props.style.display?</strong>: <code>&quot;flex&quot;</code> | <code>&quot;none&quot;</code></p>
+<p>• <strong>tile.props.style.flexBasis?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.flexDirection?</strong>: <code>&quot;row&quot;</code> | <code>&quot;row-reverse&quot;</code> | <code>&quot;column&quot;</code> | <code>&quot;column-reverse&quot;</code></p>
+<p>• <strong>tile.props.style.flexGrow?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.flexShrink?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.flexWrap?</strong>: <code>&quot;nowrap&quot;</code> | <code>&quot;wrap&quot;</code> | <code>&quot;wrap-reverse&quot;</code></p>
+<p>• <strong>tile.props.style.gap?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.height?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.justifyContent?</strong>: <code>&quot;flex-start&quot;</code> | <code>&quot;center&quot;</code> | <code>&quot;flex-end&quot;</code> | <code>&quot;space-between&quot;</code> | <code>&quot;space-around&quot;</code></p>
+<p>• <strong>tile.props.style.left?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.margin?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.marginBottom?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.marginLeft?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.marginRight?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.marginTop?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.maxHeight?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.maxWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.minHeight?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.minWidth?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.objectFit?</strong>: <code>&quot;none&quot;</code> | <code>&quot;contain&quot;</code> | <code>&quot;cover&quot;</code></p>
+<p>• <strong>tile.props.style.opacity?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.overflow?</strong>: <code>&quot;visible&quot;</code> | <code>&quot;hidden&quot;</code></p>
+<p>• <strong>tile.props.style.padding?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.paddingBottom?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.paddingLeft?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.paddingRight?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.paddingTop?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.position?</strong>: <code>&quot;relative&quot;</code> | <code>&quot;absolute&quot;</code></p>
+<p>• <strong>tile.props.style.right?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.top?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.style.width?</strong>: <code>number</code></p>
+<p>• <strong>tile.props.title</strong>: <code>string</code></p>
+<p>• <strong>tile.type</strong>: <code>&quot;Tile&quot;</code></p>
+<p>• <strong>tile.version</strong>: <code>&quot;0.1&quot;</code></p>
+<h6 class="anchor anchorWithStickyNavbar_gnyd" id="returns-9">Returns<a href="#returns-9" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h6>
+<p><code>Response</code> | <code>Promise</code>&lt;<code>Response</code>&gt;</p>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="type-aliases">Type Aliases<a href="#type-aliases" class="hash-link" aria-label="Direct link to Type Aliases" title="Direct link to Type Aliases">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="nodelistener-1">NodeListener()<a href="#nodelistener-1" class="hash-link" aria-label="Direct link to NodeListener()" title="Direct link to NodeListener()">​</a></h3>
+<blockquote>
+<p><strong>NodeListener</strong>: (<code>req</code>, <code>res</code>) =&gt; <code>void</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-5">Parameters<a href="#parameters-5" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>req</strong>: <code>IncomingMessage</code></p>
+<p>• <strong>res</strong>: <code>ServerResponse</code></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-10">Returns<a href="#returns-10" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="paramsrecord">ParamsRecord<a href="#paramsrecord" class="hash-link" aria-label="Direct link to ParamsRecord" title="Direct link to ParamsRecord">​</a></h3>
+<blockquote>
+<p><strong>ParamsRecord</strong>: <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tairuevent">TairuEvent<a href="#tairuevent" class="hash-link" aria-label="Direct link to TairuEvent" title="Direct link to TairuEvent">​</a></h3>
+<blockquote>
+<p><strong>TairuEvent</strong>: <code>H3Event</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tairuhandler">TairuHandler<a href="#tairuhandler" class="hash-link" aria-label="Direct link to TairuHandler" title="Direct link to TairuHandler">​</a></h3>
+<blockquote>
+<p><strong>TairuHandler</strong>: <code>EventHandler</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tairuoptions">TairuOptions<a href="#tairuoptions" class="hash-link" aria-label="Direct link to TairuOptions" title="Direct link to TairuOptions">​</a></h3>
+<blockquote>
+<p><strong>TairuOptions</strong>: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration">Type declaration<a href="#type-declaration" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="urlprefix-1">urlPrefix?<a href="#urlprefix-1" class="hash-link" aria-label="Direct link to urlPrefix?" title="Direct link to urlPrefix?">​</a></h5>
+<blockquote>
+<p><code>optional</code> <strong>urlPrefix</strong>: <code>string</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tilehandlerpathparams-searchparams-resulttype-context">TileHandler()&lt;PathParams, SearchParams, ResultType, Context&gt;<a href="#tilehandlerpathparams-searchparams-resulttype-context" class="hash-link" aria-label="Direct link to TileHandler()&lt;PathParams, SearchParams, ResultType, Context&gt;" title="Direct link to TileHandler()&lt;PathParams, SearchParams, ResultType, Context&gt;">​</a></h3>
+<blockquote>
+<p><strong>TileHandler</strong>&lt;<code>PathParams</code>, <code>SearchParams</code>, <code>ResultType</code>, <code>Context</code>&gt;: (<code>request</code>) =&gt; <code>ResultType</code> | <code>Promise</code>&lt;<code>ResultType</code>&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-3">Type Parameters<a href="#type-parameters-3" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>PathParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>SearchParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>ResultType</strong> = <a href="/docs/api/protocol#tile"><code>Tile</code></a></p>
+<p>• <strong>Context</strong> = <a href="/docs/api/json-handler#tilerequestcontext"><code>TileRequestContext</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-6">Parameters<a href="#parameters-6" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>request</strong>: <a href="/docs/api/json-handler#tilerequestpathparams-searchparams-context"><code>TileRequest</code></a>&lt;<code>PathParams</code>, <code>SearchParams</code>, <code>Context</code>&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-11">Returns<a href="#returns-11" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>ResultType</code> | <code>Promise</code>&lt;<code>ResultType</code>&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tilehandlers">TileHandlers<a href="#tilehandlers" class="hash-link" aria-label="Direct link to TileHandlers" title="Direct link to TileHandlers">​</a></h3>
+<blockquote>
+<p><strong>TileHandlers</strong>: <a href="/docs/api/json-handler#tilehandlerpathparams-searchparams-resulttype-context"><code>TileHandler</code></a>&lt;<code>any</code>, <code>any</code>&gt; | <code>Record</code>&lt;<code>string</code>, <a href="/docs/api/json-handler#tilehandlerpathparams-searchparams-resulttype-context"><code>TileHandler</code></a>&lt;<code>any</code>, <code>any</code>&gt;&gt;</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tilerequestpathparams-searchparams-context">TileRequest&lt;PathParams, SearchParams, Context&gt;<a href="#tilerequestpathparams-searchparams-context" class="hash-link" aria-label="Direct link to TileRequest&lt;PathParams, SearchParams, Context&gt;" title="Direct link to TileRequest&lt;PathParams, SearchParams, Context&gt;">​</a></h3>
+<blockquote>
+<p><strong>TileRequest</strong>&lt;<code>PathParams</code>, <code>SearchParams</code>, <code>Context</code>&gt;: <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-4">Type Parameters<a href="#type-parameters-4" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>PathParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>SearchParams</strong> <em>extends</em> <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a> = <a href="/docs/api/json-handler#paramsrecord"><code>ParamsRecord</code></a></p>
+<p>• <strong>Context</strong> = <a href="/docs/api/json-handler#tilerequestcontext"><code>TileRequestContext</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-1">Type declaration<a href="#type-declaration-1" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="action">action<a href="#action" class="hash-link" aria-label="Direct link to action" title="Direct link to action">​</a></h5>
+<blockquote>
+<p><strong>action</strong>: <a href="/docs/api/json-handler#verifiedactionaction"><code>VerifiedAction</code></a> | <code>null</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="context">context<a href="#context" class="hash-link" aria-label="Direct link to context" title="Direct link to context">​</a></h5>
+<blockquote>
+<p><strong>context</strong>: <code>Context</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="pathparams">pathParams<a href="#pathparams" class="hash-link" aria-label="Direct link to pathParams" title="Direct link to pathParams">​</a></h5>
+<blockquote>
+<p><strong>pathParams</strong>: <code>PathParams</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="searchparams">searchParams<a href="#searchparams" class="hash-link" aria-label="Direct link to searchParams" title="Direct link to searchParams">​</a></h5>
+<blockquote>
+<p><strong>searchParams</strong>: <code>SearchParams</code></p>
+</blockquote>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="urlprefix-2">urlPrefix<a href="#urlprefix-2" class="hash-link" aria-label="Direct link to urlPrefix" title="Direct link to urlPrefix">​</a></h5>
+<blockquote>
+<p><strong>urlPrefix</strong>: <code>string</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tilerequestcontext">TileRequestContext<a href="#tilerequestcontext" class="hash-link" aria-label="Direct link to TileRequestContext" title="Direct link to TileRequestContext">​</a></h3>
+<blockquote>
+<p><strong>TileRequestContext</strong>: <code>H3EventContext</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="verifiedactionaction">VerifiedAction&lt;Action&gt;<a href="#verifiedactionaction" class="hash-link" aria-label="Direct link to VerifiedAction&lt;Action&gt;" title="Direct link to VerifiedAction&lt;Action&gt;">​</a></h3>
+<blockquote>
+<p><strong>VerifiedAction</strong>&lt;<code>Action</code>&gt;: <code>Action</code> &amp; <code>object</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-declaration-2">Type declaration<a href="#type-declaration-2" class="hash-link" aria-label="Direct link to Type declaration" title="Direct link to Type declaration">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_gnyd" id="did">did<a href="#did" class="hash-link" aria-label="Direct link to did" title="Direct link to did">​</a></h5>
+<blockquote>
+<p><strong>did</strong>: <code>string</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-5">Type Parameters<a href="#type-parameters-5" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>Action</strong> <em>extends</em> <a href="/docs/api/protocol#postactionv0"><code>PostActionV0</code></a> = <a href="/docs/api/protocol#postactionv0"><code>PostActionV0</code></a></p>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="variables">Variables<a href="#variables" class="hash-link" aria-label="Direct link to Variables" title="Direct link to Variables">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="json_mime_type">JSON_MIME_TYPE<a href="#json_mime_type" class="hash-link" aria-label="Direct link to JSON_MIME_TYPE" title="Direct link to JSON_MIME_TYPE">​</a></h3>
+<blockquote>
+<p><code>const</code> <strong>JSON_MIME_TYPE</strong>: <code>&quot;application/json&quot;</code> = <code>&#x27;application/json&#x27;</code></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="url_prefix">URL_PREFIX<a href="#url_prefix" class="hash-link" aria-label="Direct link to URL_PREFIX" title="Direct link to URL_PREFIX">​</a></h3>
+<blockquote>
+<p><code>const</code> <strong>URL_PREFIX</strong>: <code>string</code></p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_gnyd" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="handle">handle()<a href="#handle" class="hash-link" aria-label="Direct link to handle()" title="Direct link to handle()">​</a></h3>
+<blockquote>
+<p><strong>handle</strong>&lt;<code>Handlers</code>&gt;(<code>handlers</code>, <code>options</code>?): <a href="/docs/api/json-handler#tairuhandler"><code>TairuHandler</code></a></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-6">Type Parameters<a href="#type-parameters-6" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>Handlers</strong> <em>extends</em> <a href="/docs/api/json-handler#tilehandlers"><code>TileHandlers</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-7">Parameters<a href="#parameters-7" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>handlers</strong>: <code>Handlers</code></p>
+<p>• <strong>options?</strong>: <a href="/docs/api/json-handler#tairuoptions"><code>TairuOptions</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-12">Returns<a href="#returns-12" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><a href="/docs/api/json-handler#tairuhandler"><code>TairuHandler</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="parseaction">parseAction()<a href="#parseaction" class="hash-link" aria-label="Direct link to parseAction()" title="Direct link to parseAction()">​</a></h3>
+<blockquote>
+<p><strong>parseAction</strong>(<code>event</code>): <code>Promise</code>&lt;<a href="/docs/api/json-handler#verifiedactionaction"><code>VerifiedAction</code></a> | <code>null</code>&gt;</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-8">Parameters<a href="#parameters-8" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>event</strong>: <a href="/docs/api/json-handler#tairuevent"><code>TairuEvent</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-13">Returns<a href="#returns-13" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><code>Promise</code>&lt;<a href="/docs/api/json-handler#verifiedactionaction"><code>VerifiedAction</code></a> | <code>null</code>&gt;</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_gnyd" id="tairu">tairu()<a href="#tairu" class="hash-link" aria-label="Direct link to tairu()" title="Direct link to tairu()">​</a></h3>
+<blockquote>
+<p><strong>tairu</strong>&lt;<code>Handlers</code>&gt;(<code>handlers</code>, <code>options</code>?): <a href="/docs/api/json-handler#tairuresulttype-context"><code>Tairu</code></a></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="type-parameters-7">Type Parameters<a href="#type-parameters-7" class="hash-link" aria-label="Direct link to Type Parameters" title="Direct link to Type Parameters">​</a></h4>
+<p>• <strong>Handlers</strong> <em>extends</em> <a href="/docs/api/json-handler#tilehandlers"><code>TileHandlers</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="parameters-9">Parameters<a href="#parameters-9" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h4>
+<p>• <strong>handlers</strong>: <code>Handlers</code></p>
+<p>• <strong>options?</strong>: <a href="/docs/api/json-handler#tairuoptions"><code>TairuOptions</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_gnyd" id="returns-14">Returns<a href="#returns-14" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns">​</a></h4>
+<p><a href="/docs/api/json-handler#tairuresulttype-context"><code>Tairu</code></a></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/api/handler"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">@tairu/handler</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/api/web-client"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">@tairu/web-client</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_yKKF thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#installation" class="table-of-contents__link toc-highlight">Installation</a></li><li><a href="#classes" class="table-of-contents__link toc-highlight">Classes</a><ul><li><a href="#tairuresulttype-context" class="table-of-contents__link toc-highlight">Tairu&lt;ResultType, Context&gt;</a></li></ul></li><li><a href="#type-aliases" class="table-of-contents__link toc-highlight">Type Aliases</a><ul><li><a href="#nodelistener-1" class="table-of-contents__link toc-highlight">NodeListener()</a></li><li><a href="#paramsrecord" class="table-of-contents__link toc-highlight">ParamsRecord</a></li><li><a href="#tairuevent" class="table-of-contents__link toc-highlight">TairuEvent</a></li><li><a href="#tairuhandler" class="table-of-contents__link toc-highlight">TairuHandler</a></li><li><a href="#tairuoptions" class="table-of-contents__link toc-highlight">TairuOptions</a></li><li><a href="#tilehandlerpathparams-searchparams-resulttype-context" class="table-of-contents__link toc-highlight">TileHandler()&lt;PathParams, SearchParams, ResultType, Context&gt;</a></li><li><a href="#tilehandlers" class="table-of-contents__link toc-highlight">TileHandlers</a></li><li><a href="#tilerequestpathparams-searchparams-context" class="table-of-contents__link toc-highlight">TileRequest&lt;PathParams, SearchParams, Context&gt;</a></li><li><a href="#tilerequestcontext" class="table-of-contents__link toc-highlight">TileRequestContext</a></li><li><a href="#verifiedactionaction" class="table-of-contents__link toc-highlight">VerifiedAction&lt;Action&gt;</a></li></ul></li><li><a href="#variables" class="table-of-contents__link toc-highlight">Variables</a><ul><li><a href="#json_mime_type" class="table-of-contents__link toc-highlight">JSON_MIME_TYPE</a></li><li><a href="#url_prefix" class="table-of-contents__link toc-highlight">URL_PREFIX</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#handle" class="table-of-contents__link toc-highlight">handle()</a></li><li><a href="#parseaction" class="table-of-contents__link toc-highlight">parseAction()</a></li><li><a href="#tairu" class="table-of-contents__link toc-highlight">tairu()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/overview">Overview</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Getting started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Reference</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/concepts">Concepts</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/protocol">Protocol</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/cli">CLI</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/api">APIs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Tairu Framework.</div></div></div></footer></div>
+</body>
+</html>

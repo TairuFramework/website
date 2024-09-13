@@ -1,6 +1,7 @@
-import { themes as prismThemes } from 'prism-react-renderer'
+import type { Options as UmamiOptions } from '@dipakparmar/docusaurus-plugin-umami'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import { themes as prismThemes } from 'prism-react-renderer'
 
 const config: Config = {
   title: 'Tairu: the Tiles framework',
@@ -33,7 +34,19 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: ['@orama/plugin-docusaurus-v3'],
+  plugins: [
+    [
+      '@dipakparmar/docusaurus-plugin-umami',
+      {
+        websiteID: '008da516-7e31-40c3-9f05-1b72bed9ffb3',
+        analyticsDomain: 'metrics.tairu.dev',
+        dataAutoTrack: true,
+        dataDoNotTrack: true,
+        dataCache: true,
+      } satisfies UmamiOptions,
+    ],
+    '@orama/plugin-docusaurus-v3',
+  ],
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {

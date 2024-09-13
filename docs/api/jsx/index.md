@@ -346,6 +346,20 @@ npm install @tairu/jsx
 
 ***
 
+### parseTile()
+
+> **parseTile**(`root`): [`TileV0`](../protocol/index.md#tilev0)
+
+#### Parameters
+
+• **root**: `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+#### Returns
+
+[`TileV0`](../protocol/index.md#tilev0)
+
+***
+
 ### SignAction()
 
 > **SignAction**(`props`): `ReactElement`\<[`SignActionProps`](index.md#signactionprops), `string` \| `JSXElementConstructor`\<`any`\>\>
@@ -413,20 +427,6 @@ npm install @tairu/jsx
 #### Returns
 
 `ReactElement`\<[`BoxProps`](index.md#boxprops) & `object` & `object`, `string` \| `JSXElementConstructor`\<`any`\>\>
-
-***
-
-### parseTile()
-
-> **parseTile**(`element`): [`TileV0`](../protocol/index.md#tilev0)
-
-#### Parameters
-
-• **element**: [`TileElement`](index.md#tileelement)
-
-#### Returns
-
-[`TileV0`](../protocol/index.md#tilev0)
 
 ***
 

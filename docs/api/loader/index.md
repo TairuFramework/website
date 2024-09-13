@@ -998,22 +998,6 @@ npm install @tairu/loader
 
 > **RenderFormat**: `Exclude`\<[`HandlerFormatV0`](../protocol/index.md#handlerformatv0), `"json"`\>
 
-## Variables
-
-### noSigner
-
-> `const` **noSigner**: [`DIDSigner`](../protocol/index.md#didsigner)
-
-**`Internal`**
-
-***
-
-### noSignerError
-
-> `const` **noSignerError**: `Error`
-
-**`Internal`**
-
 ## Functions
 
 ### getTile()

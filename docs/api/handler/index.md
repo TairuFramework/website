@@ -122,9 +122,9 @@ npm install @tairu/handler
 
 ###### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 ###### Parameters
 
@@ -148,9 +148,9 @@ npm install @tairu/handler
 
 ###### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 ###### Parameters
 
@@ -766,6 +766,12 @@ npm install @tairu/handler
 
 ***
 
+### ParamsRecord
+
+> **ParamsRecord**: `Record`\<`string`, `string`\>
+
+***
+
 ### SignActionElement
 
 > **SignActionElement**: `ReactElement`\<[`SignActionProps`](index.md#signactionprops), *typeof* [`SignAction`](index.md#signaction)\>
@@ -900,9 +906,9 @@ npm install @tairu/handler
 
 #### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 • **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
 
@@ -940,9 +946,9 @@ npm install @tairu/handler
 
 #### Type Parameters
 
-• **PathParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **PathParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
+• **SearchParams** *extends* [`ParamsRecord`](index.md#paramsrecord) = [`ParamsRecord`](index.md#paramsrecord)
 
 • **Context** = [`TileRequestContext`](index.md#tilerequestcontext)
 
@@ -987,6 +993,26 @@ npm install @tairu/handler
 #### Returns
 
 `ReactElement`\<[`BoxProps`](index.md#boxprops), `string` \| `JSXElementConstructor`\>
+
+***
+
+### handle()
+
+> **handle**\<`Handlers`\>(`handlers`, `options`?): [`TairuHandler`](index.md#tairuhandler)
+
+#### Type Parameters
+
+• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`any`\>
+
+#### Parameters
+
+• **handlers**: `Handlers`
+
+• **options?**: [`TairuOptions`](index.md#tairuoptions)
+
+#### Returns
+
+[`TairuHandler`](index.md#tairuhandler)
 
 ***
 
@@ -1086,6 +1112,26 @@ npm install @tairu/handler
 
 ***
 
+### tairu()
+
+> **tairu**\<`Handlers`\>(`handlers`, `options`?): [`Tairu`](index.md#tairu)
+
+#### Type Parameters
+
+• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`H3EventContext`\>
+
+#### Parameters
+
+• **handlers**: `Handlers`
+
+• **options?**: [`TairuOptions`](index.md#tairuoptions)
+
+#### Returns
+
+[`Tairu`](index.md#tairu)
+
+***
+
 ### Text()
 
 > **Text**(`props`): `ReactElement`\<[`TextProps`](index.md#textprops), `string` \| `JSXElementConstructor`\>
@@ -1125,43 +1171,3 @@ npm install @tairu/handler
 #### Returns
 
 `ReactElement`\<[`BoxProps`](index.md#boxprops) & `object` & `object`, `string` \| `JSXElementConstructor`\>
-
-***
-
-### handle()
-
-> **handle**\<`Handlers`\>(`handlers`, `options`?): [`TairuHandler`](index.md#tairuhandler)
-
-#### Type Parameters
-
-• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`H3EventContext`\>
-
-#### Parameters
-
-• **handlers**: `Handlers`
-
-• **options?**: [`TairuOptions`](index.md#tairuoptions)
-
-#### Returns
-
-[`TairuHandler`](index.md#tairuhandler)
-
-***
-
-### tairu()
-
-> **tairu**\<`Handlers`\>(`handlers`, `options`?): [`Tairu`](index.md#tairu)
-
-#### Type Parameters
-
-• **Handlers** *extends* [`TileHandlers`](index.md#tilehandlerscontext)\<`H3EventContext`\>
-
-#### Parameters
-
-• **handlers**: `Handlers`
-
-• **options?**: [`TairuOptions`](index.md#tairuoptions)
-
-#### Returns
-
-[`Tairu`](index.md#tairu)

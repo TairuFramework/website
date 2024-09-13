@@ -146,15 +146,15 @@ npm install @tairu/protocol
 
 ***
 
-### OptionValueV0
-
-> **OptionValueV0**: `InferOutput`\<*typeof* [`optionValueV0`](index.md#optionvaluev0-1)\>
-
-***
-
 ### OptionsInputV0
 
 > **OptionsInputV0**: `InferOutput`\<*typeof* [`optionsInputV0`](index.md#optionsinputv0-1)\>
+
+***
+
+### OptionValueV0
+
+> **OptionValueV0**: `InferOutput`\<*typeof* [`optionValueV0`](index.md#optionvaluev0-1)\>
 
 ***
 
@@ -210,15 +210,15 @@ npm install @tairu/protocol
 
 ***
 
-### SubmitValueV0
-
-> **SubmitValueV0**: `InferOutput`\<*typeof* [`submitValueV0`](index.md#submitvaluev0-1)\>
-
-***
-
 ### SubmittedActionV0
 
 > **SubmittedActionV0**: `InferOutput`\<*typeof* [`submittedActionV0`](index.md#submittedactionv0-1)\>
+
+***
+
+### SubmitValueV0
+
+> **SubmitValueV0**: `InferOutput`\<*typeof* [`submitValueV0`](index.md#submitvaluev0-1)\>
 
 ***
 
@@ -538,12 +538,6 @@ npm install @tairu/protocol
 
 ***
 
-### optionValueV0
-
-> `const` **optionValueV0**: `UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>
-
-***
-
 ### optionsInputV0
 
 > `const` **optionsInputV0**: `ObjectSchema`\<`object`, `undefined`\>
@@ -561,6 +555,12 @@ npm install @tairu/protocol
 ##### type
 
 > `readonly` **type**: `LiteralSchema`\<`"options"`, `undefined`\>
+
+***
+
+### optionValueV0
+
+> `const` **optionValueV0**: `UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>
 
 ***
 
@@ -634,12 +634,6 @@ npm install @tairu/protocol
 
 ***
 
-### submitValueV0
-
-> `const` **submitValueV0**: `UnionSchema`\<[`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `ArraySchema`\<`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `undefined`\>], `undefined`\>
-
-***
-
 ### submittedActionV0
 
 > `const` **submittedActionV0**: `ObjectSchema`\<`object`, `undefined`\>
@@ -657,6 +651,12 @@ npm install @tairu/protocol
 ##### value
 
 > `readonly` **value**: `UnionSchema`\<[`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `ArraySchema`\<`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `undefined`\>], `undefined`\> = `submitValueV0`
+
+***
+
+### submitValueV0
+
+> `const` **submitValueV0**: `UnionSchema`\<[`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `ArraySchema`\<`UnionSchema`\<[`StringSchema`\<`undefined`\>, `NumberSchema`\<`undefined`\>, `BooleanSchema`\<`undefined`\>], `undefined`\>, `undefined`\>], `undefined`\>
 
 ***
 

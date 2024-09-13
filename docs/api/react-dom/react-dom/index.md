@@ -36,6 +36,10 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 #### Type declaration
 
+##### renderer?
+
+> `optional` **renderer**: [`ReactRenderer`](../../react/index.md#reactrenderer)
+
 ##### renderLoadError()?
 
 > `optional` **renderLoadError**: (`props`) => `ReactNode`
@@ -59,10 +63,6 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 ###### Returns
 
 `ReactNode`
-
-##### renderer?
-
-> `optional` **renderer**: [`ReactRenderer`](../../react/index.md#reactrenderer)
 
 ##### url
 

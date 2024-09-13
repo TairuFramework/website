@@ -459,19 +459,3 @@ npm install @tairu/renderer
 ### TextPropsV0
 
 > **TextPropsV0**: `InferOutput`\<*typeof* [`textPropsV0`](../protocol/index.md#textpropsv0-1)\>
-
-## Functions
-
-### isValue()
-
-> **isValue**(`value`): value is string \| number \| boolean
-
-**`Internal`**
-
-#### Parameters
-
-• **value**: `unknown`
-
-#### Returns
-
-value is string \| number \| boolean

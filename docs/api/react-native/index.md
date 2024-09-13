@@ -388,6 +388,10 @@ npm install @tairu/react-native
 
 #### Type declaration
 
+##### renderer?
+
+> `optional` **renderer**: [`ReactRenderer`](../react/index.md#reactrenderer)
+
 ##### renderLoadError()?
 
 > `optional` **renderLoadError**: (`props`) => `ReactNode`
@@ -400,25 +404,7 @@ npm install @tairu/react-native
 
 `ReactNode`
 
-##### renderer?
-
-> `optional` **renderer**: [`ReactRenderer`](../react/index.md#reactrenderer)
-
 ## Functions
-
-### Tile()
-
-> **Tile**(`props`): `Element`
-
-#### Parameters
-
-• **props**: [`TileProps`](index.md#tileprops)
-
-#### Returns
-
-`Element`
-
-***
 
 ### createSigner()
 
@@ -485,3 +471,17 @@ npm install @tairu/react-native
 #### Returns
 
 `Promise`\<`void`\>
+
+***
+
+### Tile()
+
+> **Tile**(`props`): `Element`
+
+#### Parameters
+
+• **props**: [`TileProps`](index.md#tileprops)
+
+#### Returns
+
+`Element`

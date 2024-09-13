@@ -296,6 +296,24 @@ npm install @tairu/next/server
 
 ***
 
+### handle()
+
+> **handle**\<`SearchParams`\>(`tileHandler`): [`NextHandlers`](index.md#nexthandlers)
+
+#### Type Parameters
+
+• **SearchParams** *extends* [`ParamsRecord`](../../../handler/index.md#paramsrecord) = [`ParamsRecord`](../../../handler/index.md#paramsrecord)
+
+#### Parameters
+
+• **tileHandler**: `TileHandler`\<`Record`\<`string`, `never`\>, `SearchParams`, [`ValidTileInput`](../../../jsx/index.md#validtileinput), [`Context`](index.md#context)\>
+
+#### Returns
+
+[`NextHandlers`](index.md#nexthandlers)
+
+***
+
 ### Image()
 
 > **Image**(`props`): `ReactElement`\<[`ImageProps`](index.md#imageprops), `string` \| `JSXElementConstructor`\>
@@ -431,21 +449,3 @@ npm install @tairu/next/server
 #### Returns
 
 `ReactElement`\<[`BoxProps`](index.md#boxprops) & `object` & `object`, `string` \| `JSXElementConstructor`\>
-
-***
-
-### handle()
-
-> **handle**\<`SearchParams`\>(`tileHandler`): [`NextHandlers`](index.md#nexthandlers)
-
-#### Type Parameters
-
-• **SearchParams** *extends* `ParamsRecord` = `ParamsRecord`
-
-#### Parameters
-
-• **tileHandler**: `TileHandler`\<`Record`\<`string`, `never`\>, `SearchParams`, [`ValidTileInput`](../../../jsx/index.md#validtileinput), [`Context`](index.md#context)\>
-
-#### Returns
-
-[`NextHandlers`](index.md#nexthandlers)

@@ -45,6 +45,6 @@ export default function Home(): JSX.Element {
         <HomepageFeatures />
         <HomepageDisplayTile />
       </main>
-    </Layout >
+    </Layout>
   )
 }

@@ -1,0 +1,30 @@
+{
+  "type": "Tile",
+  "version": "0.1",
+  "props": {
+    "title": "Hello Tile!",
+    "description": "A sample static Tile",
+    "children": [
+      {
+        "type": "Box",
+        "props": {
+          "children": {
+            "type": "Text",
+            "props": { "children": ["It works!", " "] }
+          }
+        }
+      },
+      {
+        "type": "Box",
+        "props": {
+          "children": {
+            "type": "Text",
+            "props": {
+              "children": "This sample Tile was successfully loaded and rendered!"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

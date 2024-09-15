@@ -27,7 +27,11 @@ function Feature({ img, title, description, link }: FeatureItem) {
       <div className="text--center padding-horiz--md">
         <Heading as="h2">{title}</Heading>
         <p>{description}</p>
-        <Link className="button button--secondary" to={link}>
+        <Link
+          className="button button--primary"
+          to={link}
+          data-umami-event="Home CTA"
+          data-umami-event-cta={title}>
           Learn more
         </Link>
       </div>

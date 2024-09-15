@@ -4,6 +4,12 @@
   "props": {
     "title": "Hello Tile!",
     "description": "A sample static Tile",
+    "style": {
+      "borderWidth": 2,
+      "borderStyle": "solid",
+      "borderColor": "#97cc4b",
+      "padding": 4
+    },
     "children": [
       {
         "type": "Box",

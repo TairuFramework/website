@@ -7,6 +7,19 @@ const sidebars: SidebarsConfig = {
     { type: 'doc', id: 'going-further', label: 'Going further' },
     {
       type: 'category',
+      collapsible: true,
+      label: 'Agents',
+      link: { type: 'doc', id: 'agents/index' },
+      items: ['agents/web-client', 'agents/jquery', 'agents/react-dom', 'agents/react-native'],
+    },
+    {
+      type: 'category',
+      collapsible: true,
+      label: 'Integrations',
+      items: ['integrations/next'],
+    },
+    {
+      type: 'category',
       collapsible: false,
       label: 'Reference',
       items: ['concepts', 'protocol', 'cli'],

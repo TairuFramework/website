@@ -1,0 +1,62 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# React DOM library
+
+For websites and applications using [React](https://react.dev/), the [`@tairu/react-dom` package](../api/react-dom/react-dom/index.md) exposes a `Tile` component to load and render Tiles.
+
+## Installation
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/react-dom
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/react-dom
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Usage
+
+The `Tile` component simply needs to be provided the Tile URL to load and render:
+
+```jsx
+import { Tile } from '@tairu/react-dom'
+
+function MyComponent() {
+  return <Tile url="http://localhost:3210" />
+}
+```
+
+The `Tile` component exported from the main `@tairu/react-dom` module is a Client component, which means that it will load and render the Tile contents in the browser.
+
+### Server component
+
+The `Tile` component can be used as a [Server component](https://react.dev/reference/rsc/server-components) when imported from the `@tairu/react-dom/server` module. Using this import, the Tile contents will be loaded and pre-rendered on the server (or during the build process for static websites), and interacions handlers will be added client-side.
+
+A [`Suspense` boundary](https://react.dev/reference/react/Suspense) need to be present in order to load the Tile as a server component, for example:
+
+```jsx
+import { Tile } from '@tairu/react-dom/server'
+import { Suspense } from 'react'
+
+function MyComponent() {
+  return (
+    <Suspense>
+      <Tile url="http://localhost:3210" />
+    </Suspense>
+  )
+}
+```
+
+### Next.js support
+
+The `@tairu/next` package provides a [higher-level integration for Next.js](../integrations/next.mdx) based on the React DOM package.

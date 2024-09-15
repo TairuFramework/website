@@ -1,0 +1,109 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Web client library
+
+The [`@tairu/web-client` library](../api/web-client/index.md) is a TypeScript library designed to be used in Web browsers.
+
+## Installation
+
+The Web client library can be installed from npm or imported as a UMD module from unpkg or a similar platform.
+
+### Package setup
+
+Use your package manager to install the library:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/web-client
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/web-client
+    ```
+  
+  </TabItem>
+</Tabs>
+
+The Web client instance can then be created as follows:
+
+```js
+import { WebClient } from '@tairu/web-client'
+const Tairu = new WebClient()
+```
+
+### UMD import
+
+The library can be imported directly in a HTML page using a script tag:
+
+```html
+<script src="https://unpkg.com/@tairu/web-client/dist/tairu.js"></script>
+```
+
+When importing as a UMD module, the library will be available as the `Tairu` global variable and can be used in a `<script>` tag following the import, for example: 
+```html
+<script>
+const tile = Tairu.tile("http://localhost:3210", document.getElementById('app'))
+</script>
+```
+
+## Usage
+
+### Tile proxy
+
+The main Web client APIs return a `TileProxy` instance representing a specific Tile by its URI and DOM element where it is rendered.
+
+It contains methods to load and render the Tile, or simply add support for interactions for pre-rendered Tiles.
+
+### Loading a Tile to an empty container
+
+Tiles can be dynamically loaded to any DOM element present in the page:
+
+```js
+<div id="my-first-tile"></div>
+<script>
+// Create a TileProxy instance for the container
+const tile = Tairu.tile("http://localhost:3210", document.getElementById('my-first-tile'));
+// Load and display the Tile
+tile.load().then(() => {
+  console.log("Tile loaded");
+}, () => {
+  console.error("Failed to load tile");
+});
+</script>
+```
+
+### Loading a Tile from a placeholder
+
+HTML data attributes can be set on DOM elements to provide metadata necessary to load Tiles:
+
+```html
+<div id="my-first-tile" data-tile="http://localhost:3210" data-tile-version="0.1"></div>
+<script>
+// Create a TileProxy instance for the placeholder element providing the Tile URI
+const tile = Tairu.fromPlaceholder(document.getElementById('my-first-tile'));
+// Load and display the Tile
+tile.load().then(() => {
+  console.log("Tile loaded");
+}, () => {
+  console.error("Failed to load tile");
+});
+</script>
+```
+
+### Adding interactions to a pre-rendered Tile
+
+Tile contents can be pre-rendered by a server or build process. In this case, the Web client only needs to render and handle interactive elements, based on the data elements present in the DOM element:
+
+```html
+<div id="my-first-tile" data-tile="http://localhost:3210" data-tile-version="0.1" data-tile-interactive="{...}"></div>
+<script>
+// Create a TileProxy instance from the pre-rendered DOM element, this will add the interactive elements specified in the data attributes, if any
+const tile = Tairu.fromPrerendered(document.getElementById('my-first-tile'));
+</script>
+```

@@ -1,0 +1,100 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# jQuery plugin library
+
+Tairu can be used as a [jQuery plugin](https://learn.jquery.com/plugins/) via the [`@tairu/jquery` package](../api/jquery/index.md) in websites already using jQuery.
+
+## Installation
+
+The jQuery plugin library can be installed from npm or imported as a UMD module from unpkg or a similar platform.
+
+### Package setup
+
+Use your package manager to install the library:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/jquery
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/jquery
+    ```
+  
+  </TabItem>
+</Tabs>
+
+To use the plugin, make sure to import it **after** jQuery:
+
+```js
+import $ from 'jquery'
+import '@tairu/jquery' // Will inject the jQuery plugin
+```
+
+### UMD import
+
+The library can be imported directly in a HTML page using a script tag. It must be imported **after** jQuery:
+
+```html
+<!-- import jQuery first -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- then the plugin can be imported -->
+<script src="https://unpkg.com/@tairu/jquery/dist/jquery.tairu.js"></script>
+```
+
+## Usage
+
+The plugin can be used by calling the added `.tile()` method to the jQuery instance:
+
+```js
+$('#my-first-tile').tile('http://localhost:3210')
+```
+
+### Loading a Tile to an empty container
+
+Tiles can be dynamically loaded to any DOM element present in the page:
+
+```html
+<div id="my-first-tile"></div>
+<script>
+$('#my-first-tile').tile('http://localhost:3210')
+</script>
+```
+
+### Loading a Tile from a placeholder
+
+HTML data attributes can be set on DOM elements to provide metadata necessary to load Tiles:
+
+```html
+<div id="my-first-tile" data-tile="http://localhost:3210" data-tile-version="0.1"></div>
+<script>
+$('#my-first-tile').tile() // No argument needed
+</script>
+```
+
+The method can also be applied to a selector of multiple DOM elements, for example:
+
+```html
+<div className="tile-placeholder" data-tile="http://localhost:3210/first" data-tile-version="0.1"></div>
+<div className="tile-placeholder" data-tile="http://localhost:3210/second" data-tile-version="0.1"></div>
+<script>
+$('.tile-placeholder').tile() // Will load both tiles
+</script>
+```
+
+### Adding interactions to a pre-rendered Tile
+
+Tile contents can be pre-rendered by a server or build process. In this case, the Web client only needs to render and handle interactive elements, based on the data elements present in the DOM element:
+
+```html
+<div id="my-first-tile" data-tile="http://localhost:3210" data-tile-version="0.1" data-tile-interactive="{...}"></div>
+<script>
+$('#my-first-tile').tile() // No argument needed
+</script>
+```

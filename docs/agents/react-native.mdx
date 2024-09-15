@@ -1,0 +1,37 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# React Native library
+
+For [React Native](https://reactnative.dev/) applications, the [`@tairu/react-native` package](../api/react-native/index.md) exposes a `Tile` component to load and render Tiles.
+
+## Installation
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/react-native
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/react-native
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Usage
+
+The `Tile` component simply needs to be provided the Tile URL to load and render:
+
+```jsx
+import { Tile } from '@tairu/react-native'
+
+function MyComponent() {
+  return <Tile url="http://localhost:3210" />
+}
+```

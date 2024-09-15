@@ -1,0 +1,62 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Next.js integration
+
+Tairu provides a high-level integration with [Next.js](https://nextjs.org/) using the [`@tairu/next` package](../api/next/next/index.md).
+
+## Installation
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+    
+    ```sh
+    npm install @tairu/next
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm">
+  
+    ```sh
+    pnpm add @tairu/next
+    ```
+  
+  </TabItem>
+</Tabs>
+
+## Tiles rendering
+
+The `Tile` component simply needs to be provided the Tile URL to load and render:
+
+```jsx title="page.jsx"
+import { Tile } from '@tairu/next'
+import { Suspense } from 'react'
+
+export default function ExamplePage() {
+  return (
+    <Suspense>
+      <Tile url="http://localhost:3210" />
+    </Suspense>
+  )
+}
+```
+
+This package supports [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components), so Tiles can be loaded and rendered server-side, with interaction handlers then added client-side.
+
+A [`Suspense` boundary](https://react.dev/reference/react/Suspense) need to be present in order to load the Tile as a server component. 
+
+## Tiles handling
+
+Tile handlers as presented in the [quick start guide](../quick-start.mdx#your-first-tile) can be defined as [Next.js route handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) using the `@tairu/next/server` module instead of the `@tairu/handler` package to create handlers:
+
+```jsx title="route.jsx"
+import { Text, Tile, handle } from '@tairu/next/server'
+
+export const { GET } = handle(() => (
+  <Tile title="Hello Next">
+    <Text>My first Tile</Text>
+  </Tile>
+))
+```
+
+The `handle()` function returns an object containing the `GET`, `POST` and `OPTIONS` handlers supported by Next.js.

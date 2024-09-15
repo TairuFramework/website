@@ -478,7 +478,7 @@ At this stage, our handler should be ready to be served using the Tairu CLI. How
 
 Similar to the poll creation handler, we will add another handler responsible for loading polls from the database, displaying the answers stored and handling submissions.
 
-### Loading from DB
+### Loading from the database
 
 ```tsx title="handler.tsx" showLineNumbers
 // Previous code omitted for brevity
@@ -514,7 +514,7 @@ export default handle({
 Let's start from the `handle` function at line 25: instead of providing a single handler, we provide an object mapping paths to handlers.
 Our poll creation will continue to be served at the root (`/` path), while our polls will be served at `/polls/:id` where `:id` is a parameter that will be provided to the handler.
 
-In our `displayPollHandler`, we can retrive the poll identifier using the `pathParams` object from the `request` argument at line 4. Using the identifier, we can retrieve the question (line 9) and answers (line 19) from our database.
+In our `displayPollHandler`, we can retrieve the poll identifier using the `pathParams` object from the `request` argument at line 4. Using the identifier, we can retrieve the question (line 9) and answers (line 19) from our database.
 
 Because LevelDB throws errors for missing keys, we need to handle those cases with `try`/`catch`. In case of error when retrieving the question, we return a Tile displaying an error message, while we default to using an empty object for answers.
 
@@ -718,7 +718,7 @@ We can then use the package manager to start the server:
   <TabItem value="npm" label="npm" default>
     
     ```sh
-    npx start
+    npm start
     ```
 
   </TabItem>
@@ -810,7 +810,7 @@ const createPollHandler: TileHandler = async (request) => {
   if (request.action.type !== 'did/submit') {
     return (
       <Tile title="Poll error">
-        <Text>unsupported action</Text>
+        <Text>Unsupported action</Text>
       </Tile>
     )
   }

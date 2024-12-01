@@ -24,9 +24,13 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **handlers**: `TileHandlers`
+###### handlers
 
-• **signer?**: [`DIDSigner`](../protocol/index.md#didsigner)
+`TileHandlers`
+
+###### signer?
+
+`TokenSigner`
 
 ###### Returns
 
@@ -40,17 +44,27 @@ npm install @tairu/testing
 
 ##### signer
 
-> `get` **signer**(): `ActionSigner`
+###### Get Signature
 
-> `set` **signer**(`value`): `void`
-
-###### Parameters
-
-• **value**: `ActionSigner`
+> **get** **signer**(): `ActionSigner`
 
 ###### Returns
 
 `ActionSigner`
+
+###### Set Signature
+
+> **set** **signer**(`value`): `void`
+
+###### Parameters
+
+###### value
+
+`ActionSigner`
+
+###### Returns
+
+`void`
 
 ###### Inherited from
 
@@ -66,9 +80,13 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **payload**: `Record`\<`string`, `unknown`\>
+###### payload
 
-• **useSigner?**: [`DIDSigner`](../protocol/index.md#didsigner)
+`Record`\<`string`, `unknown`\>
+
+###### useSigner?
+
+`TokenSigner`
 
 ###### Returns
 
@@ -82,9 +100,13 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **path**: `string`
+###### path
 
-• **format**: `RenderFormat`
+`string`
+
+###### format
+
+`RenderFormat`
 
 ###### Returns
 
@@ -102,9 +124,13 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **url**: `string`
+###### url
 
-• **options?**: `Options`
+`string`
+
+###### options?
+
+`Options`
 
 ###### Returns
 
@@ -112,19 +138,19 @@ npm install @tairu/testing
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -136,7 +162,7 @@ npm install @tairu/testing
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -372,7 +398,7 @@ npm install @tairu/testing
 
 ###### type
 
-> `readonly` **type**: `"Box"`
+> **type**: `"Box"`
 
 ###### Inherited from
 
@@ -386,7 +412,9 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **path**: `string` = `'/'`
+###### path
+
+`string` = `'/'`
 
 ###### Returns
 
@@ -394,31 +422,31 @@ npm install @tairu/testing
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.actions?
 
-> `readonly` `optional` **props.actions**: (`object` \| `object` \| `object`)[]
+> `optional` **props.actions**: (\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.description?
 
-> `readonly` `optional` **props.description**: `string`
+> `optional` **props.description**: `string`
 
 ###### props.input?
 
-> `readonly` `optional` **props.input**: `object` \| `object`
+> `optional` **props.input**: \{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -430,7 +458,7 @@ npm install @tairu/testing
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -666,15 +694,15 @@ npm install @tairu/testing
 
 ###### props.title
 
-> `readonly` **props.title**: `string`
+> **props.title**: `string`
 
 ###### type
 
-> `readonly` **type**: `"Tile"`
+> **type**: `"Tile"`
 
 ###### version
 
-> `readonly` **version**: `"0.1"`
+> **version**: `"0.1"`
 
 ###### Overrides
 
@@ -688,11 +716,43 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **path**: `string`
+###### path
 
-• **action**: `object` \| `object`
+`string`
 
-• **useSigner?**: [`DIDSigner`](../protocol/index.md#didsigner)
+###### action
+
+\{`jwt`: `string`;`state`: `object`;`type`: `"tairu:did/sign"`; \}
+
+###### action.jwt
+
+`string`
+
+###### action.state
+
+`object`
+
+###### action.type
+
+`"tairu:did/sign"`
+
+\{`state`: `object`;`type`: `"tairu:did/submit"`;`value`: `string` \| `number` \| `boolean` \| (`string` \| `number` \| `boolean`)[]; \}
+
+###### action.state
+
+`object`
+
+###### action.type
+
+`"tairu:did/submit"`
+
+###### action.value
+
+`string` \| `number` \| `boolean` \| (`string` \| `number` \| `boolean`)[]
+
+###### useSigner?
+
+`TokenSigner`
 
 ###### Returns
 
@@ -700,31 +760,31 @@ npm install @tairu/testing
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.actions?
 
-> `readonly` `optional` **props.actions**: (`object` \| `object` \| `object`)[]
+> `optional` **props.actions**: (\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.description?
 
-> `readonly` `optional` **props.description**: `string`
+> `optional` **props.description**: `string`
 
 ###### props.input?
 
-> `readonly` `optional` **props.input**: `object` \| `object`
+> `optional` **props.input**: \{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -736,7 +796,7 @@ npm install @tairu/testing
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -972,15 +1032,15 @@ npm install @tairu/testing
 
 ###### props.title
 
-> `readonly` **props.title**: `string`
+> **props.title**: `string`
 
 ###### type
 
-> `readonly` **type**: `"Tile"`
+> **type**: `"Tile"`
 
 ###### version
 
-> `readonly` **version**: `"0.1"`
+> **version**: `"0.1"`
 
 ###### Overrides
 
@@ -994,9 +1054,13 @@ npm install @tairu/testing
 
 ###### Parameters
 
-• **handlers**: `TileHandlers`
+###### handlers
 
-• **signer?**: [`DIDSigner`](../protocol/index.md#didsigner)
+`TileHandlers`
+
+###### signer?
+
+`TokenSigner`
 
 ###### Returns
 

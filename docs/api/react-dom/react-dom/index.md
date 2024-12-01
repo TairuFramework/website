@@ -20,9 +20,13 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 #### Parameters
 
-• **action**: [`ActionV0`](../../protocol/index.md#actionv0)
+##### action
 
-• **submitValue?**: [`SubmitValueV0`](../../protocol/index.md#submitvaluev0)
+[`ActionV0`](../../protocol/index.md#actionv0)
+
+##### submitValue?
+
+[`SubmitValueV0`](../../protocol/index.md#submitvaluev0)
 
 #### Returns
 
@@ -46,7 +50,9 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 ###### Parameters
 
-• **props**: [`LoadErrorProps`](../../react/index.md#loaderrorprops)
+###### props
+
+[`LoadErrorProps`](../../react/index.md#loaderrorprops)
 
 ###### Returns
 
@@ -58,7 +64,9 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 ###### Parameters
 
-• **props**: [`PostErrorProps`](../../react/index.md#posterrorprops)
+###### props
+
+[`PostErrorProps`](../../react/index.md#posterrorprops)
 
 ###### Returns
 
@@ -76,7 +84,9 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 #### Parameters
 
-• **props**: `ProviderProps`\<`null` \| [`ActionHandler`](index.md#actionhandler)\>
+##### props
+
+`ProviderProps`\<`null` \| [`ActionHandler`](index.md#actionhandler)\>
 
 #### Returns
 
@@ -90,7 +100,9 @@ Use the [`@tairu/react-dom/server` export](server/index.md) for compatibility wi
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 

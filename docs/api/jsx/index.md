@@ -270,7 +270,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`BoxProps`](index.md#boxprops)
+##### props
+
+[`BoxProps`](index.md#boxprops)
 
 #### Returns
 
@@ -284,7 +286,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`ImageProps`](index.md#imageprops)
+##### props
+
+[`ImageProps`](index.md#imageprops)
 
 #### Returns
 
@@ -298,7 +302,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`OpenActionProps`](index.md#openactionprops)
+##### props
+
+[`OpenActionProps`](index.md#openactionprops)
 
 #### Returns
 
@@ -312,11 +318,15 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**
+##### props
 
-• **props.label**: `string`
+###### props.label
 
-• **props.value**: `string` \| `number` \| `boolean`
+`string`
+
+###### props.value
+
+`string` \| `number` \| `boolean`
 
 #### Returns
 
@@ -324,11 +334,11 @@ npm install @tairu/jsx
 
 ##### label
 
-> `readonly` **label**: `string`
+> **label**: `string`
 
 ##### value
 
-> `readonly` **value**: `string` \| `number` \| `boolean`
+> **value**: `string` \| `number` \| `boolean`
 
 ***
 
@@ -338,7 +348,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`OptionsInputProps`](index.md#optionsinputprops)
+##### props
+
+[`OptionsInputProps`](index.md#optionsinputprops)
 
 #### Returns
 
@@ -352,7 +364,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **root**: `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+##### root
+
+`ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
 
 #### Returns
 
@@ -366,7 +380,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`SignActionProps`](index.md#signactionprops)
+##### props
+
+[`SignActionProps`](index.md#signactionprops)
 
 #### Returns
 
@@ -380,7 +396,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`SubmitActionProps`](index.md#submitactionprops)
+##### props
+
+[`SubmitActionProps`](index.md#submitactionprops)
 
 #### Returns
 
@@ -394,7 +412,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`TextProps`](index.md#textprops)
+##### props
+
+[`TextProps`](index.md#textprops)
 
 #### Returns
 
@@ -408,7 +428,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`TextInputProps`](index.md#textinputprops)
+##### props
+
+[`TextInputProps`](index.md#textinputprops)
 
 #### Returns
 
@@ -422,7 +444,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 
@@ -436,7 +460,9 @@ npm install @tairu/jsx
 
 #### Parameters
 
-• **input**: [`ValidTileInput`](index.md#validtileinput)
+##### input
+
+[`ValidTileInput`](index.md#validtileinput)
 
 #### Returns
 

@@ -35,10 +35,9 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
   return (
     <Layout
-      title={`${siteConfig.title} - the Tiles framework`}
+      title="Universal, interactive, server-defined user interfaces made easy"
       description="Universally-accessible micro-interactions framework">
       <HomepageHeader />
       <main>

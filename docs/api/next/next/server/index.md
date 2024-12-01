@@ -90,7 +90,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **req**: `NextRequest`
+##### req
+
+`NextRequest`
 
 #### Returns
 
@@ -288,7 +290,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`BoxProps`](index.md#boxprops)
+##### props
+
+[`BoxProps`](index.md#boxprops)
 
 #### Returns
 
@@ -306,7 +310,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **tileHandler**: `TileHandler`\<`Record`\<`string`, `never`\>, `SearchParams`, [`ValidTileInput`](../../../jsx/index.md#validtileinput), [`Context`](index.md#context)\>
+##### tileHandler
+
+`TileHandler`\<`Record`\<`string`, `never`\>, `SearchParams`, [`ValidTileInput`](../../../jsx/index.md#validtileinput), [`Context`](index.md#context)\>
 
 #### Returns
 
@@ -320,7 +326,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`ImageProps`](index.md#imageprops)
+##### props
+
+[`ImageProps`](index.md#imageprops)
 
 #### Returns
 
@@ -334,7 +342,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`OpenActionProps`](index.md#openactionprops)
+##### props
+
+[`OpenActionProps`](index.md#openactionprops)
 
 #### Returns
 
@@ -348,11 +358,15 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**
+##### props
 
-• **props.label**: `string`
+###### props.label
 
-• **props.value**: `string` \| `number` \| `boolean`
+`string`
+
+###### props.value
+
+`string` \| `number` \| `boolean`
 
 #### Returns
 
@@ -374,7 +388,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`OptionsInputProps`](index.md#optionsinputprops)
+##### props
+
+[`OptionsInputProps`](index.md#optionsinputprops)
 
 #### Returns
 
@@ -388,7 +404,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`SignActionProps`](index.md#signactionprops)
+##### props
+
+[`SignActionProps`](index.md#signactionprops)
 
 #### Returns
 
@@ -402,7 +420,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`SubmitActionProps`](index.md#submitactionprops)
+##### props
+
+[`SubmitActionProps`](index.md#submitactionprops)
 
 #### Returns
 
@@ -416,7 +436,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`TextProps`](index.md#textprops)
+##### props
+
+[`TextProps`](index.md#textprops)
 
 #### Returns
 
@@ -430,7 +452,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`TextInputProps`](index.md#textinputprops)
+##### props
+
+[`TextInputProps`](index.md#textinputprops)
 
 #### Returns
 
@@ -444,7 +468,9 @@ npm install @tairu/next/server
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 

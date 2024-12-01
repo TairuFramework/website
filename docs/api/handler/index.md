@@ -24,7 +24,9 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **options**: [`TairuOptions`](index.md#tairuoptions) = `{}`
+###### options
+
+[`TairuOptions`](index.md#tairuoptions) = `{}`
 
 ###### Returns
 
@@ -38,7 +40,9 @@ npm install @tairu/handler
 
 ##### app
 
-> `get` **app**(): `App`
+###### Get Signature
+
+> **get** **app**(): `App`
 
 ###### Returns
 
@@ -54,7 +58,9 @@ npm install @tairu/handler
 
 ##### handler
 
-> `get` **handler**(): [`TairuHandler`](index.md#tairuhandler)
+###### Get Signature
+
+> **get** **handler**(): [`TairuHandler`](index.md#tairuhandler)
 
 ###### Returns
 
@@ -70,7 +76,9 @@ npm install @tairu/handler
 
 ##### nodeListener
 
-> `get` **nodeListener**(): [`NodeListener`](index.md#nodelistener-1)
+###### Get Signature
+
+> **get** **nodeListener**(): [`NodeListener`](index.md#nodelistener-1)
 
 ###### Returns
 
@@ -86,7 +94,9 @@ npm install @tairu/handler
 
 ##### plainHandler
 
-> `get` **plainHandler**(): `PlainHandler`
+###### Get Signature
+
+> **get** **plainHandler**(): `PlainHandler`
 
 ###### Returns
 
@@ -102,7 +112,9 @@ npm install @tairu/handler
 
 ##### urlPrefix
 
-> `get` **urlPrefix**(): `string`
+###### Get Signature
+
+> **get** **urlPrefix**(): `string`
 
 ###### Returns
 
@@ -128,9 +140,13 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **path**: `string`
+###### path
 
-• **handler**: `TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
+`string`
+
+###### handler
+
+`TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
 
 ###### Returns
 
@@ -154,9 +170,13 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **handler**: `TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
+###### handler
 
-• **event**: `TairuEvent`
+`TileHandler`\<`PathParams`, `SearchParams`, [`ValidTileInput`](../jsx/index.md#validtileinput), `H3EventContext`\>
+
+###### event
+
+`TairuEvent`
 
 ###### Returns
 
@@ -174,7 +194,9 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **result**: [`ValidTileInput`](../jsx/index.md#validtileinput)
+###### result
+
+[`ValidTileInput`](../jsx/index.md#validtileinput)
 
 ###### Returns
 
@@ -182,31 +204,31 @@ npm install @tairu/handler
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.actions?
 
-> `readonly` `optional` **props.actions**: (`object` \| `object` \| `object`)[]
+> `optional` **props.actions**: (\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.description?
 
-> `readonly` `optional` **props.description**: `string`
+> `optional` **props.description**: `string`
 
 ###### props.input?
 
-> `readonly` `optional` **props.input**: `object` \| `object`
+> `optional` **props.input**: \{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -454,15 +476,15 @@ npm install @tairu/handler
 
 ###### props.title
 
-> `readonly` **props.title**: `string`
+> **props.title**: `string`
 
 ###### type
 
-> `readonly` **type**: `"Tile"`
+> **type**: `"Tile"`
 
 ###### version
 
-> `readonly` **version**: `"0.1"`
+> **version**: `"0.1"`
 
 ###### Overrides
 
@@ -476,151 +498,295 @@ npm install @tairu/handler
 
 ###### Parameters
 
-• **event**: `TairuEvent`
+###### event
 
-• **tile**
+`TairuEvent`
 
-• **tile.props**
+###### tile
 
-• **tile.props.actions?**: (`object` \| `object` \| `object`)[]
+###### tile.props
 
-• **tile.props.children?**: `object` & `object` \| `object` & `object`[]
+`object`
 
-• **tile.props.description?**: `string`
+###### tile.props.actions
 
-• **tile.props.input?**: `object` \| `object`
+(\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
-• **tile.props.key?**: `string`
+###### tile.props.children
 
-• **tile.props.style?**
+(\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
-• **tile.props.style.alignItems?**: `"flex-start"` \| `"center"` \| `"flex-end"`
+###### tile.props.description
 
-• **tile.props.style.alignSelf?**: `"flex-start"` \| `"center"` \| `"flex-end"` \| `"auto"`
+`string`
 
-• **tile.props.style.backgroundClip?**: `"border-box"` \| `"text"`
+###### tile.props.input
 
-• **tile.props.style.backgroundColor?**: `string`
+\{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
-• **tile.props.style.backgroundImage?**: `string`
+###### tile.props.key
 
-• **tile.props.style.backgroundPosition?**: `string`
+`string`
 
-• **tile.props.style.backgroundRepeat?**: `"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
+###### tile.props.style
 
-• **tile.props.style.backgroundSize?**: `string`
+`object`
 
-• **tile.props.style.borderBottomColor?**: `string`
+###### tile.props.style.alignItems
 
-• **tile.props.style.borderBottomLeftRadius?**: `number`
+`"flex-start"` \| `"center"` \| `"flex-end"`
 
-• **tile.props.style.borderBottomRightRadius?**: `number`
+###### tile.props.style.alignSelf
 
-• **tile.props.style.borderBottomStyle?**: `"solid"` \| `"dashed"`
+`"flex-start"` \| `"center"` \| `"flex-end"` \| `"auto"`
 
-• **tile.props.style.borderBottomWidth?**: `number`
+###### tile.props.style.backgroundClip
 
-• **tile.props.style.borderColor?**: `string`
+`"border-box"` \| `"text"`
 
-• **tile.props.style.borderLeftColor?**: `string`
+###### tile.props.style.backgroundColor
 
-• **tile.props.style.borderLeftStyle?**: `"solid"` \| `"dashed"`
+`string`
 
-• **tile.props.style.borderLeftWidth?**: `number`
+###### tile.props.style.backgroundImage
 
-• **tile.props.style.borderRadius?**: `number`
+`string`
 
-• **tile.props.style.borderRightColor?**: `string`
+###### tile.props.style.backgroundPosition
 
-• **tile.props.style.borderRightStyle?**: `"solid"` \| `"dashed"`
+`string`
 
-• **tile.props.style.borderRightWidth?**: `number`
+###### tile.props.style.backgroundRepeat
 
-• **tile.props.style.borderStyle?**: `"solid"` \| `"dashed"`
+`"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
 
-• **tile.props.style.borderTopColor?**: `string`
+###### tile.props.style.backgroundSize
 
-• **tile.props.style.borderTopLeftRadius?**: `number`
+`string`
 
-• **tile.props.style.borderTopRightRadius?**: `number`
+###### tile.props.style.borderBottomColor
 
-• **tile.props.style.borderTopStyle?**: `"solid"` \| `"dashed"`
+`string`
 
-• **tile.props.style.borderTopWidth?**: `number`
+###### tile.props.style.borderBottomLeftRadius
 
-• **tile.props.style.borderWidth?**: `number`
+`number`
 
-• **tile.props.style.bottom?**: `number`
+###### tile.props.style.borderBottomRightRadius
 
-• **tile.props.style.boxShadow?**: `string`
+`number`
 
-• **tile.props.style.display?**: `"flex"` \| `"none"`
+###### tile.props.style.borderBottomStyle
 
-• **tile.props.style.flexBasis?**: `number`
+`"solid"` \| `"dashed"`
 
-• **tile.props.style.flexDirection?**: `"row"` \| `"row-reverse"` \| `"column"` \| `"column-reverse"`
+###### tile.props.style.borderBottomWidth
 
-• **tile.props.style.flexGrow?**: `number`
+`number`
 
-• **tile.props.style.flexShrink?**: `number`
+###### tile.props.style.borderColor
 
-• **tile.props.style.flexWrap?**: `"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
+`string`
 
-• **tile.props.style.gap?**: `number`
+###### tile.props.style.borderLeftColor
 
-• **tile.props.style.height?**: `number`
+`string`
 
-• **tile.props.style.justifyContent?**: `"flex-start"` \| `"center"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
+###### tile.props.style.borderLeftStyle
 
-• **tile.props.style.left?**: `number`
+`"solid"` \| `"dashed"`
 
-• **tile.props.style.margin?**: `number`
+###### tile.props.style.borderLeftWidth
 
-• **tile.props.style.marginBottom?**: `number`
+`number`
 
-• **tile.props.style.marginLeft?**: `number`
+###### tile.props.style.borderRadius
 
-• **tile.props.style.marginRight?**: `number`
+`number`
 
-• **tile.props.style.marginTop?**: `number`
+###### tile.props.style.borderRightColor
 
-• **tile.props.style.maxHeight?**: `number`
+`string`
 
-• **tile.props.style.maxWidth?**: `number`
+###### tile.props.style.borderRightStyle
 
-• **tile.props.style.minHeight?**: `number`
+`"solid"` \| `"dashed"`
 
-• **tile.props.style.minWidth?**: `number`
+###### tile.props.style.borderRightWidth
 
-• **tile.props.style.objectFit?**: `"none"` \| `"contain"` \| `"cover"`
+`number`
 
-• **tile.props.style.opacity?**: `number`
+###### tile.props.style.borderStyle
 
-• **tile.props.style.overflow?**: `"visible"` \| `"hidden"`
+`"solid"` \| `"dashed"`
 
-• **tile.props.style.padding?**: `number`
+###### tile.props.style.borderTopColor
 
-• **tile.props.style.paddingBottom?**: `number`
+`string`
 
-• **tile.props.style.paddingLeft?**: `number`
+###### tile.props.style.borderTopLeftRadius
 
-• **tile.props.style.paddingRight?**: `number`
+`number`
 
-• **tile.props.style.paddingTop?**: `number`
+###### tile.props.style.borderTopRightRadius
 
-• **tile.props.style.position?**: `"relative"` \| `"absolute"`
+`number`
 
-• **tile.props.style.right?**: `number`
+###### tile.props.style.borderTopStyle
 
-• **tile.props.style.top?**: `number`
+`"solid"` \| `"dashed"`
 
-• **tile.props.style.width?**: `number`
+###### tile.props.style.borderTopWidth
 
-• **tile.props.title**: `string`
+`number`
 
-• **tile.type**: `"Tile"`
+###### tile.props.style.borderWidth
 
-• **tile.version**: `"0.1"`
+`number`
+
+###### tile.props.style.bottom
+
+`number`
+
+###### tile.props.style.boxShadow
+
+`string`
+
+###### tile.props.style.display
+
+`"flex"` \| `"none"`
+
+###### tile.props.style.flexBasis
+
+`number`
+
+###### tile.props.style.flexDirection
+
+`"row"` \| `"row-reverse"` \| `"column"` \| `"column-reverse"`
+
+###### tile.props.style.flexGrow
+
+`number`
+
+###### tile.props.style.flexShrink
+
+`number`
+
+###### tile.props.style.flexWrap
+
+`"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
+
+###### tile.props.style.gap
+
+`number`
+
+###### tile.props.style.height
+
+`number`
+
+###### tile.props.style.justifyContent
+
+`"flex-start"` \| `"center"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
+
+###### tile.props.style.left
+
+`number`
+
+###### tile.props.style.margin
+
+`number`
+
+###### tile.props.style.marginBottom
+
+`number`
+
+###### tile.props.style.marginLeft
+
+`number`
+
+###### tile.props.style.marginRight
+
+`number`
+
+###### tile.props.style.marginTop
+
+`number`
+
+###### tile.props.style.maxHeight
+
+`number`
+
+###### tile.props.style.maxWidth
+
+`number`
+
+###### tile.props.style.minHeight
+
+`number`
+
+###### tile.props.style.minWidth
+
+`number`
+
+###### tile.props.style.objectFit
+
+`"none"` \| `"contain"` \| `"cover"`
+
+###### tile.props.style.opacity
+
+`number`
+
+###### tile.props.style.overflow
+
+`"visible"` \| `"hidden"`
+
+###### tile.props.style.padding
+
+`number`
+
+###### tile.props.style.paddingBottom
+
+`number`
+
+###### tile.props.style.paddingLeft
+
+`number`
+
+###### tile.props.style.paddingRight
+
+`number`
+
+###### tile.props.style.paddingTop
+
+`number`
+
+###### tile.props.style.position
+
+`"relative"` \| `"absolute"`
+
+###### tile.props.style.right
+
+`number`
+
+###### tile.props.style.top
+
+`number`
+
+###### tile.props.style.width
+
+`number`
+
+###### tile.props.title
+
+`string`
+
+###### tile.type
+
+`"Tile"`
+
+###### tile.version
+
+`"0.1"`
 
 ###### Returns
 
@@ -700,9 +866,13 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **req**: `IncomingMessage`
+##### req
 
-• **res**: `ServerResponse`
+`IncomingMessage`
+
+##### res
+
+`ServerResponse`
 
 #### Returns
 
@@ -988,7 +1158,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`BoxProps`](index.md#boxprops)
+##### props
+
+[`BoxProps`](index.md#boxprops)
 
 #### Returns
 
@@ -1006,9 +1178,13 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **handlers**: `Handlers`
+##### handlers
 
-• **options?**: [`TairuOptions`](index.md#tairuoptions)
+`Handlers`
+
+##### options?
+
+[`TairuOptions`](index.md#tairuoptions)
 
 #### Returns
 
@@ -1022,7 +1198,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`ImageProps`](index.md#imageprops)
+##### props
+
+[`ImageProps`](index.md#imageprops)
 
 #### Returns
 
@@ -1036,7 +1214,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`OpenActionProps`](index.md#openactionprops)
+##### props
+
+[`OpenActionProps`](index.md#openactionprops)
 
 #### Returns
 
@@ -1050,11 +1230,15 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**
+##### props
 
-• **props.label**: `string`
+###### props.label
 
-• **props.value**: `string` \| `number` \| `boolean`
+`string`
+
+###### props.value
+
+`string` \| `number` \| `boolean`
 
 #### Returns
 
@@ -1076,7 +1260,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`OptionsInputProps`](index.md#optionsinputprops)
+##### props
+
+[`OptionsInputProps`](index.md#optionsinputprops)
 
 #### Returns
 
@@ -1090,7 +1276,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`SignActionProps`](index.md#signactionprops)
+##### props
+
+[`SignActionProps`](index.md#signactionprops)
 
 #### Returns
 
@@ -1104,7 +1292,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`SubmitActionProps`](index.md#submitactionprops)
+##### props
+
+[`SubmitActionProps`](index.md#submitactionprops)
 
 #### Returns
 
@@ -1122,9 +1312,13 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **handlers**: `Handlers`
+##### handlers
 
-• **options?**: [`TairuOptions`](index.md#tairuoptions)
+`Handlers`
+
+##### options?
+
+[`TairuOptions`](index.md#tairuoptions)
 
 #### Returns
 
@@ -1138,7 +1332,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`TextProps`](index.md#textprops)
+##### props
+
+[`TextProps`](index.md#textprops)
 
 #### Returns
 
@@ -1152,7 +1348,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`TextInputProps`](index.md#textinputprops)
+##### props
+
+[`TextInputProps`](index.md#textinputprops)
 
 #### Returns
 
@@ -1166,7 +1364,9 @@ npm install @tairu/handler
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 

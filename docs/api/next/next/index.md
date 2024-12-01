@@ -40,7 +40,9 @@ Use the [`@tairu/next/server` export](server/index.md) to create Tile handlers s
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 

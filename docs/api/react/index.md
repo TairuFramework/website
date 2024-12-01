@@ -96,7 +96,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **props**: [`LoadErrorProps`](index.md#loaderrorprops)
+###### props
+
+[`LoadErrorProps`](index.md#loaderrorprops)
 
 ###### Returns
 
@@ -108,7 +110,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **props**: [`LoadingProps`](index.md#loadingprops)
+###### props
+
+[`LoadingProps`](index.md#loadingprops)
 
 ###### Returns
 
@@ -120,7 +124,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **props**: [`PostErrorProps`](index.md#posterrorprops)
+###### props
+
+[`PostErrorProps`](index.md#posterrorprops)
 
 ###### Returns
 
@@ -132,7 +138,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **props**: [`PostingProps`](index.md#postingprops)
+###### props
+
+[`PostingProps`](index.md#postingprops)
 
 ###### Returns
 
@@ -152,7 +160,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **uri**: `string`
+###### uri
+
+`string`
 
 ###### Returns
 
@@ -260,7 +270,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **uri**: `string`
+###### uri
+
+`string`
 
 ###### Returns
 
@@ -272,7 +284,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **error**: `Error`
+###### error
+
+`Error`
 
 ###### Returns
 
@@ -284,7 +298,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **error**: `Error`
+###### error
+
+`Error`
 
 ###### Returns
 
@@ -296,7 +312,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **tile**: [`TileV0`](../protocol/index.md#tilev0)
+###### tile
+
+[`TileV0`](../protocol/index.md#tilev0)
 
 ###### Returns
 
@@ -308,7 +326,9 @@ npm install @tairu/react
 
 ###### Parameters
 
-• **tile**: [`TileV0`](../protocol/index.md#tilev0)
+###### tile
+
+[`TileV0`](../protocol/index.md#tilev0)
 
 ###### Returns
 
@@ -362,7 +382,9 @@ npm install @tairu/react
 
 #### Parameters
 
-• **props**: [`TileRendererProps`](index.md#tilerendererprops)
+##### props
+
+[`TileRendererProps`](index.md#tilerendererprops)
 
 #### Returns
 
@@ -376,7 +398,9 @@ npm install @tairu/react
 
 #### Parameters
 
-• **params**: [`UseActionHandlerParams`](index.md#useactionhandlerparams)
+##### params
+
+[`UseActionHandlerParams`](index.md#useactionhandlerparams)
 
 #### Returns
 
@@ -390,7 +414,9 @@ npm install @tairu/react
 
 #### Parameters
 
-• **params**: [`UseTileParams`](index.md#usetileparams)
+##### params
+
+[`UseTileParams`](index.md#usetileparams)
 
 #### Returns
 
@@ -404,7 +430,9 @@ npm install @tairu/react
 
 #### Parameters
 
-• **params**: [`UseTileElementParams`](index.md#usetileelementparams)
+##### params
+
+[`UseTileElementParams`](index.md#usetileelementparams)
 
 #### Returns
 

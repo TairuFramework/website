@@ -14,6 +14,9 @@ const config: Config = {
   projectName: 'website',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  future: {
+    experimental_faster: true,
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -48,7 +51,7 @@ const config: Config = {
     '@orama/plugin-docusaurus-v3',
   ],
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    // image: 'img/docusaurus-social-card.jpg',
     navbar: {
       logo: {
         alt: 'Tairu',

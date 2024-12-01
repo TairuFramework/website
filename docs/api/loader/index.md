@@ -20,7 +20,9 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **params**: [`LoaderParams`](index.md#loaderparams) = `{}`
+###### params
+
+[`LoaderParams`](index.md#loaderparams) = `{}`
 
 ###### Returns
 
@@ -30,17 +32,27 @@ npm install @tairu/loader
 
 ##### signer
 
-> `get` **signer**(): [`ActionSigner`](index.md#actionsigner)
+###### Get Signature
 
-> `set` **signer**(`value`): `void`
-
-###### Parameters
-
-• **value**: [`ActionSigner`](index.md#actionsigner)
+> **get** **signer**(): [`ActionSigner`](index.md#actionsigner)
 
 ###### Returns
 
 [`ActionSigner`](index.md#actionsigner)
+
+###### Set Signature
+
+> **set** **signer**(`value`): `void`
+
+###### Parameters
+
+###### value
+
+[`ActionSigner`](index.md#actionsigner)
+
+###### Returns
+
+`void`
 
 ###### Defined in
 
@@ -52,11 +64,17 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **url**: `string`
+###### url
 
-• **format**: [`RenderFormat`](index.md#renderformat)
+`string`
 
-• **options**: `Options` = `{}`
+###### format
+
+[`RenderFormat`](index.md#renderformat)
+
+###### options
+
+`Options` = `{}`
 
 ###### Returns
 
@@ -70,9 +88,13 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **url**: `string`
+###### url
 
-• **options?**: `Options`
+`string`
+
+###### options?
+
+`Options`
 
 ###### Returns
 
@@ -80,19 +102,19 @@ npm install @tairu/loader
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -104,7 +126,7 @@ npm install @tairu/loader
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -340,7 +362,7 @@ npm install @tairu/loader
 
 ###### type
 
-> `readonly` **type**: `"Box"`
+> **type**: `"Box"`
 
 ***
 
@@ -350,9 +372,13 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **url**: `string`
+###### url
 
-• **options?**: `Options`
+`string`
+
+###### options?
+
+`Options`
 
 ###### Returns
 
@@ -360,31 +386,31 @@ npm install @tairu/loader
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.actions?
 
-> `readonly` `optional` **props.actions**: (`object` \| `object` \| `object`)[]
+> `optional` **props.actions**: (\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.description?
 
-> `readonly` `optional` **props.description**: `string`
+> `optional` **props.description**: `string`
 
 ###### props.input?
 
-> `readonly` `optional` **props.input**: `object` \| `object`
+> `optional` **props.input**: \{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -396,7 +422,7 @@ npm install @tairu/loader
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -632,15 +658,15 @@ npm install @tairu/loader
 
 ###### props.title
 
-> `readonly` **props.title**: `string`
+> **props.title**: `string`
 
 ###### type
 
-> `readonly` **type**: `"Tile"`
+> **type**: `"Tile"`
 
 ###### version
 
-> `readonly` **version**: `"0.1"`
+> **version**: `"0.1"`
 
 ***
 
@@ -650,13 +676,47 @@ npm install @tairu/loader
 
 ###### Parameters
 
-• **url**: `string`
+###### url
 
-• **action**: `object` \| `object`
+`string`
 
-• **useSigner?**: [`ActionSigner`](index.md#actionsigner)
+###### action
 
-• **options?**: `Options`
+\{`jwt`: `string`;`state`: `object`;`type`: `"tairu:did/sign"`; \}
+
+###### action.jwt
+
+`string`
+
+###### action.state
+
+`object`
+
+###### action.type
+
+`"tairu:did/sign"`
+
+\{`state`: `object`;`type`: `"tairu:did/submit"`;`value`: `string` \| `number` \| `boolean` \| (`string` \| `number` \| `boolean`)[]; \}
+
+###### action.state
+
+`object`
+
+###### action.type
+
+`"tairu:did/submit"`
+
+###### action.value
+
+`string` \| `number` \| `boolean` \| (`string` \| `number` \| `boolean`)[]
+
+###### useSigner?
+
+[`ActionSigner`](index.md#actionsigner)
+
+###### options?
+
+`Options`
 
 ###### Returns
 
@@ -664,31 +724,31 @@ npm install @tairu/loader
 
 ###### props
 
-> `readonly` **props**: `object`
+> **props**: `object`
 
 ###### props.actions?
 
-> `readonly` `optional` **props.actions**: (`object` \| `object` \| `object`)[]
+> `optional` **props.actions**: (\{`label`: `string`;`type`: `"tairu:uri/open"`;`uri`: `string`; \} \| \{`label`: `string`;`payload`: `object`;`state`: `object`;`type`: `"tairu:did/sign"`; \} \| \{`label`: `string`;`state`: `object`;`type`: `"tairu:did/submit"`; \})[]
 
 ###### props.children?
 
-> `readonly` `optional` **props.children**: `object` & `object` \| `object` & `object`[]
+> `optional` **props.children**: (\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
 ###### props.description?
 
-> `readonly` `optional` **props.description**: `string`
+> `optional` **props.description**: `string`
 
 ###### props.input?
 
-> `readonly` `optional` **props.input**: `object` \| `object`
+> `optional` **props.input**: \{`multiple`: `boolean`;`options`: `object`[];`type`: `"options"`; \} \| \{`defaultValue`: `string`;`label`: `string`;`placeholder`: `string`;`secure`: `boolean`;`type`: `"text"`; \}
 
 ###### props.key?
 
-> `readonly` `optional` **props.key**: `string`
+> `optional` **props.key**: `string`
 
 ###### props.style?
 
-> `readonly` `optional` **props.style**: `object`
+> `optional` **props.style**: `object`
 
 ###### props.style.alignItems?
 
@@ -700,7 +760,7 @@ npm install @tairu/loader
 
 ###### props.style.backgroundClip?
 
-> `optional` **props.style.backgroundClip**: `"text"` \| `"border-box"`
+> `optional` **props.style.backgroundClip**: `"border-box"` \| `"text"`
 
 ###### props.style.backgroundColor?
 
@@ -936,21 +996,21 @@ npm install @tairu/loader
 
 ###### props.title
 
-> `readonly` **props.title**: `string`
+> **props.title**: `string`
 
 ###### type
 
-> `readonly` **type**: `"Tile"`
+> **type**: `"Tile"`
 
 ###### version
 
-> `readonly` **version**: `"0.1"`
+> **version**: `"0.1"`
 
 ## Type Aliases
 
 ### ActionSigner
 
-> **ActionSigner**: [`DIDSigner`](../protocol/index.md#didsigner) \| `Promise`\<[`DIDSigner`](../protocol/index.md#didsigner)\>
+> **ActionSigner**: `TokenSigner` \| `Promise`\<`TokenSigner`\>
 
 ***
 
@@ -1006,9 +1066,13 @@ npm install @tairu/loader
 
 #### Parameters
 
-• **url**: `string`
+##### url
 
-• **options?**: `Options`
+`string`
+
+##### options?
+
+`Options`
 
 #### Returns
 
@@ -1022,7 +1086,9 @@ npm install @tairu/loader
 
 #### Parameters
 
-• **params**: [`PostActionParams`](index.md#postactionparams)
+##### params
+
+[`PostActionParams`](index.md#postactionparams)
 
 #### Returns
 

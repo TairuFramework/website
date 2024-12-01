@@ -38,137 +38,267 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**
+###### props
 
-• **props.children?**: `object` & `object` \| `object` & `object`[]
+###### props.children
 
-• **props.key?**: `string`
+(\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \} \| `object`[])[]
 
-• **props.style?**
+###### props.key
 
-• **props.style.alignItems?**: `"center"` \| `"flex-start"` \| `"flex-end"`
+`string`
 
-• **props.style.alignSelf?**: `"auto"` \| `"center"` \| `"flex-start"` \| `"flex-end"`
+###### props.style
 
-• **props.style.backgroundClip?**: `"text"` \| `"border-box"`
+`object`
 
-• **props.style.backgroundColor?**: `string`
+###### props.style.alignItems
 
-• **props.style.backgroundImage?**: `string`
+`"center"` \| `"flex-start"` \| `"flex-end"`
 
-• **props.style.backgroundPosition?**: `string`
+###### props.style.alignSelf
 
-• **props.style.backgroundRepeat?**: `"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
+`"auto"` \| `"center"` \| `"flex-start"` \| `"flex-end"`
 
-• **props.style.backgroundSize?**: `string`
+###### props.style.backgroundClip
 
-• **props.style.borderBottomColor?**: `string`
+`"text"` \| `"border-box"`
 
-• **props.style.borderBottomLeftRadius?**: `number`
+###### props.style.backgroundColor
 
-• **props.style.borderBottomRightRadius?**: `number`
+`string`
 
-• **props.style.borderBottomStyle?**: `"solid"` \| `"dashed"`
+###### props.style.backgroundImage
 
-• **props.style.borderBottomWidth?**: `number`
+`string`
 
-• **props.style.borderColor?**: `string`
+###### props.style.backgroundPosition
 
-• **props.style.borderLeftColor?**: `string`
+`string`
 
-• **props.style.borderLeftStyle?**: `"solid"` \| `"dashed"`
+###### props.style.backgroundRepeat
 
-• **props.style.borderLeftWidth?**: `number`
+`"repeat"` \| `"repeat-x"` \| `"repeat-y"` \| `"no-repeat"`
 
-• **props.style.borderRadius?**: `number`
+###### props.style.backgroundSize
 
-• **props.style.borderRightColor?**: `string`
+`string`
 
-• **props.style.borderRightStyle?**: `"solid"` \| `"dashed"`
+###### props.style.borderBottomColor
 
-• **props.style.borderRightWidth?**: `number`
+`string`
 
-• **props.style.borderStyle?**: `"solid"` \| `"dashed"`
+###### props.style.borderBottomLeftRadius
 
-• **props.style.borderTopColor?**: `string`
+`number`
 
-• **props.style.borderTopLeftRadius?**: `number`
+###### props.style.borderBottomRightRadius
 
-• **props.style.borderTopRightRadius?**: `number`
+`number`
 
-• **props.style.borderTopStyle?**: `"solid"` \| `"dashed"`
+###### props.style.borderBottomStyle
 
-• **props.style.borderTopWidth?**: `number`
+`"solid"` \| `"dashed"`
 
-• **props.style.borderWidth?**: `number`
+###### props.style.borderBottomWidth
 
-• **props.style.bottom?**: `number`
+`number`
 
-• **props.style.boxShadow?**: `string`
+###### props.style.borderColor
 
-• **props.style.display?**: `"none"` \| `"flex"`
+`string`
 
-• **props.style.flexBasis?**: `number`
+###### props.style.borderLeftColor
 
-• **props.style.flexDirection?**: `"row"` \| `"column"` \| `"row-reverse"` \| `"column-reverse"`
+`string`
 
-• **props.style.flexGrow?**: `number`
+###### props.style.borderLeftStyle
 
-• **props.style.flexShrink?**: `number`
+`"solid"` \| `"dashed"`
 
-• **props.style.flexWrap?**: `"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
+###### props.style.borderLeftWidth
 
-• **props.style.gap?**: `number`
+`number`
 
-• **props.style.height?**: `number`
+###### props.style.borderRadius
 
-• **props.style.justifyContent?**: `"center"` \| `"flex-start"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
+`number`
 
-• **props.style.left?**: `number`
+###### props.style.borderRightColor
 
-• **props.style.margin?**: `number`
+`string`
 
-• **props.style.marginBottom?**: `number`
+###### props.style.borderRightStyle
 
-• **props.style.marginLeft?**: `number`
+`"solid"` \| `"dashed"`
 
-• **props.style.marginRight?**: `number`
+###### props.style.borderRightWidth
 
-• **props.style.marginTop?**: `number`
+`number`
 
-• **props.style.maxHeight?**: `number`
+###### props.style.borderStyle
 
-• **props.style.maxWidth?**: `number`
+`"solid"` \| `"dashed"`
 
-• **props.style.minHeight?**: `number`
+###### props.style.borderTopColor
 
-• **props.style.minWidth?**: `number`
+`string`
 
-• **props.style.objectFit?**: `"none"` \| `"contain"` \| `"cover"`
+###### props.style.borderTopLeftRadius
 
-• **props.style.opacity?**: `number`
+`number`
 
-• **props.style.overflow?**: `"visible"` \| `"hidden"`
+###### props.style.borderTopRightRadius
 
-• **props.style.padding?**: `number`
+`number`
 
-• **props.style.paddingBottom?**: `number`
+###### props.style.borderTopStyle
 
-• **props.style.paddingLeft?**: `number`
+`"solid"` \| `"dashed"`
 
-• **props.style.paddingRight?**: `number`
+###### props.style.borderTopWidth
 
-• **props.style.paddingTop?**: `number`
+`number`
 
-• **props.style.position?**: `"relative"` \| `"absolute"`
+###### props.style.borderWidth
 
-• **props.style.right?**: `number`
+`number`
 
-• **props.style.top?**: `number`
+###### props.style.bottom
 
-• **props.style.width?**: `number`
+`number`
 
-• **children**: [`Children`](index.md#children)
+###### props.style.boxShadow
+
+`string`
+
+###### props.style.display
+
+`"none"` \| `"flex"`
+
+###### props.style.flexBasis
+
+`number`
+
+###### props.style.flexDirection
+
+`"row"` \| `"column"` \| `"row-reverse"` \| `"column-reverse"`
+
+###### props.style.flexGrow
+
+`number`
+
+###### props.style.flexShrink
+
+`number`
+
+###### props.style.flexWrap
+
+`"nowrap"` \| `"wrap"` \| `"wrap-reverse"`
+
+###### props.style.gap
+
+`number`
+
+###### props.style.height
+
+`number`
+
+###### props.style.justifyContent
+
+`"center"` \| `"flex-start"` \| `"flex-end"` \| `"space-between"` \| `"space-around"`
+
+###### props.style.left
+
+`number`
+
+###### props.style.margin
+
+`number`
+
+###### props.style.marginBottom
+
+`number`
+
+###### props.style.marginLeft
+
+`number`
+
+###### props.style.marginRight
+
+`number`
+
+###### props.style.marginTop
+
+`number`
+
+###### props.style.maxHeight
+
+`number`
+
+###### props.style.maxWidth
+
+`number`
+
+###### props.style.minHeight
+
+`number`
+
+###### props.style.minWidth
+
+`number`
+
+###### props.style.objectFit
+
+`"none"` \| `"contain"` \| `"cover"`
+
+###### props.style.opacity
+
+`number`
+
+###### props.style.overflow
+
+`"visible"` \| `"hidden"`
+
+###### props.style.padding
+
+`number`
+
+###### props.style.paddingBottom
+
+`number`
+
+###### props.style.paddingLeft
+
+`number`
+
+###### props.style.paddingRight
+
+`number`
+
+###### props.style.paddingTop
+
+`number`
+
+###### props.style.position
+
+`"relative"` \| `"absolute"`
+
+###### props.style.right
+
+`number`
+
+###### props.style.top
+
+`number`
+
+###### props.style.width
+
+`number`
+
+###### children
+
+[`Children`](index.md#children)
 
 ###### Returns
 
@@ -186,9 +316,23 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **children?**: `object` & `object` \| `object` & `object`[]
+###### children?
 
-• **key?**: `string`
+\{`props`: `object`;`type`: `"Box"` \| `"Image"` \| `"Text"`; \}
+
+###### children.props
+
+`object`
+
+###### children.type
+
+`"Box"` \| `"Image"` \| `"Text"`
+
+`object`[]
+
+###### key?
+
+`string`
 
 ###### Returns
 
@@ -206,9 +350,19 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **el**: `object` & `object`
+###### el
 
-• **key?**: `string`
+###### el.props
+
+`object`
+
+###### el.type
+
+`"Box"` \| `"Image"` \| `"Text"`
+
+###### key?
+
+`string`
 
 ###### Returns
 
@@ -226,17 +380,27 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**
+###### props
 
-• **props.alt**: `string`
+###### props.alt
 
-• **props.height**: `number`
+`string`
 
-• **props.key?**: `string`
+###### props.height
 
-• **props.src**: `string`
+`number`
 
-• **props.width**: `number`
+###### props.key
+
+`string`
+
+###### props.src
+
+`string`
+
+###### props.width
+
+`number`
 
 ###### Returns
 
@@ -254,45 +418,83 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**
+###### props
 
-• **props.children**: `string` \| `number` \| `boolean` \| `object` & `object` \| (`string` \| `number` \| `boolean` \| `object` & `object`)[]
+###### props.children
 
-• **props.key?**: `string`
+`string` \| `number` \| `boolean` \| \{`props`: `object`;`type`: `"Text"`; \} \| (`string` \| `number` \| `boolean` \| \{`props`: `object`;`type`: `"Text"`; \})[]
 
-• **props.style?**
+###### props.key
 
-• **props.style.color?**: `string`
+`string`
 
-• **props.style.fontFamily?**: `string`
+###### props.style
 
-• **props.style.fontSize?**: `number`
+`object`
 
-• **props.style.fontStyle?**: `"normal"` \| `"italic"`
+###### props.style.color
 
-• **props.style.fontWeight?**: `"bold"` \| `"normal"` \| `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"ultralight"` \| `"thin"` \| `"light"` \| `"medium"` \| `"regular"` \| `"semibold"` \| `"condensedBold"` \| `"condensed"` \| `"heavy"` \| `"black"`
+`string`
 
-• **props.style.letterSpacing?**: `number`
+###### props.style.fontFamily
 
-• **props.style.lineHeight?**: `number`
+`string`
 
-• **props.style.textAlign?**: `"center"` \| `"right"` \| `"left"` \| `"justify"`
+###### props.style.fontSize
 
-• **props.style.textDecoration?**: `string`
+`number`
 
-• **props.style.textOverflow?**: `"clip"` \| `"ellipsis"`
+###### props.style.fontStyle
 
-• **props.style.textShadow?**: `string`
+`"normal"` \| `"italic"`
 
-• **props.style.textTransform?**: `"none"` \| `"uppercase"` \| `"lowercase"` \| `"capitalize"`
+###### props.style.fontWeight
 
-• **props.style.textWrap?**: `"wrap"` \| `"balance"`
+`"bold"` \| `"normal"` \| `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"ultralight"` \| `"thin"` \| `"light"` \| `"medium"` \| `"regular"` \| `"semibold"` \| `"condensedBold"` \| `"condensed"` \| `"heavy"` \| `"black"`
 
-• **props.style.whiteSpace?**: `"nowrap"` \| `"normal"` \| `"pre"` \| `"pre-wrap"` \| `"pre-line"`
+###### props.style.letterSpacing
 
-• **props.style.wordBreak?**: `"normal"` \| `"break-all"` \| `"break-word"` \| `"keep-all"`
+`number`
 
-• **children**: [`Children`](index.md#children)
+###### props.style.lineHeight
+
+`number`
+
+###### props.style.textAlign
+
+`"center"` \| `"right"` \| `"left"` \| `"justify"`
+
+###### props.style.textDecoration
+
+`string`
+
+###### props.style.textOverflow
+
+`"clip"` \| `"ellipsis"`
+
+###### props.style.textShadow
+
+`string`
+
+###### props.style.textTransform
+
+`"none"` \| `"uppercase"` \| `"lowercase"` \| `"capitalize"`
+
+###### props.style.textWrap
+
+`"wrap"` \| `"balance"`
+
+###### props.style.whiteSpace
+
+`"nowrap"` \| `"normal"` \| `"pre"` \| `"pre-wrap"` \| `"pre-line"`
+
+###### props.style.wordBreak
+
+`"normal"` \| `"break-all"` \| `"break-word"` \| `"keep-all"`
+
+###### children
+
+[`Children`](index.md#children)
 
 ###### Returns
 
@@ -310,7 +512,25 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **children?**: `string` \| `number` \| `boolean` \| `object` & `object` \| (`string` \| `number` \| `boolean` \| `object` & `object`)[]
+###### children?
+
+`string`
+
+`number`
+
+`boolean`
+
+\{`props`: `object`;`type`: `"Text"`; \}
+
+###### children.props
+
+`object`
+
+###### children.type
+
+`"Text"`
+
+(`string` \| `number` \| `boolean` \| \{`props`: `object`;`type`: `"Text"`; \})[]
 
 ###### Returns
 
@@ -328,7 +548,9 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: [`RenderProps`](../renderer/index.md#renderprops)
+###### props
+
+[`RenderProps`](../renderer/index.md#renderprops)
 
 ###### Returns
 
@@ -346,7 +568,9 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: [`RenderInteractionsProps`](../renderer/index.md#renderinteractionsprops)
+###### props
+
+[`RenderInteractionsProps`](../renderer/index.md#renderinteractionsprops)
 
 ###### Returns
 
@@ -364,7 +588,9 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: [`RenderTileProps`](../renderer/index.md#rendertilepropselementtype)\<`ReactNode`\>
+###### props
+
+[`RenderTileProps`](../renderer/index.md#rendertilepropselementtype)\<`ReactNode`\>
 
 ###### Returns
 
@@ -398,7 +624,9 @@ npm install @tairu/react-native
 
 ###### Parameters
 
-• **props**: [`LoadErrorProps`](../react/index.md#loaderrorprops)
+###### props
+
+[`LoadErrorProps`](../react/index.md#loaderrorprops)
 
 ###### Returns
 
@@ -406,81 +634,15 @@ npm install @tairu/react-native
 
 ## Functions
 
-### createSigner()
-
-> **createSigner**(): `Promise`\<`KeySigner`\>
-
-#### Returns
-
-`Promise`\<`KeySigner`\>
-
-***
-
-### deleteAccount()
-
-> **deleteAccount**(`did`): `Promise`\<`void`\>
-
-#### Parameters
-
-• **did**: `string`
-
-#### Returns
-
-`Promise`\<`void`\>
-
-***
-
-### getPrivateKey()
-
-> **getPrivateKey**(`did`): `Promise`\<`Uint8Array` \| `null`\>
-
-#### Parameters
-
-• **did**: `string`
-
-#### Returns
-
-`Promise`\<`Uint8Array` \| `null`\>
-
-***
-
-### getSigner()
-
-> **getSigner**(`did`): `Promise`\<`KeySigner` \| `null`\>
-
-#### Parameters
-
-• **did**: `string`
-
-#### Returns
-
-`Promise`\<`KeySigner` \| `null`\>
-
-***
-
-### savePrivateKey()
-
-> **savePrivateKey**(`did`, `privateKey`): `Promise`\<`void`\>
-
-#### Parameters
-
-• **did**: `string`
-
-• **privateKey**: `Uint8Array`
-
-#### Returns
-
-`Promise`\<`void`\>
-
-***
-
 ### Tile()
 
 > **Tile**(`props`): `Element`
 
 #### Parameters
 
-• **props**: [`TileProps`](index.md#tileprops)
+##### props
+
+[`TileProps`](index.md#tileprops)
 
 #### Returns
 
